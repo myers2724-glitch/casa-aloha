@@ -4,6 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Casa Aloha — Kailua Island Residency with Dristin, Colton, Shadow &amp; Silas</title>
+  <script>
+    // Ensure initial page load, reload, and back/forward navigation always start at y = 0
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+    if (window.location.hash) {
+      try {
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+      } catch (err) {
+        // Ignore history state restrictions
+      }
+    }
+    window.scrollTo(0, 0);
+  </script>
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -65,6 +79,12 @@
         radial-gradient(circle at 8% 10%, rgba(42, 127, 118, 0.08) 0%, transparent 38%),
         radial-gradient(circle at 92% 16%, rgba(196, 69, 54, 0.06) 0%, transparent 34%),
         radial-gradient(circle at 84% 88%, rgba(197, 155, 39, 0.1) 0%, transparent 44%);
+    }
+
+    /* Crops out iPhone screenshot black letterbox bars on interior & lanai photos */
+    .screenshot-crop {
+      transform: scale(1.68);
+      transform-origin: center center;
     }
 
     .accordion-content {
@@ -190,31 +210,22 @@
             </div>
           </div>
 
-          <!-- Hero Visual Card with Swap Photo & Photo URL -->
+          <!-- Hero Visual Card with Pinned Permanent Photo -->
           <div class="lg:col-span-5">
             <div class="bg-sand p-3.5 sm:p-4 rounded-2xl gold-frame shadow-elevated">
               <div class="relative aspect-[4/3] w-full rounded-xl overflow-hidden border border-gold/30 bg-seafoam">
                 <img
                   id="heroVisualImg"
-                  alt="Welcome to Casa Aloha in Kailua with Dristin, Colton, Shadow, and Silas"
+                  src="./Southwest-Airlines-Plane-Flying-over-Diamond-Head-in-Oahu-in-Hawaii-1.jpeg"
+                  alt="1015 Aoloa Pl • Kailua Lanai & Coast"
                   class="w-full h-full object-cover block"
                 />
               </div>
               <div class="mt-3 flex flex-wrap items-center justify-between gap-2">
                 <span class="text-xs text-muted">1015 Aoloa Pl &bull; Kailua Lanai &amp; Coast</span>
-                <div class="flex items-center gap-1.5">
-                  <button
-                    type="button"
-                    data-target-type="hero"
-                    class="swap-url-btn px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-sandDeep hover:bg-gold/25 text-palm border border-gold/45 cursor-pointer transition-colors"
-                  >
-                    Photo URL
-                  </button>
-                  <label class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-palm hover:bg-palmDeep text-sand cursor-pointer transition-colors">
-                    <span>Swap Photo</span>
-                    <input type="file" accept="image/*" id="heroFileInput" class="sr-only" />
-                  </label>
-                </div>
+                <span class="text-[11px] font-semibold text-palm bg-sandDeep px-2.5 py-1 rounded-full border border-gold/40">
+                  Pinned Photo
+                </span>
               </div>
             </div>
           </div>
@@ -902,33 +913,6 @@
     </div>
   </div>
 
-  <!-- PHOTO URL PROMPT MODAL -->
-  <div
-    id="photoUrlModal"
-    class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-ink/60"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="photoUrlModalTitle"
-  >
-    <div class="modal-animate w-full max-w-md rounded-3xl bg-sand border-2 border-gold/60 shadow-elevated overflow-hidden">
-      <div class="bg-palm text-sand px-6 py-4 flex items-center justify-between">
-        <h3 id="photoUrlModalTitle" class="font-serif text-xl font-bold">Set Photo from Image URL</h3>
-        <button type="button" id="closePhotoUrlModalBtn" class="w-8 h-8 rounded-full bg-sand/15 hover:bg-sand/25 text-sand cursor-pointer" aria-label="Close photo URL dialog">&times;</button>
-      </div>
-      <form id="photoUrlForm" class="p-6 space-y-4">
-        <p id="photoUrlError" class="hidden text-xs font-semibold text-coral bg-coral/10 border border-coral/30 rounded-xl px-3 py-2"></p>
-        <div>
-          <label for="photoUrlInput" class="block text-xs font-bold uppercase tracking-wider text-palm mb-1">Direct Image URL (JPG / PNG / WebP)</label>
-          <input type="url" id="photoUrlInput" required placeholder="https://example.com/photo.jpg" class="w-full rounded-xl border border-gold/45 bg-white px-3.5 py-2.5 text-sm text-ink focus:outline-none focus:border-palm" />
-        </div>
-        <div class="flex justify-end gap-2.5">
-          <button type="button" id="cancelPhotoUrlBtn" class="px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-muted hover:text-ink cursor-pointer">Cancel</button>
-          <button type="submit" class="px-5 py-2 rounded-full text-xs sm:text-sm font-semibold bg-palm hover:bg-palmDeep text-sand cursor-pointer">Apply Photo</button>
-        </div>
-      </form>
-    </div>
-  </div>
-
   <!-- Toast Banner -->
   <div
     id="toastBanner"
@@ -941,196 +925,18 @@
     (function () {
       const STORAGE_KEY_MONTHS = 'casaAlohaKailuaMonths_v2';
       const STORAGE_KEY_REQUESTS = 'casaAlohaKailuaRequests_v2';
-      const STORAGE_KEY_PHOTOS = 'casaAlohaKailuaPhotos_v2';
 
-      /* Helper to create self-contained inline SVG data URIs so images always render cleanly */
-      function svgDataUri(svgMarkup) {
-        return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgMarkup.trim());
-      }
-
-      const ART = {
-        hero: svgDataUri(`
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450">
-            <defs>
-              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#DDF0EC"/>
-                <stop offset="100%" stop-color="#FAF6EE"/>
-              </linearGradient>
-              <linearGradient id="sea" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#2A7F76"/>
-                <stop offset="100%" stop-color="#48A999"/>
-              </linearGradient>
-            </defs>
-            <rect width="600" height="450" fill="url(#sky)"/>
-            <circle cx="495" cy="86" r="38" fill="#E5C368" opacity="0.5"/>
-            <circle cx="495" cy="86" r="24" fill="#C59B27"/>
-            <path d="M0 245 Q130 190 250 225 Q370 255 475 188 Q540 150 600 185 L600 450 L0 450 Z" fill="#1B4332" opacity="0.22"/>
-            <rect x="0" y="255" width="600" height="195" fill="url(#sea)" opacity="0.72"/>
-            <path d="M0 325 Q150 305 300 330 T600 325 L600 450 L0 450 Z" fill="#F4EBD7"/>
-            <path d="M72 340 Q62 215 104 102" stroke="#1B4332" stroke-width="8" stroke-linecap="round" fill="none"/>
-            <path d="M104 102 Q52 88 26 128" stroke="#1B4332" stroke-width="6" stroke-linecap="round" fill="none"/>
-            <path d="M104 102 Q74 56 38 64" stroke="#1B4332" stroke-width="6" stroke-linecap="round" fill="none"/>
-            <path d="M104 102 Q128 54 172 68" stroke="#1B4332" stroke-width="6" stroke-linecap="round" fill="none"/>
-            <path d="M104 102 Q154 96 184 136" stroke="#1B4332" stroke-width="6" stroke-linecap="round" fill="none"/>
-            <circle cx="242" cy="212" r="26" fill="#E8B896"/>
-            <path d="M216 205 Q242 176 268 205" fill="#4A3222"/>
-            <path d="M208 242 Q242 230 276 242 L284 345 L200 345 Z" fill="#1B4332"/>
-            <circle cx="312" cy="208" r="25" fill="#ECC09F"/>
-            <path d="M286 204 Q290 168 322 172 Q346 176 342 228" fill="#5E3B22"/>
-            <circle cx="335" cy="188" r="8" fill="#C44536"/>
-            <path d="M282 238 Q312 228 342 238 L352 345 L272 345 Z" fill="#C44536"/>
-            <ellipse cx="182" cy="340" rx="34" ry="18" fill="#2E2A28"/>
-            <circle cx="152" cy="324" r="18" fill="#2E2A28"/>
-            <path d="M140 312 L134 296 L149 308 Z" fill="#1C1918"/>
-            <path d="M164 312 L171 296 L157 308 Z" fill="#1C1918"/>
-            <ellipse cx="394" cy="343" rx="26" ry="15" fill="#D9A66A"/>
-            <circle cx="416" cy="330" r="15" fill="#D9A66A"/>
-            <ellipse cx="405" cy="328" rx="6" ry="11" fill="#9A6738"/>
-            <ellipse cx="427" cy="328" rx="6" ry="11" fill="#9A6738"/>
-            <rect x="135" y="382" width="330" height="44" rx="14" fill="#1B4332"/>
-            <text x="300" y="409" text-anchor="middle" fill="#FAF6EE" font-family="Georgia, serif" font-size="18" font-weight="bold">Casa Aloha &bull; Kailua, Oʻahu</text>
-          </svg>
-        `),
-        hostsCouple: svgDataUri(`
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 560">
-            <rect width="420" height="560" fill="#EAE2CE"/>
-            <rect x="20" y="20" width="380" height="520" rx="24" fill="#FAF6EE" stroke="#C59B27" stroke-width="2"/>
-            <circle cx="164" cy="185" r="42" fill="#E8B896"/>
-            <path d="M122 174 Q164 126 206 174" fill="#4A3222"/>
-            <circle cx="150" cy="182" r="3.5" fill="#18221D"/>
-            <circle cx="178" cy="182" r="3.5" fill="#18221D"/>
-            <path d="M154 198 Q164 206 174 198" stroke="#18221D" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-            <path d="M114 236 Q164 222 214 236 L228 450 L100 450 Z" fill="#1B4332"/>
-            <circle cx="266" cy="182" r="40" fill="#ECC09F"/>
-            <path d="M226 176 Q230 120 276 125 Q310 130 306 208" fill="#5E3B22"/>
-            <circle cx="298" cy="148" r="10" fill="#C44536"/>
-            <circle cx="253" cy="182" r="3.5" fill="#18221D"/>
-            <circle cx="280" cy="182" r="3.5" fill="#18221D"/>
-            <path d="M256 197 Q266.5 205 277 197" stroke="#C44536" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-            <path d="M218 234 Q266 220 314 234 L328 450 L204 450 Z" fill="#C44536"/>
-            <text x="210" y="492" text-anchor="middle" fill="#1B4332" font-family="Georgia, serif" font-size="20" font-weight="bold">Dristin &amp; Colton</text>
-          </svg>
-        `),
-        shadow: svgDataUri(`
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 560">
-            <rect width="420" height="560" fill="#E2F1EC"/>
-            <rect x="20" y="20" width="380" height="520" rx="24" fill="#FAF6EE" stroke="#C59B27" stroke-width="2"/>
-            <circle cx="146" cy="126" r="15" fill="#FAF6EE" stroke="#C59B27" stroke-width="2"/>
-            <circle cx="146" cy="126" r="5.5" fill="#C59B27"/>
-            <circle cx="274" cy="126" r="15" fill="#FAF6EE" stroke="#C59B27" stroke-width="2"/>
-            <circle cx="274" cy="126" r="5.5" fill="#C59B27"/>
-            <ellipse cx="210" cy="348" rx="76" ry="56" fill="#2F2B29"/>
-            <circle cx="210" cy="212" r="46" fill="#2F2B29"/>
-            <path d="M174 178 L156 132 L192 166 Z" fill="#1D1A19"/>
-            <path d="M246 178 L264 132 L228 166 Z" fill="#1D1A19"/>
-            <circle cx="194" cy="208" r="4.5" fill="#FAF6EE"/>
-            <circle cx="226" cy="208" r="4.5" fill="#FAF6EE"/>
-            <ellipse cx="210" cy="224" rx="9" ry="6.5" fill="#141211"/>
-            <path d="M196 237 Q210 246 224 237" stroke="#C59B27" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-            <text x="210" y="492" text-anchor="middle" fill="#1B4332" font-family="Georgia, serif" font-size="20" font-weight="bold">Shadow &bull; Lanai Greeter</text>
-          </svg>
-        `),
-        silas: svgDataUri(`
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 560">
-            <rect width="420" height="560" fill="#EFE5D1"/>
-            <rect x="20" y="20" width="380" height="520" rx="24" fill="#FAF6EE" stroke="#C59B27" stroke-width="2"/>
-            <ellipse cx="210" cy="346" rx="70" ry="50" fill="#DDA96B"/>
-            <circle cx="210" cy="216" r="42" fill="#DDA96B"/>
-            <ellipse cx="170" cy="214" rx="16" ry="30" fill="#9E6A3A"/>
-            <ellipse cx="250" cy="214" rx="16" ry="30" fill="#9E6A3A"/>
-            <circle cx="194" cy="212" r="4" fill="#18221D"/>
-            <circle cx="226" cy="212" r="4" fill="#18221D"/>
-            <ellipse cx="210" cy="226" rx="8" ry="5.5" fill="#3B2818"/>
-            <path d="M172 260 L210 294 L248 260 Z" fill="#C44536"/>
-            <circle cx="210" cy="276" r="4.5" fill="#E5C368"/>
-            <text x="210" y="492" text-anchor="middle" fill="#1B4332" font-family="Georgia, serif" font-size="20" font-weight="bold">Silas &bull; Chief Pup</text>
-          </svg>
-        `),
-        aptLiving: svgDataUri(`
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300">
-            <rect width="480" height="300" fill="#FAF6EE"/>
-            <rect x="24" y="24" width="432" height="176" rx="10" fill="#E2F1EC" stroke="#C59B27" stroke-width="2"/>
-            <rect x="24" y="200" width="432" height="76" fill="#EFE5D1"/>
-            <rect x="92" y="168" width="180" height="44" rx="12" fill="#1B4332"/>
-            <rect x="102" y="152" width="42" height="22" rx="6" fill="#C59B27"/>
-            <rect x="220" y="152" width="42" height="22" rx="6" fill="#C44536"/>
-            <rect x="320" y="54" width="96" height="92" rx="8" fill="#FAF6EE" stroke="#1B4332" stroke-width="3"/>
-            <line x1="368" y1="54" x2="368" y2="146" stroke="#1B4332" stroke-width="2"/>
-            <line x1="320" y1="100" x2="416" y2="100" stroke="#1B4332" stroke-width="2"/>
-            <text x="240" y="252" text-anchor="middle" fill="#1B4332" font-family="Georgia, serif" font-size="15" font-weight="bold">Bright Living Space (Furnished Now)</text>
-          </svg>
-        `),
-        aptGuest: svgDataUri(`
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300">
-            <rect width="480" height="300" fill="#FAF6EE"/>
-            <rect x="24" y="24" width="432" height="176" rx="10" fill="#F3ECE0" stroke="#C59B27" stroke-width="2"/>
-            <rect x="24" y="200" width="432" height="76" fill="#EFE5D1"/>
-            <rect x="120" y="120" width="240" height="18" rx="6" fill="#1B4332"/>
-            <rect x="126" y="138" width="228" height="72" rx="8" fill="#FFFFFF" stroke="#C59B27" stroke-width="1.5"/>
-            <rect x="142" y="146" width="84" height="24" rx="8" fill="#E5C368" opacity="0.65"/>
-            <rect x="254" y="146" width="84" height="24" rx="8" fill="#E5C368" opacity="0.65"/>
-            <rect x="126" y="178" width="228" height="32" rx="4" fill="#1B4332" opacity="0.85"/>
-            <text x="240" y="252" text-anchor="middle" fill="#1B4332" font-family="Georgia, serif" font-size="15" font-weight="bold">Welcoming Guest Quarters</text>
-          </svg>
-        `),
-        aptLanai: svgDataUri(`
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300">
-            <rect width="480" height="300" fill="#E2F1EC"/>
-            <rect x="24" y="24" width="432" height="176" rx="10" fill="#CBE7E4" stroke="#C59B27" stroke-width="2"/>
-            <circle cx="385" cy="74" r="24" fill="#E5C368"/>
-            <path d="M24 162 Q150 132 280 158 T456 150 L456 200 L24 200 Z" fill="#1B4332" opacity="0.22"/>
-            <rect x="24" y="200" width="432" height="76" fill="#FAF6EE"/>
-            <rect x="24" y="182" width="432" height="18" fill="#1B4332"/>
-            <text x="240" y="252" text-anchor="middle" fill="#1B4332" font-family="Georgia, serif" font-size="15" font-weight="bold">Breezy Kailua Lanai &amp; Trade Winds</text>
-          </svg>
-        `),
-        kailuaBeach: svgDataUri(`
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 310">
-            <defs>
-              <linearGradient id="kbSky" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#CBECE8"/>
-                <stop offset="100%" stop-color="#FAF6EE"/>
-              </linearGradient>
-              <linearGradient id="kbWater" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#1E7A74"/>
-                <stop offset="50%" stop-color="#35A79C"/>
-                <stop offset="100%" stop-color="#68C3B7"/>
-              </linearGradient>
-            </defs>
-            <rect width="540" height="310" fill="url(#kbSky)"/>
-            <circle cx="445" cy="64" r="28" fill="#E5C368"/>
-            <path d="M0 155 Q120 118 245 148 Q380 172 540 138 L540 310 L0 310 Z" fill="url(#kbWater)"/>
-            <path d="M0 228 Q185 202 365 232 T540 222 L540 310 L0 310 Z" fill="#F8F2E2"/>
-            <line x1="168" y1="248" x2="168" y2="184" stroke="#5E3B22" stroke-width="4"/>
-            <path d="M114 188 Q168 146 222 188 Z" fill="#C44536"/>
-            <path d="M142 188 Q168 148 194 188 Z" fill="#FAF6EE"/>
-            <path d="M472 238 Q465 152 496 86" stroke="#1B4332" stroke-width="6" stroke-linecap="round" fill="none"/>
-            <path d="M496 86 Q452 74 430 108" stroke="#1B4332" stroke-width="5" stroke-linecap="round" fill="none"/>
-            <path d="M496 86 Q528 62 536 98" stroke="#1B4332" stroke-width="5" stroke-linecap="round" fill="none"/>
-            <text x="270" y="286" text-anchor="middle" fill="#1B4332" font-family="Georgia, serif" font-size="17" font-weight="bold">Kailua Beach Park &bull; ~1.4 Miles Away</text>
-          </svg>
-        `),
-        lanikaiBeach: svgDataUri(`
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 310">
-            <defs>
-              <linearGradient id="lbSky" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#C7E8E6"/>
-                <stop offset="100%" stop-color="#FAF6EE"/>
-              </linearGradient>
-              <linearGradient id="lbSea" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#289690"/>
-                <stop offset="100%" stop-color="#5EC2B6"/>
-              </linearGradient>
-            </defs>
-            <rect width="540" height="310" fill="url(#lbSky)"/>
-            <circle cx="105" cy="68" r="26" fill="#E5C368"/>
-            <rect x="0" y="148" width="540" height="92" fill="url(#lbSea)"/>
-            <ellipse cx="385" cy="134" rx="34" ry="15" fill="#1B4332" opacity="0.68"/>
-            <ellipse cx="445" cy="142" rx="22" ry="11" fill="#1B4332" opacity="0.62"/>
-            <path d="M0 232 Q220 214 540 238 L540 310 L0 310 Z" fill="#FCF9F0"/>
-            <text x="270" y="286" text-anchor="middle" fill="#1B4332" font-family="Georgia, serif" font-size="17" font-weight="bold">Lanikai Beach Park &bull; ~2.6 Miles Away</text>
-          </svg>
-        `),
+      /* Pinned permanent repository photos mapped to their exact requested slots */
+      const PINNED_PHOTOS = {
+        hero: './Southwest-Airlines-Plane-Flying-over-Diamond-Head-in-Oahu-in-Hawaii-1.jpeg',
+        hostsCouple: './IMG_5564.jpeg',
+        shadow: './IMG_1065.png',
+        silas: './IMG_1061.png',
+        aptLiving: './IMG_7719.png',
+        aptGuest: './IMG_7724.png',
+        aptLanai: './IMG_7726.png',
+        kailuaBeach: './IMG_7979.jpeg',
+        lanikaiBeach: './IMG_7981.jpeg',
       };
 
       const HOSTS_DATA = [
@@ -1140,7 +946,7 @@
           role: 'Your Built-In Kailua Hosts & Guides',
           badge: 'Hosts',
           bio: 'We love sharing Kailua days, local eats, beach runs, and unhurried time together. Tell us what makes your ideal getaway and we will help shape it around your visit.',
-          photo: ART.hostsCouple,
+          photo: PINNED_PHOTOS.hostsCouple,
         },
         {
           id: 'shadow',
@@ -1148,7 +954,7 @@
           role: 'Head of Security & Lanai Greeter',
           badge: 'Good Boy',
           bio: 'Loyal, calm, and always ready to greet you at the door with island warmth and keep watch over the lanai.',
-          photo: ART.shadow,
+          photo: PINNED_PHOTOS.shadow,
         },
         {
           id: 'silas',
@@ -1156,7 +962,7 @@
           role: 'Chief Morale & Beach Patrol Puppy',
           badge: 'Puppy',
           bio: 'Our playful puppy bringing tail wags, cozy couch naps, and plenty of cheerful energy to every visit.',
-          photo: ART.silas,
+          photo: PINNED_PHOTOS.silas,
         },
       ];
 
@@ -1165,19 +971,22 @@
           title: 'Living Area & Gathering Space',
           tag: 'Furnished & Cozy',
           note: 'Bright and inviting—now warm and fully furnished for relaxing after sunny Kailua afternoons.',
-          photo: ART.aptLiving,
+          photo: PINNED_PHOTOS.aptLiving,
+          cropScreenshot: true,
         },
         {
           title: 'Guest Sleeping Quarters',
           tag: 'Restful & Ready',
           note: 'A comfortable, welcoming spot to settle in and wake up refreshed on island time.',
-          photo: ART.aptGuest,
+          photo: PINNED_PHOTOS.aptGuest,
+          cropScreenshot: true,
         },
         {
           title: 'Breezy Kailua Lanai',
           tag: 'Trade-Wind Spot',
           note: 'Our favorite place to catch morning air, unwind in the evening, and enjoy easy island vibes.',
-          photo: ART.aptLanai,
+          photo: PINNED_PHOTOS.aptLanai,
+          cropScreenshot: true,
         },
       ];
 
@@ -1189,7 +998,7 @@
           address: '526 Kawailoa Rd, Kailua, HI 96734',
           mapUrl: 'https://www.google.com/maps/search/?api=1&query=Kailua+Beach+Park,+Kailua,+HI',
           description: 'Broad, inviting white sand, swaying trees, picnic spots, and easy ocean dips just minutes from 1015 Aoloa Pl.',
-          photo: ART.kailuaBeach,
+          photo: PINNED_PHOTOS.kailuaBeach,
         },
         {
           key: 'lanikai',
@@ -1198,7 +1007,7 @@
           address: 'Lanikai Beach, Kailua, HI 96734',
           mapUrl: 'https://www.google.com/maps/search/?api=1&query=Lanikai+Beach+Park,+Kailua,+HI',
           description: 'Silky sand, calm turquoise water, and classic views of Nā Mokulua right off the Windward shore.',
-          photo: ART.lanikaiBeach,
+          photo: PINNED_PHOTOS.lanikaiBeach,
         },
       ];
 
@@ -1241,36 +1050,6 @@
         { month: 'December', season: 'FALL_GOLDEN', note: 'Mele Kalikimaka cheer, aloha & warm nights', status: 'OPEN', guest: '' },
       ];
 
-      function loadSavedPhotos() {
-        try {
-          const raw = localStorage.getItem(STORAGE_KEY_PHOTOS);
-          return raw ? JSON.parse(raw) : {};
-        } catch (err) {
-          return {};
-        }
-      }
-
-      const savedPhotos = loadSavedPhotos();
-      if (savedPhotos.hero) ART.hero = savedPhotos.hero;
-      HOSTS_DATA.forEach((h, i) => {
-        if (savedPhotos[`host_${i}`]) h.photo = savedPhotos[`host_${i}`];
-      });
-      APARTMENT_DATA.forEach((a, i) => {
-        if (savedPhotos[`apt_${i}`]) a.photo = savedPhotos[`apt_${i}`];
-      });
-      BEACHES_DATA.forEach((b, i) => {
-        if (savedPhotos[`beach_${i}`]) b.photo = savedPhotos[`beach_${i}`];
-      });
-
-      function savePhotoToStorage(key, src) {
-        savedPhotos[key] = src;
-        try {
-          localStorage.setItem(STORAGE_KEY_PHOTOS, JSON.stringify(savedPhotos));
-        } catch (err) {
-          // Ignore storage quota limits for large files
-        }
-      }
-
       function loadSavedMonths() {
         try {
           const raw = localStorage.getItem(STORAGE_KEY_MONTHS);
@@ -1310,7 +1089,6 @@
       let selectedVibe = 'Kailua & Lanikai Beach Days';
       let monthsState = loadSavedMonths();
       let tripRequests = loadSavedRequests();
-      let pendingUrlTarget = null;
 
       const heroVisualImg = document.getElementById('heroVisualImg');
       const hostsGrid = document.getElementById('hostsGrid');
@@ -1324,10 +1102,6 @@
       const tripRequestForm = document.getElementById('tripRequestForm');
       const modalConfirmationView = document.getElementById('modalConfirmationView');
       const modalErrorBox = document.getElementById('modalErrorBox');
-      const photoUrlModal = document.getElementById('photoUrlModal');
-      const photoUrlForm = document.getElementById('photoUrlForm');
-      const photoUrlInput = document.getElementById('photoUrlInput');
-      const photoUrlError = document.getElementById('photoUrlError');
       const toastBanner = document.getElementById('toastBanner');
       const flightOriginInput = document.getElementById('flightOriginInput');
       const flightMonthWindowSelect = document.getElementById('flightMonthWindowSelect');
@@ -1340,6 +1114,15 @@
       const modalFlightTravelersSelect = document.getElementById('modalFlightTravelersSelect');
       const modalFlightPreviewText = document.getElementById('modalFlightPreviewText');
       const modalGoogleFlightsLink = document.getElementById('modalGoogleFlightsLink');
+
+      /* Enforce top-of-page scroll position on initial load, reload, and bfcache restore */
+      function forcePageTop() {
+        if (!window.location.hash || window.location.hash === '#top') {
+          window.scrollTo(0, 0);
+          document.documentElement.scrollTop = 0;
+          document.body.scrollTop = 0;
+        }
+      }
 
       const MONTH_INDEX_MAP = {
         January: 0, February: 1, March: 2, April: 3, May: 4, June: 5,
@@ -1438,7 +1221,7 @@
         el.addEventListener('change', syncModalFlightBuilder);
       });
 
-      heroVisualImg.src = ART.hero;
+      heroVisualImg.src = PINNED_PHOTOS.hero;
 
       function escapeHtml(str) {
         return String(str)
@@ -1454,60 +1237,6 @@
         toastBanner.classList.remove('hidden');
         clearTimeout(showToast._t);
         showToast._t = setTimeout(() => toastBanner.classList.add('hidden'), 3000);
-      }
-
-      function applyPhotoSource(target, dataOrUrl) {
-        if (!target || !dataOrUrl) return;
-        if (target.type === 'hero') {
-          heroVisualImg.src = dataOrUrl;
-          savePhotoToStorage('hero', dataOrUrl);
-          showToast('Updated Hero photo.');
-        } else if (target.type === 'host' && HOSTS_DATA[target.index]) {
-          HOSTS_DATA[target.index].photo = dataOrUrl;
-          savePhotoToStorage(`host_${target.index}`, dataOrUrl);
-          renderHosts();
-          showToast(`Updated photo for ${HOSTS_DATA[target.index].name}.`);
-        } else if (target.type === 'apt' && APARTMENT_DATA[target.index]) {
-          APARTMENT_DATA[target.index].photo = dataOrUrl;
-          savePhotoToStorage(`apt_${target.index}`, dataOrUrl);
-          renderApartment();
-          showToast(`Updated ${APARTMENT_DATA[target.index].title} photo.`);
-        } else if (target.type === 'beach' && BEACHES_DATA[target.index]) {
-          BEACHES_DATA[target.index].photo = dataOrUrl;
-          savePhotoToStorage(`beach_${target.index}`, dataOrUrl);
-          renderBeaches();
-          showToast(`Updated ${BEACHES_DATA[target.index].name} photo.`);
-        }
-      }
-
-      function bindPhotoControls(container, type) {
-        container.querySelectorAll('.swap-file-input').forEach((input) => {
-          input.addEventListener('change', (e) => {
-            const file = e.target.files && e.target.files[0];
-            const index = Number(input.getAttribute('data-index'));
-            if (!file || Number.isNaN(index)) return;
-            const reader = new FileReader();
-            reader.onload = (ev) => {
-              if (ev.target && typeof ev.target.result === 'string') {
-                applyPhotoSource({ type, index }, ev.target.result);
-              }
-            };
-            reader.readAsDataURL(file);
-          });
-        });
-
-        container.querySelectorAll('.swap-url-btn').forEach((btn) => {
-          btn.addEventListener('click', () => {
-            const index = Number(btn.getAttribute('data-index'));
-            if (Number.isNaN(index)) return;
-            pendingUrlTarget = { type, index };
-            photoUrlInput.value = '';
-            photoUrlError.classList.add('hidden');
-            photoUrlModal.classList.remove('hidden');
-            photoUrlModal.classList.add('flex');
-            photoUrlInput.focus();
-          });
-        });
       }
 
       const fitCoverBtn = document.getElementById('fitModeCoverBtn');
@@ -1541,12 +1270,12 @@
           : 'w-full h-full object-cover object-top block';
 
         hostsGrid.innerHTML = '';
-        HOSTS_DATA.forEach((host, idx) => {
+        HOSTS_DATA.forEach((host) => {
           const card = document.createElement('article');
           card.className = 'rounded-2xl bg-sand border border-gold/40 shadow-card overflow-hidden flex flex-col justify-between';
           card.innerHTML = `
             <div>
-              <div class="relative aspect-[3/4] min-h-[22rem] w-full bg-seafoam/65 border-b border-gold/30 overflow-hidden">
+              <div class="relative aspect-[3/4] min-h-[24rem] w-full bg-seafoam/65 border-b border-gold/30 overflow-hidden">
                 <img src="${host.photo}" alt="${escapeHtml(host.name)}" class="${imgFitClass}" />
                 <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-sand/95 text-palm border border-gold/45">
                   ${escapeHtml(host.badge)}
@@ -1558,30 +1287,23 @@
                 <p class="mt-3 text-sm text-ink/85 leading-relaxed">${escapeHtml(host.bio)}</p>
               </div>
             </div>
-            <div class="px-5 pb-5 flex items-center justify-end gap-2">
-              <button type="button" data-index="${idx}" class="swap-url-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-sandDeep hover:bg-gold/25 text-palm border border-gold/45 cursor-pointer">
-                Photo URL
-              </button>
-              <label class="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-semibold bg-palm hover:bg-palmDeep text-sand cursor-pointer">
-                <span>Swap Photo</span>
-                <input type="file" accept="image/*" data-index="${idx}" class="swap-file-input sr-only" />
-              </label>
-            </div>
           `;
           hostsGrid.appendChild(card);
         });
-        bindPhotoControls(hostsGrid, 'host');
       }
 
       function renderApartment() {
         apartmentGrid.innerHTML = '';
-        APARTMENT_DATA.forEach((room, idx) => {
+        APARTMENT_DATA.forEach((room) => {
           const card = document.createElement('article');
           card.className = 'rounded-2xl bg-sand border border-gold/40 shadow-card overflow-hidden flex flex-col justify-between';
+          const imgClass = room.cropScreenshot
+            ? 'w-full h-full object-cover screenshot-crop block'
+            : 'w-full h-full object-cover block';
           card.innerHTML = `
             <div>
-              <div class="relative h-48 w-full bg-sandDeep border-b border-gold/30 overflow-hidden">
-                <img src="${room.photo}" alt="${escapeHtml(room.title)}" class="w-full h-full object-cover block" />
+              <div class="relative aspect-[4/3] w-full bg-sandDeep border-b border-gold/30 overflow-hidden">
+                <img src="${room.photo}" alt="${escapeHtml(room.title)}" class="${imgClass}" />
                 <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-sand/95 text-palm border border-gold/45">
                   ${escapeHtml(room.tag)}
                 </span>
@@ -1591,29 +1313,19 @@
                 <p class="mt-2 text-xs sm:text-sm text-ink/85 leading-relaxed">${escapeHtml(room.note)}</p>
               </div>
             </div>
-            <div class="px-5 pb-5 flex items-center justify-end gap-2">
-              <button type="button" data-index="${idx}" class="swap-url-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-sandDeep hover:bg-gold/25 text-palm border border-gold/45 cursor-pointer">
-                Photo URL
-              </button>
-              <label class="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-semibold bg-palm hover:bg-palmDeep text-sand cursor-pointer">
-                <span>Swap Photo</span>
-                <input type="file" accept="image/*" data-index="${idx}" class="swap-file-input sr-only" />
-              </label>
-            </div>
           `;
           apartmentGrid.appendChild(card);
         });
-        bindPhotoControls(apartmentGrid, 'apt');
       }
 
       function renderBeaches() {
         beachCardsGrid.innerHTML = '';
-        BEACHES_DATA.forEach((beach, idx) => {
+        BEACHES_DATA.forEach((beach) => {
           const card = document.createElement('article');
           card.className = 'rounded-2xl bg-sand border border-gold/45 shadow-card overflow-hidden flex flex-col justify-between';
           card.innerHTML = `
             <div>
-              <div class="relative h-52 w-full bg-seafoam border-b border-gold/30 overflow-hidden">
+              <div class="relative aspect-[16/10] w-full bg-seafoam border-b border-gold/30 overflow-hidden">
                 <img src="${beach.photo}" alt="${escapeHtml(beach.name)}" class="w-full h-full object-cover block" />
                 <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-palm text-sand shadow-xs">
                   ${escapeHtml(beach.badge)}
@@ -1625,7 +1337,7 @@
                 <p class="mt-3 text-sm text-ink/85 leading-relaxed">${escapeHtml(beach.description)}</p>
               </div>
             </div>
-            <div class="px-5 sm:px-6 pb-5 sm:pb-6 flex flex-wrap items-center justify-between gap-2">
+            <div class="px-5 sm:px-6 pb-5 sm:pb-6 flex items-center justify-between gap-2">
               <a
                 href="${beach.mapUrl}"
                 target="_blank"
@@ -1634,20 +1346,10 @@
               >
                 Open in Google Maps &rarr;
               </a>
-              <div class="flex items-center gap-2">
-                <button type="button" data-index="${idx}" class="swap-url-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-sandDeep hover:bg-gold/25 text-palm border border-gold/45 cursor-pointer">
-                  Photo URL
-                </button>
-                <label class="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-semibold bg-palm hover:bg-palmDeep text-sand cursor-pointer">
-                  <span>Swap Photo</span>
-                  <input type="file" accept="image/*" data-index="${idx}" class="swap-file-input sr-only" />
-                </label>
-              </div>
             </div>
           `;
           beachCardsGrid.appendChild(card);
         });
-        bindPhotoControls(beachCardsGrid, 'beach');
       }
 
       function selectMapPin(pinKey) {
@@ -1839,7 +1541,6 @@
         modalConfirmationView.classList.add('hidden');
         bookingModal.classList.remove('hidden');
         bookingModal.classList.add('flex');
-        document.getElementById('guestNameInput').focus();
       }
 
       function closeBookingModal() {
@@ -1898,53 +1599,6 @@
         tripRequestForm.classList.add('hidden');
         modalConfirmationView.classList.remove('hidden');
         showToast(`Saved trip request for ${month}!`);
-      });
-
-      function closePhotoUrlModal() {
-        pendingUrlTarget = null;
-        photoUrlModal.classList.add('hidden');
-        photoUrlModal.classList.remove('flex');
-      }
-
-      document.querySelectorAll('[data-target-type="hero"].swap-url-btn').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          pendingUrlTarget = { type: 'hero', index: 0 };
-          photoUrlInput.value = '';
-          photoUrlError.classList.add('hidden');
-          photoUrlModal.classList.remove('hidden');
-          photoUrlModal.classList.add('flex');
-          photoUrlInput.focus();
-        });
-      });
-
-      document.getElementById('heroFileInput').addEventListener('change', (e) => {
-        const file = e.target.files && e.target.files[0];
-        if (!file) return;
-        const reader = new FileReader();
-        reader.onload = (ev) => {
-          if (ev.target && typeof ev.target.result === 'string') {
-            applyPhotoSource({ type: 'hero', index: 0 }, ev.target.result);
-          }
-        };
-        reader.readAsDataURL(file);
-      });
-
-      document.getElementById('closePhotoUrlModalBtn').addEventListener('click', closePhotoUrlModal);
-      document.getElementById('cancelPhotoUrlBtn').addEventListener('click', closePhotoUrlModal);
-      photoUrlModal.addEventListener('click', (e) => {
-        if (e.target === photoUrlModal) closePhotoUrlModal();
-      });
-
-      photoUrlForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const url = photoUrlInput.value.trim();
-        if (!url || (!url.startsWith('https://') && !url.startsWith('http://'))) {
-          photoUrlError.textContent = 'Please enter a valid http:// or https:// image URL.';
-          photoUrlError.classList.remove('hidden');
-          return;
-        }
-        applyPhotoSource(pendingUrlTarget, url);
-        closePhotoUrlModal();
       });
 
       document.querySelectorAll('.season-btn').forEach((btn) => {
@@ -2009,6 +1663,11 @@
       renderBeaches();
       renderMonths();
       renderRequests();
+
+      forcePageTop();
+      window.addEventListener('DOMContentLoaded', forcePageTop);
+      window.addEventListener('load', forcePageTop);
+      window.addEventListener('pageshow', forcePageTop);
     })();
   </script>
 </body>
