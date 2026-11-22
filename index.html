@@ -17,18 +17,20 @@
   />
 
   <script>
+    /* Configure warm Hawaiian coastal editorial palette and typography tokens */
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            cream: '#FAF6EE',
-            creamDark: '#F1E8D6',
+            sand: '#FAF6EE',
+            sandDeep: '#EFE5D1',
+            seafoam: '#E2F1EC',
             palm: '#1B4332',
-            palmDark: '#102B20',
-            hibiscus: '#B8332A',
-            hibiscusLight: '#D3453B',
+            palmDeep: '#102A1F',
+            coral: '#C44536',
+            coralBright: '#D95343',
             gold: '#C59B27',
-            goldLight: '#E5C368',
+            goldSoft: '#E5C368',
             ink: '#18221D',
             muted: '#52615A',
           },
@@ -37,8 +39,8 @@
             sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
           },
           boxShadow: {
-            card: '0 10px 28px -10px rgba(27, 67, 50, 0.12), 0 4px 12px -4px rgba(197, 155, 39, 0.14)',
-            elevated: '0 22px 48px -14px rgba(24, 34, 29, 0.22)',
+            card: '0 10px 28px -10px rgba(27, 67, 50, 0.13), 0 4px 12px -4px rgba(197, 155, 39, 0.14)',
+            elevated: '0 24px 52px -16px rgba(24, 34, 29, 0.24)',
           },
         },
       },
@@ -54,15 +56,15 @@
     }
 
     .gold-frame {
-      border: 1px solid rgba(197, 155, 39, 0.55);
-      box-shadow: inset 0 0 0 4px rgba(250, 246, 238, 0.92), inset 0 0 0 5px rgba(197, 155, 39, 0.28);
+      border: 1px solid rgba(197, 155, 39, 0.58);
+      box-shadow: inset 0 0 0 4px rgba(250, 246, 238, 0.94), inset 0 0 0 5px rgba(197, 155, 39, 0.28);
     }
 
-    .tropical-wash {
+    .coastal-wash {
       background-image:
-        radial-gradient(circle at 8% 10%, rgba(27, 67, 50, 0.06) 0%, transparent 38%),
-        radial-gradient(circle at 92% 16%, rgba(184, 51, 42, 0.05) 0%, transparent 34%),
-        radial-gradient(circle at 82% 88%, rgba(197, 155, 39, 0.09) 0%, transparent 44%);
+        radial-gradient(circle at 8% 10%, rgba(42, 127, 118, 0.08) 0%, transparent 38%),
+        radial-gradient(circle at 92% 16%, rgba(196, 69, 54, 0.06) 0%, transparent 34%),
+        radial-gradient(circle at 84% 88%, rgba(197, 155, 39, 0.1) 0%, transparent 44%);
     }
 
     .accordion-content {
@@ -98,10 +100,10 @@
     }
   </style>
 </head>
-<body class="tropical-wash antialiased selection:bg-palm selection:text-cream">
+<body class="coastal-wash antialiased selection:bg-palm selection:text-sand">
 
   <!-- Top Navigation Bar -->
-  <header class="sticky top-0 z-40 bg-cream/95 backdrop-blur-md border-b border-gold/35">
+  <header class="sticky top-0 z-40 bg-sand/95 backdrop-blur-md border-b border-gold/35">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3">
       <a href="#top" class="flex items-center gap-2.5 group focus:outline-none">
         <svg class="w-8 h-8 text-palm shrink-0 transition-transform duration-300 group-hover:rotate-12" viewBox="0 0 40 40" fill="none" aria-hidden="true">
@@ -133,16 +135,16 @@
         <button
           type="button"
           id="openRequestsBtn"
-          class="inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-xs sm:text-sm font-semibold border border-gold/60 bg-creamDark/85 text-palm hover:bg-creamDark transition-colors cursor-pointer"
+          class="inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-xs sm:text-sm font-semibold border border-gold/60 bg-sandDeep/85 text-palm hover:bg-sandDeep transition-colors cursor-pointer"
         >
           <span>Requests</span>
-          <span id="requestCountBadge" class="inline-flex items-center justify-center min-w-[1.25rem] h-5 px-1.5 rounded-full text-xs font-bold bg-hibiscus text-cream">0</span>
+          <span id="requestCountBadge" class="inline-flex items-center justify-center min-w-[1.25rem] h-5 px-1.5 rounded-full text-xs font-bold bg-coral text-sand">0</span>
         </button>
         <a
           href="#calendar"
-          class="inline-flex items-center justify-center px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-palm text-cream hover:bg-palmDark shadow-xs transition-all"
+          class="inline-flex items-center justify-center px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-palm text-sand hover:bg-palmDeep shadow-xs transition-all"
         >
-          Book Your Month
+          Claim Your Month
         </a>
       </div>
     </div>
@@ -152,15 +154,15 @@
     <!-- 1. HERO SECTION -->
     <section class="pt-8 pb-14 sm:pt-12 sm:pb-20 px-4 sm:px-6 lg:px-8">
       <div class="max-w-6xl mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center bg-creamDark/65 rounded-3xl p-6 sm:p-10 lg:p-12 border border-gold/40 shadow-card">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center bg-sandDeep/65 rounded-3xl p-6 sm:p-10 lg:p-12 border border-gold/40 shadow-card">
           <div class="lg:col-span-7 space-y-5 text-center lg:text-left">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cream border border-gold/50 text-xs font-semibold uppercase tracking-[0.14em] text-palm">
-              <span class="w-2 h-2 rounded-full bg-hibiscus"></span>
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sand border border-gold/50 text-xs font-semibold uppercase tracking-[0.14em] text-palm">
+              <span class="w-2 h-2 rounded-full bg-coral"></span>
               Mele Kalikimaka &bull; Kailua, Oʻahu Residency
             </div>
 
             <h1 class="font-serif text-3xl sm:text-5xl lg:text-[3.25rem] font-bold text-palm leading-[1.12] tracking-tight">
-              E Komo Mai &mdash; <span class="italic font-semibold text-hibiscus">Welcome to Casa Aloha</span> in Kailua!
+              E Komo Mai &mdash; <span class="italic font-semibold text-coral">Welcome to Casa Aloha</span> in Kailua!
             </h1>
 
             <p class="text-base sm:text-lg text-ink/85 leading-relaxed max-w-2xl mx-auto lg:mx-0">
@@ -174,14 +176,14 @@
             <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5">
               <a
                 href="#calendar"
-                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-palm hover:bg-palmDark text-cream font-semibold text-sm sm:text-base shadow-md transition-all"
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-palm hover:bg-palmDeep text-sand font-semibold text-sm sm:text-base shadow-md transition-all"
               >
                 <span>Claim Your Month</span>
                 <span aria-hidden="true">&rarr;</span>
               </a>
               <a
                 href="#location-beaches"
-                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-cream hover:bg-white text-palm border border-gold/55 font-semibold text-sm sm:text-base transition-all"
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-sand hover:bg-white text-palm border border-gold/55 font-semibold text-sm sm:text-base transition-all"
               >
                 Explore Kailua &amp; Lanikai
               </a>
@@ -190,8 +192,8 @@
 
           <!-- Hero Visual Card with Swap Photo & Photo URL -->
           <div class="lg:col-span-5">
-            <div class="bg-cream p-3.5 sm:p-4 rounded-2xl gold-frame shadow-elevated">
-              <div class="relative aspect-[4/3] w-full rounded-xl overflow-hidden border border-gold/30 bg-creamDark">
+            <div class="bg-sand p-3.5 sm:p-4 rounded-2xl gold-frame shadow-elevated">
+              <div class="relative aspect-[4/3] w-full rounded-xl overflow-hidden border border-gold/30 bg-seafoam">
                 <img
                   id="heroVisualImg"
                   alt="Welcome to Casa Aloha in Kailua with Dristin, Colton, Shadow, and Silas"
@@ -204,11 +206,11 @@
                   <button
                     type="button"
                     data-target-type="hero"
-                    class="swap-url-btn px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-creamDark hover:bg-gold/25 text-palm border border-gold/45 cursor-pointer transition-colors"
+                    class="swap-url-btn px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-sandDeep hover:bg-gold/25 text-palm border border-gold/45 cursor-pointer transition-colors"
                   >
                     Photo URL
                   </button>
-                  <label class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-palm hover:bg-palmDark text-cream cursor-pointer transition-colors">
+                  <label class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-palm hover:bg-palmDeep text-sand cursor-pointer transition-colors">
                     <span>Swap Photo</span>
                     <input type="file" accept="image/*" id="heroFileInput" class="sr-only" />
                   </label>
@@ -220,15 +222,34 @@
       </div>
     </section>
 
-    <!-- 2. MEET YOUR HOSTS -->
+    <!-- 2. MEET YOUR HOSTS (TALLER PORTRAIT FRAMES + CONTAIN/COVER TOGGLE) -->
     <section id="hosts" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8">
       <div class="max-w-6xl mx-auto">
-        <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
-          <p class="text-xs font-bold uppercase tracking-[0.2em] text-gold mb-2">Your Kailua Crew</p>
-          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-palm">Meet Your Hosts</h2>
-          <p class="mt-3 text-sm sm:text-base text-muted">
-            Say aloha to Dristin, Colton, Shadow, and our puppy Silas. Tap <strong>Swap Photo</strong> or <strong>Photo URL</strong> on any card to personalize with your own snapshots anytime.
-          </p>
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 sm:mb-12">
+          <div class="max-w-2xl">
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-gold mb-2">Your Kailua Crew</p>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-palm">Meet Your Hosts</h2>
+            <p class="mt-3 text-sm sm:text-base text-muted">
+              Say aloha to Dristin, Colton, Shadow, and our puppy Silas. Frames are taller with top-aligned portrait framing so vertical portraits fit cleanly without cropping heads or ears.
+            </p>
+          </div>
+
+          <div class="inline-flex items-center gap-1.5 p-1 rounded-full bg-sandDeep border border-gold/45 self-start md:self-auto" role="group" aria-label="Host photo fit mode">
+            <button
+              type="button"
+              id="fitModeCoverBtn"
+              class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-palm text-sand transition-all cursor-pointer"
+            >
+              Fill Frame (Cover)
+            </button>
+            <button
+              type="button"
+              id="fitModeContainBtn"
+              class="px-3.5 py-1.5 rounded-full text-xs font-semibold text-palm hover:bg-sand transition-all cursor-pointer"
+            >
+              Full Frame (Contain)
+            </button>
+          </div>
         </div>
 
         <div id="hostsGrid" class="grid grid-cols-1 md:grid-cols-3 gap-7"></div>
@@ -236,7 +257,7 @@
     </section>
 
     <!-- 3. APARTMENT TOUR SECTION -->
-    <section id="apartment" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-creamDark/55 border-y border-gold/30">
+    <section id="apartment" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-sandDeep/55 border-y border-gold/30">
       <div class="max-w-6xl mx-auto">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
           <div class="max-w-2xl">
@@ -246,7 +267,7 @@
               These layout views give you a feel for our bright rooms and breezy setup&mdash;<strong class="text-palm font-semibold">our apartment is warm, cozy, and completely furnished now</strong> with comfy seating, welcoming guest space, and island touches ready for your stay.
             </p>
           </div>
-          <span class="self-start md:self-auto inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cream border border-gold/50 text-xs font-semibold text-palm">
+          <span class="self-start md:self-auto inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sand border border-gold/50 text-xs font-semibold text-palm">
             &#10024; Cozy &amp; Furnished Now
           </span>
         </div>
@@ -270,7 +291,7 @@
 
         <!-- Distance Quick Cards -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
-          <div class="rounded-2xl bg-cream border border-gold/45 p-5 shadow-card">
+          <div class="rounded-2xl bg-sand border border-gold/45 p-5 shadow-card">
             <p class="text-[11px] font-bold uppercase tracking-wider text-gold">Our Home Base</p>
             <h3 class="font-serif text-xl font-bold text-palm mt-1">1015 Aoloa Pl, Kailua, HI 96734</h3>
             <p class="mt-2 text-xs sm:text-sm text-ink/80 leading-relaxed">
@@ -280,26 +301,26 @@
               href="https://www.google.com/maps/search/?api=1&query=1015+Aoloa+Pl,+Kailua,+HI+96734"
               target="_blank"
               rel="noopener noreferrer"
-              class="mt-3 inline-flex items-center gap-1 text-xs font-bold text-hibiscus hover:underline"
+              class="mt-3 inline-flex items-center gap-1 text-xs font-bold text-coral hover:underline"
             >
               <span>Open 1015 Aoloa Pl in Google Maps</span>
               <span aria-hidden="true">&rarr;</span>
             </a>
           </div>
 
-          <div class="rounded-2xl bg-cream border border-gold/45 p-5 shadow-card">
+          <div class="rounded-2xl bg-sand border border-gold/45 p-5 shadow-card">
             <p class="text-[11px] font-bold uppercase tracking-wider text-palm">Approx. Distance &amp; Drive</p>
             <h3 class="font-serif text-xl font-bold text-palm mt-1">Kailua Beach Park</h3>
-            <p class="mt-1 text-sm font-bold text-hibiscus">~1.4 miles &bull; ~4–6 min drive</p>
+            <p class="mt-1 text-sm font-bold text-coral">~1.4 miles &bull; ~4–6 min drive</p>
             <p class="mt-2 text-xs sm:text-sm text-ink/80 leading-relaxed">
               Broad sandy shoreline, swaying trees, picnic spaces, and easy beach-day lounging.
             </p>
           </div>
 
-          <div class="rounded-2xl bg-cream border border-gold/45 p-5 shadow-card">
+          <div class="rounded-2xl bg-sand border border-gold/45 p-5 shadow-card">
             <p class="text-[11px] font-bold uppercase tracking-wider text-palm">Approx. Distance &amp; Drive</p>
             <h3 class="font-serif text-xl font-bold text-palm mt-1">Lanikai Beach Park</h3>
-            <p class="mt-1 text-sm font-bold text-hibiscus">~2.6 miles &bull; ~8–10 min drive</p>
+            <p class="mt-1 text-sm font-bold text-coral">~2.6 miles &bull; ~8–10 min drive</p>
             <p class="mt-2 text-xs sm:text-sm text-ink/80 leading-relaxed">
               Silky white sand, calm turquoise water, and iconic views of Nā Mokulua just off the shore.
             </p>
@@ -307,7 +328,7 @@
         </div>
 
         <!-- Interactive Beach Proximity Map Widget -->
-        <div class="rounded-3xl bg-creamDark/70 border border-gold/45 p-5 sm:p-7 shadow-card mb-10">
+        <div class="rounded-3xl bg-sandDeep/70 border border-gold/45 p-5 sm:p-7 shadow-card mb-10">
           <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-gold/25">
             <div>
               <h3 class="font-serif text-2xl font-bold text-palm">Interactive Kailua Beach Proximity Map</h3>
@@ -319,14 +340,14 @@
               <button
                 type="button"
                 data-pin="kailua"
-                class="map-pin-btn active px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold bg-palm text-cream transition-all cursor-pointer"
+                class="map-pin-btn px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold bg-palm text-sand transition-all cursor-pointer"
               >
                 Kailua Beach Park (~1.4 mi)
               </button>
               <button
                 type="button"
                 data-pin="lanikai"
-                class="map-pin-btn px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold bg-cream text-palm border border-gold/45 hover:bg-white transition-all cursor-pointer"
+                class="map-pin-btn px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold bg-sand text-palm border border-gold/45 hover:bg-white transition-all cursor-pointer"
               >
                 Lanikai Beach Park (~2.6 mi)
               </button>
@@ -334,14 +355,13 @@
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 pt-6 items-center">
-            <!-- Illustrated Windward Map Canvas -->
             <div class="lg:col-span-7">
-              <div class="rounded-2xl overflow-hidden border border-gold/40 bg-[#E3F1EC] shadow-inner">
+              <div class="rounded-2xl overflow-hidden border border-gold/40 bg-seafoam shadow-inner">
                 <svg class="w-full h-auto block" viewBox="0 0 640 310" fill="none" role="img" aria-label="Proximity map showing 1015 Aoloa Pl in Kailua, Kailua Beach Park, and Lanikai Beach Park">
                   <rect width="640" height="310" fill="#D5ECE8" />
-                  <path d="M430 65 Q465 55 500 65 T575 65" stroke="#6BA9A8" stroke-width="2" stroke-linecap="round" opacity="0.65" />
-                  <path d="M450 155 Q490 145 530 155 T610 155" stroke="#6BA9A8" stroke-width="2" stroke-linecap="round" opacity="0.65" />
-                  <path d="M420 245 Q460 235 500 245 T585 245" stroke="#6BA9A8" stroke-width="2" stroke-linecap="round" opacity="0.65" />
+                  <path d="M430 65 Q465 55 500 65 T575 65" stroke="#5EA6A2" stroke-width="2" stroke-linecap="round" opacity="0.65" />
+                  <path d="M450 155 Q490 145 530 155 T610 155" stroke="#5EA6A2" stroke-width="2" stroke-linecap="round" opacity="0.65" />
+                  <path d="M420 245 Q460 235 500 245 T585 245" stroke="#5EA6A2" stroke-width="2" stroke-linecap="round" opacity="0.65" />
 
                   <path d="M0 0 L435 0 Q458 105 445 205 Q435 270 390 310 L0 310 Z" fill="#F6F1E4" stroke="#C59B27" stroke-width="2" />
                   <path d="M0 0 L120 0 Q70 130 95 310 L0 310 Z" fill="#1B4332" fill-opacity="0.14" />
@@ -353,8 +373,8 @@
                   <ellipse cx="585" cy="236" rx="13" ry="7" transform="rotate(-12 585 236)" fill="#1B4332" fill-opacity="0.55" />
                   <text x="518" y="262" fill="#1B4332" font-size="10" font-weight="600">Nā Mokulua</text>
 
-                  <path id="routeToKailua" d="M225 148 Q330 125 438 118" stroke="#1B4332" stroke-width="3.5" stroke-dasharray="7 5" />
-                  <path id="routeToLanikai" d="M225 148 Q350 205 430 236" stroke="#B8332A" stroke-width="3.5" stroke-dasharray="7 5" />
+                  <path id="routeToKailua" d="M225 148 Q330 125 438 118" stroke="#1B4332" stroke-width="4" stroke-dasharray="7 5" />
+                  <path id="routeToLanikai" d="M225 148 Q350 205 430 236" stroke="#C44536" stroke-width="3" stroke-dasharray="7 5" opacity="0.7" />
 
                   <g transform="translate(225, 148)">
                     <circle r="18" fill="#C59B27" fill-opacity="0.22" />
@@ -371,23 +391,22 @@
                   </g>
 
                   <g id="pinLanikaiGroup" transform="translate(430, 236)" class="cursor-pointer">
-                    <circle r="18" fill="#B8332A" fill-opacity="0.2" />
-                    <circle r="8.5" fill="#B8332A" stroke="#FAF6EE" stroke-width="2.5" />
-                    <rect x="-166" y="-14" width="154" height="28" rx="8" fill="#FAF6EE" stroke="#B8332A" stroke-width="1.5" />
-                    <text x="-89" y="4" text-anchor="middle" fill="#B8332A" font-size="11" font-weight="700">Lanikai Beach (~2.6 mi)</text>
+                    <circle r="18" fill="#C44536" fill-opacity="0.2" />
+                    <circle r="8.5" fill="#C44536" stroke="#FAF6EE" stroke-width="2.5" />
+                    <rect x="-166" y="-14" width="154" height="28" rx="8" fill="#FAF6EE" stroke="#C44536" stroke-width="1.5" />
+                    <text x="-89" y="4" text-anchor="middle" fill="#C44536" font-size="11" font-weight="700">Lanikai Beach (~2.6 mi)</text>
                   </g>
                 </svg>
               </div>
             </div>
 
-            <!-- Selected Pin Info Card -->
             <div class="lg:col-span-5">
-              <div id="mapDetailCard" class="rounded-2xl bg-cream border border-gold/45 p-6 space-y-3.5">
+              <div id="mapDetailCard" class="rounded-2xl bg-sand border border-gold/45 p-6 space-y-3.5">
                 <span id="mapDetailBadge" class="inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-palm/12 text-palm">
                   Kailua Beach Park
                 </span>
                 <h4 id="mapDetailTitle" class="font-serif text-2xl font-bold text-palm">Kailua Beach Park</h4>
-                <p id="mapDetailStats" class="text-sm font-bold text-hibiscus">~1.4 miles from 1015 Aoloa Pl &bull; ~4–6 min drive</p>
+                <p id="mapDetailStats" class="text-sm font-bold text-coral">~1.4 miles from 1015 Aoloa Pl &bull; ~4–6 min drive</p>
                 <p id="mapDetailCopy" class="text-sm text-ink/85 leading-relaxed">
                   Wide powdery sand, shady trees, picnic tables, and easy access from our Kailua spot&mdash;ideal for laid-back beach days, ocean dips, and breezy walks along the shore.
                 </p>
@@ -397,7 +416,7 @@
                     href="https://www.google.com/maps/search/?api=1&query=Kailua+Beach+Park,+Kailua,+HI"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold bg-palm hover:bg-palmDark text-cream transition-colors"
+                    class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold bg-palm hover:bg-palmDeep text-sand transition-colors"
                   >
                     <span>View on Google Maps</span>
                     <span aria-hidden="true">&rarr;</span>
@@ -406,7 +425,7 @@
                     href="https://www.google.com/maps/search/?api=1&query=1015+Aoloa+Pl,+Kailua,+HI+96734"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold bg-creamDark hover:bg-white text-palm border border-gold/50 transition-colors"
+                    class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold bg-sandDeep hover:bg-white text-palm border border-gold/50 transition-colors"
                   >
                     <span>1015 Aoloa Pl Pin</span>
                   </a>
@@ -424,56 +443,73 @@
     <!-- 5A. INTERACTIVE 12-MONTH RESIDENCY CALENDAR -->
     <section id="calendar" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8">
       <div class="max-w-6xl mx-auto">
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-6">
           <div>
             <p class="text-xs font-bold uppercase tracking-[0.2em] text-gold mb-2">Pick Your Window</p>
             <h2 class="font-serif text-3xl sm:text-4xl font-bold text-palm">12-Month Residency Calendar</h2>
             <p class="mt-2.5 text-sm sm:text-base text-muted max-w-2xl">
-              Filter by season or click any <span class="text-palm font-semibold">Open</span> month to send a trip request to Dristin &amp; Colton.
+              Filter by season or availability, or click any open month to send a trip request to Dristin &amp; Colton.
             </p>
           </div>
 
           <div id="seasonFilters" class="flex flex-wrap gap-2" role="tablist" aria-label="Filter months by season">
-            <button type="button" data-season="ALL" class="season-btn active px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold bg-palm text-cream transition-all cursor-pointer">
+            <button type="button" data-season="ALL" class="season-btn px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold bg-palm text-sand transition-all cursor-pointer">
               All Year
             </button>
-            <button type="button" data-season="JAN_MAR" class="season-btn px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold bg-creamDark text-palm hover:bg-palm/10 border border-gold/35 transition-all cursor-pointer">
-              Jan–Mar
+            <button type="button" data-season="WINTER_WHALES" class="season-btn px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold bg-sandDeep text-palm hover:bg-palm/10 border border-gold/35 transition-all cursor-pointer">
+              Winter Surf &amp; Whales
             </button>
-            <button type="button" data-season="APR_JUN" class="season-btn px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold bg-creamDark text-palm hover:bg-palm/10 border border-gold/35 transition-all cursor-pointer">
-              Apr–Jun
+            <button type="button" data-season="SPRING_TRADE" class="season-btn px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold bg-sandDeep text-palm hover:bg-palm/10 border border-gold/35 transition-all cursor-pointer">
+              Spring Trade Winds
             </button>
-            <button type="button" data-season="JUL_SEP" class="season-btn px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold bg-creamDark text-palm hover:bg-palm/10 border border-gold/35 transition-all cursor-pointer">
-              Jul–Sep
+            <button type="button" data-season="SUMMER_BEACH" class="season-btn px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold bg-sandDeep text-palm hover:bg-palm/10 border border-gold/35 transition-all cursor-pointer">
+              Summer Calm &amp; Beach
             </button>
-            <button type="button" data-season="OCT_DEC" class="season-btn px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold bg-creamDark text-palm hover:bg-palm/10 border border-gold/35 transition-all cursor-pointer">
-              Oct–Dec
+            <button type="button" data-season="FALL_GOLDEN" class="season-btn px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold bg-sandDeep text-palm hover:bg-palm/10 border border-gold/35 transition-all cursor-pointer">
+              Fall Golden Days
             </button>
           </div>
+        </div>
+
+        <!-- Status Filter Row -->
+        <div class="flex flex-wrap items-center gap-2 mb-8">
+          <span class="text-xs font-bold uppercase tracking-wider text-muted mr-1">Status:</span>
+          <button type="button" data-status="ALL" class="status-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-palm/12 text-palm border border-palm/30 cursor-pointer">
+            All Months
+          </button>
+          <button type="button" data-status="OPEN" class="status-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-sandDeep text-palm border border-gold/35 hover:bg-white cursor-pointer">
+            Available
+          </button>
+          <button type="button" data-status="PENCILED" class="status-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-sandDeep text-palm border border-gold/35 hover:bg-white cursor-pointer">
+            Penciled-In
+          </button>
+          <button type="button" data-status="BOOKED" class="status-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-sandDeep text-palm border border-gold/35 hover:bg-white cursor-pointer">
+            Booked
+          </button>
         </div>
 
         <div id="monthsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"></div>
 
         <!-- Submitted Requests Summary -->
-        <div id="requestsSection" class="mt-10 rounded-2xl bg-cream border border-gold/45 p-6 shadow-card">
+        <div id="requestsSection" class="mt-10 rounded-2xl bg-sand border border-gold/45 p-6 shadow-card">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-gold/25">
             <div>
               <h3 class="font-serif text-xl font-bold text-palm">Your Saved Trip Requests</h3>
               <p class="text-xs sm:text-sm text-muted">Requests you submit on this page appear here right away.</p>
             </div>
-            <span id="requestsCounterText" class="text-xs font-semibold px-3 py-1 rounded-full bg-creamDark text-palm border border-gold/35">
+            <span id="requestsCounterText" class="text-xs font-semibold px-3 py-1 rounded-full bg-sandDeep text-palm border border-gold/35">
               0 requests saved
             </span>
           </div>
           <div id="requestsList" class="mt-4 space-y-3">
-            <p class="text-sm text-muted italic">No requests submitted yet. Tap any Open month above to request your visit!</p>
+            <p class="text-sm text-muted italic">No requests submitted yet. Tap any Available month above to request your visit!</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- 5B. CHECK CHEAPEST FLIGHTS ON GOOGLE FLIGHTS (DIRECTLY BELOW CALENDAR) -->
-    <section id="flights" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-creamDark/55 border-y border-gold/30">
+    <section id="flights" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-sandDeep/55 border-y border-gold/30">
       <div class="max-w-6xl mx-auto">
         <div class="text-center max-w-3xl mx-auto mb-10">
           <p class="text-xs font-bold uppercase tracking-[0.2em] text-gold mb-2">Plan Your Trip to Oʻahu</p>
@@ -481,12 +517,12 @@
             Check Cheapest Flights on Google Flights
           </h2>
           <p class="mt-3 text-sm sm:text-base text-muted leading-relaxed">
-            Defaulted to <strong class="text-ink">DFW</strong> for easy DFW-area crew searches&mdash;update your departure city/airport, dates, or traveler count anytime and jump straight to Google Flights for <strong class="text-ink">Honolulu (HNL)</strong>.
+            Pre-filled with <strong class="text-ink">DFW</strong> for easy DFW-area crew searches&mdash;adjust your departure city/airport, dates or flexible month window, and traveler count to jump straight to Google Flights for <strong class="text-ink">Honolulu (HNL)</strong>.
           </p>
         </div>
 
-        <div class="rounded-3xl bg-cream border border-gold/45 p-6 sm:p-8 shadow-card">
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div class="rounded-3xl bg-sand border border-gold/45 p-6 sm:p-8 shadow-card">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
             <div class="lg:col-span-1">
               <label for="flightOriginInput" class="block text-xs font-bold uppercase tracking-wider text-palm mb-1.5">
                 Flying From
@@ -495,7 +531,7 @@
                 type="text"
                 id="flightOriginInput"
                 value="DFW"
-                placeholder="City or airport (e.g., DFW, DAL, AUS)"
+                placeholder="City or airport (e.g., DFW, DAL)"
                 class="w-full rounded-xl border border-gold/45 bg-white px-3.5 py-2.5 text-sm font-semibold text-ink focus:outline-none focus:border-palm"
               />
             </div>
@@ -507,20 +543,44 @@
               <input
                 type="text"
                 id="flightDestInput"
-                value="Honolulu HNL"
+                value="HNL"
                 readonly
-                class="w-full rounded-xl border border-gold/45 bg-creamDark/70 px-3.5 py-2.5 text-sm font-semibold text-ink"
+                class="w-full rounded-xl border border-gold/45 bg-sandDeep/75 px-3.5 py-2.5 text-sm font-semibold text-ink"
               />
             </div>
 
             <div class="lg:col-span-1">
+              <label for="flightMonthWindowSelect" class="block text-xs font-bold uppercase tracking-wider text-palm mb-1.5">
+                Flexible Month
+              </label>
+              <select
+                id="flightMonthWindowSelect"
+                class="w-full rounded-xl border border-gold/45 bg-white px-3 py-2.5 text-sm text-ink focus:outline-none focus:border-palm"
+              >
+                <option value="CUSTOM">Exact Dates Below</option>
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+              </select>
+            </div>
+
+            <div class="lg:col-span-1">
               <label for="flightDepartDate" class="block text-xs font-bold uppercase tracking-wider text-palm mb-1.5">
-                Arrival Date
+                Departure Date
               </label>
               <input
                 type="date"
                 id="flightDepartDate"
-                class="w-full rounded-xl border border-gold/45 bg-white px-3.5 py-2.5 text-sm text-ink focus:outline-none focus:border-palm"
+                class="w-full rounded-xl border border-gold/45 bg-white px-3 py-2.5 text-sm text-ink focus:outline-none focus:border-palm"
               />
             </div>
 
@@ -531,7 +591,7 @@
               <input
                 type="date"
                 id="flightReturnDate"
-                class="w-full rounded-xl border border-gold/45 bg-white px-3.5 py-2.5 text-sm text-ink focus:outline-none focus:border-palm"
+                class="w-full rounded-xl border border-gold/45 bg-white px-3 py-2.5 text-sm text-ink focus:outline-none focus:border-palm"
               />
             </div>
 
@@ -541,7 +601,7 @@
               </label>
               <select
                 id="flightTravelersSelect"
-                class="w-full rounded-xl border border-gold/45 bg-white px-3.5 py-2.5 text-sm text-ink focus:outline-none focus:border-palm"
+                class="w-full rounded-xl border border-gold/45 bg-white px-3 py-2.5 text-sm text-ink focus:outline-none focus:border-palm"
               >
                 <option value="1" selected>1 Traveler</option>
                 <option value="2">2 Travelers</option>
@@ -555,7 +615,7 @@
             <div class="space-y-1 text-xs sm:text-sm text-ink/85">
               <p id="flightSearchSummary" class="font-semibold text-palm"></p>
               <p class="text-xs text-muted">
-                Google Flights prices and flexible/cheapest date options update live when opened&mdash;check Google Flights&rsquo; calendar or price graph view to spot the lowest fares around your dates.
+                Live cheapest fares and flexible date grids update dynamically on Google Flights when opened&mdash;use Google Flights&rsquo; calendar or price graph view to spot the lowest fares around your dates.
               </p>
             </div>
 
@@ -564,7 +624,7 @@
               href="https://www.google.com/travel/flights"
               target="_blank"
               rel="noopener noreferrer"
-              class="shrink-0 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-hibiscus hover:bg-hibiscusLight text-cream font-semibold text-xs sm:text-sm shadow-md transition-all"
+              class="shrink-0 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-coral hover:bg-coralBright text-sand font-semibold text-xs sm:text-sm shadow-md transition-all"
             >
               <span>Search Cheapest Flights on Google Flights</span>
               <span aria-hidden="true">&rarr;</span>
@@ -575,38 +635,38 @@
     </section>
 
     <!-- 5C. WHAT'S INCLUDED IN YOUR STAY (BOTTOM OF PAGE) -->
-    <section id="included" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-palm text-cream">
+    <section id="included" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-palm text-sand">
       <div class="max-w-6xl mx-auto">
         <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
-          <p class="text-xs font-bold uppercase tracking-[0.2em] text-goldLight mb-2">Hospitality On Us</p>
-          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-cream">What&rsquo;s Included in Your Stay</h2>
-          <p class="mt-3 text-sm sm:text-base text-cream/80">
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-goldSoft mb-2">Hospitality On Us</p>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-sand">What&rsquo;s Included in Your Stay</h2>
+          <p class="mt-3 text-sm sm:text-base text-sand/80">
             Zero resort fees&mdash;just welcoming hosts, a cozy Kailua home base, and easy island days together.
           </p>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="rounded-2xl bg-palmDark/90 border border-gold/35 p-6">
-            <h3 class="font-serif text-xl font-semibold text-goldLight mb-2">Cozy Kailua Quarters</h3>
-            <p class="text-sm text-cream/85 leading-relaxed">
+          <div class="rounded-2xl bg-palmDeep/90 border border-gold/35 p-6">
+            <h3 class="font-serif text-xl font-semibold text-goldSoft mb-2">Cozy Kailua Quarters</h3>
+            <p class="text-sm text-sand/85 leading-relaxed">
               A comfortable, furnished home base in Kailua at $0/night with morning coffee, lanai breezes, and room to unwind.
             </p>
           </div>
-          <div class="rounded-2xl bg-palmDark/90 border border-gold/35 p-6">
-            <h3 class="font-serif text-xl font-semibold text-goldLight mb-2">Island Rides &amp; Beach Runs</h3>
-            <p class="text-sm text-cream/85 leading-relaxed">
+          <div class="rounded-2xl bg-palmDeep/90 border border-gold/35 p-6">
+            <h3 class="font-serif text-xl font-semibold text-goldSoft mb-2">Island Rides &amp; Beach Runs</h3>
+            <p class="text-sm text-sand/85 leading-relaxed">
               Easy hops over to Kailua Beach Park (~1.4 mi) and Lanikai Beach Park (~2.6 mi) plus local spots around Kailua.
             </p>
           </div>
-          <div class="rounded-2xl bg-palmDark/90 border border-gold/35 p-6">
-            <h3 class="font-serif text-xl font-semibold text-goldLight mb-2">Beach &amp; Sunshine Gear</h3>
-            <p class="text-sm text-cream/85 leading-relaxed">
+          <div class="rounded-2xl bg-palmDeep/90 border border-gold/35 p-6">
+            <h3 class="font-serif text-xl font-semibold text-goldSoft mb-2">Beach &amp; Sunshine Gear</h3>
+            <p class="text-sm text-sand/85 leading-relaxed">
               Beach towels, coolers, and breezy island essentials ready so you can pack lighter and enjoy the sand.
             </p>
           </div>
-          <div class="rounded-2xl bg-palmDark/90 border border-gold/35 p-6">
-            <h3 class="font-serif text-xl font-semibold text-goldLight mb-2">House Rules: Pure Aloha</h3>
-            <p class="text-sm text-cream/85 leading-relaxed">
+          <div class="rounded-2xl bg-palmDeep/90 border border-gold/35 p-6">
+            <h3 class="font-serif text-xl font-semibold text-goldSoft mb-2">House Rules: Pure Aloha</h3>
+            <p class="text-sm text-sand/85 leading-relaxed">
               No rushed schedules, plenty of Shadow &amp; Silas cuddles, sunset skies, and sweet island treats along the way.
             </p>
           </div>
@@ -615,7 +675,7 @@
     </section>
 
     <!-- 5D. FREQUENTLY ASKED QUESTIONS (BOTTOM OF PAGE, RIGHT ABOVE FOOTER) -->
-    <section id="faq" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-creamDark/55 border-t border-gold/30">
+    <section id="faq" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-sandDeep/55 border-t border-gold/30">
       <div class="max-w-4xl mx-auto">
         <div class="text-center mb-10">
           <p class="text-xs font-bold uppercase tracking-[0.2em] text-gold mb-2">Trip Details</p>
@@ -623,7 +683,7 @@
         </div>
 
         <div class="space-y-3.5" id="faqAccordion">
-          <div class="accordion-item rounded-2xl bg-cream border border-gold/40 shadow-xs" data-open="true">
+          <div class="accordion-item rounded-2xl bg-sand border border-gold/40 shadow-xs" data-open="true">
             <button type="button" class="accordion-trigger w-full px-5 py-4 text-left flex items-center justify-between gap-4 font-serif font-semibold text-lg text-palm cursor-pointer" aria-expanded="true">
               <span>Where is Casa Aloha located, and how close are the beaches?</span>
               <svg class="accordion-chevron w-5 h-5 text-gold shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true">
@@ -639,7 +699,7 @@
             </div>
           </div>
 
-          <div class="accordion-item rounded-2xl bg-cream border border-gold/40 shadow-xs" data-open="false">
+          <div class="accordion-item rounded-2xl bg-sand border border-gold/40 shadow-xs" data-open="false">
             <button type="button" class="accordion-trigger w-full px-5 py-4 text-left flex items-center justify-between gap-4 font-serif font-semibold text-lg text-palm cursor-pointer" aria-expanded="false">
               <span>Which airport should I fly into?</span>
               <svg class="accordion-chevron w-5 h-5 text-gold shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true">
@@ -655,7 +715,7 @@
             </div>
           </div>
 
-          <div class="accordion-item rounded-2xl bg-cream border border-gold/40 shadow-xs" data-open="false">
+          <div class="accordion-item rounded-2xl bg-sand border border-gold/40 shadow-xs" data-open="false">
             <button type="button" class="accordion-trigger w-full px-5 py-4 text-left flex items-center justify-between gap-4 font-serif font-semibold text-lg text-palm cursor-pointer" aria-expanded="false">
               <span>What should I pack for Kailua?</span>
               <svg class="accordion-chevron w-5 h-5 text-gold shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true">
@@ -676,11 +736,11 @@
   </main>
 
   <!-- FOOTER WITH HOST MODE -->
-  <footer class="bg-palmDark text-cream/90 py-10 px-4 sm:px-6 lg:px-8 border-t border-gold/30">
+  <footer class="bg-palmDeep text-sand/90 py-10 px-4 sm:px-6 lg:px-8 border-t border-gold/30">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
       <div class="text-center md:text-left">
-        <p class="font-serif text-xl font-bold text-cream">Mele Kalikimaka &amp; Aloha from Kailua</p>
-        <p class="text-xs sm:text-sm text-cream/75 mt-1">
+        <p class="font-serif text-xl font-bold text-sand">Mele Kalikimaka &amp; Aloha from Kailua</p>
+        <p class="text-xs sm:text-sm text-sand/75 mt-1">
           1015 Aoloa Pl, Kailua, HI 96734 &bull; Dristin, Colton, Shadow &amp; Silas
         </p>
       </div>
@@ -688,7 +748,7 @@
       <button
         type="button"
         id="hostModeToggleBtn"
-        class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-gold text-ink hover:bg-goldLight transition-colors cursor-pointer"
+        class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-gold text-ink hover:bg-goldSoft transition-colors cursor-pointer"
       >
         <span id="hostModeLabel">Host Mode: Off</span>
       </button>
@@ -698,15 +758,15 @@
       <div class="rounded-2xl bg-palm/75 border border-gold/40 p-5">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
           <div>
-            <h3 class="font-serif text-lg font-bold text-goldLight">Host Mode &mdash; Toggle Months Open or Booked</h3>
-            <p class="text-xs text-cream/80">Changes save automatically in this browser (localStorage).</p>
+            <h3 class="font-serif text-lg font-bold text-goldSoft">Host Mode &mdash; Cycle Months (Available / Penciled-In / Booked)</h3>
+            <p class="text-xs text-sand/80">Changes save automatically in this browser (localStorage).</p>
           </div>
           <button
             type="button"
             id="resetMonthsBtn"
-            class="self-start sm:self-auto px-3 py-1.5 rounded-lg text-xs font-semibold bg-cream/15 hover:bg-cream/25 text-cream border border-cream/25 cursor-pointer"
+            class="self-start sm:self-auto px-3 py-1.5 rounded-lg text-xs font-semibold bg-sand/15 hover:bg-sand/25 text-sand border border-sand/25 cursor-pointer"
           >
-            Reset All to Open
+            Reset All to Available
           </button>
         </div>
         <div id="hostMonthToggles" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5"></div>
@@ -722,16 +782,16 @@
     aria-modal="true"
     aria-labelledby="modalTitle"
   >
-    <div class="modal-animate w-full max-w-lg rounded-3xl bg-cream border-2 border-gold/60 shadow-elevated overflow-hidden">
-      <div class="bg-palm text-cream px-6 py-5 flex items-center justify-between">
+    <div class="modal-animate w-full max-w-lg rounded-3xl bg-sand border-2 border-gold/60 shadow-elevated overflow-hidden max-h-[92vh] overflow-y-auto">
+      <div class="bg-palm text-sand px-6 py-5 flex items-center justify-between">
         <div>
-          <p class="text-[11px] uppercase tracking-[0.18em] text-goldLight font-semibold">Kailua Residency Request</p>
+          <p class="text-[11px] uppercase tracking-[0.18em] text-goldSoft font-semibold">Kailua Residency Request</p>
           <h3 id="modalTitle" class="font-serif text-2xl font-bold mt-0.5">Claim Your Month</h3>
         </div>
         <button
           type="button"
           id="closeModalBtn"
-          class="w-9 h-9 rounded-full bg-cream/15 hover:bg-cream/25 flex items-center justify-center text-cream cursor-pointer"
+          class="w-9 h-9 rounded-full bg-sand/15 hover:bg-sand/25 flex items-center justify-center text-sand cursor-pointer"
           aria-label="Close modal"
         >
           &times;
@@ -739,12 +799,12 @@
       </div>
 
       <form id="tripRequestForm" class="p-6 space-y-4">
-        <div id="modalErrorBox" class="hidden rounded-xl bg-hibiscus/10 border border-hibiscus/40 px-4 py-2.5 text-xs sm:text-sm text-hibiscus font-medium"></div>
+        <div id="modalErrorBox" class="hidden rounded-xl bg-coral/10 border border-coral/40 px-4 py-2.5 text-xs sm:text-sm text-coral font-medium"></div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label for="selectedMonthInput" class="block text-xs font-bold uppercase tracking-wider text-palm mb-1">Month</label>
-            <input type="text" id="selectedMonthInput" readonly class="w-full rounded-xl border border-gold/45 bg-creamDark/70 px-3.5 py-2.5 text-sm font-semibold text-ink" />
+            <input type="text" id="selectedMonthInput" readonly class="w-full rounded-xl border border-gold/45 bg-sandDeep/70 px-3.5 py-2.5 text-sm font-semibold text-ink" />
           </div>
           <div>
             <label for="preferredDatesInput" class="block text-xs font-bold uppercase tracking-wider text-palm mb-1">Preferred Dates</label>
@@ -766,7 +826,7 @@
         <div>
           <span class="block text-xs font-bold uppercase tracking-wider text-palm mb-2">Pick Your Island Vibe *</span>
           <div class="grid grid-cols-2 gap-2.5">
-            <button type="button" data-vibe="Kailua & Lanikai Beach Days" class="vibe-chip active px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-semibold border border-palm bg-palm text-cream cursor-pointer">
+            <button type="button" data-vibe="Kailua & Lanikai Beach Days" class="vibe-chip px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-semibold border border-palm bg-palm text-sand cursor-pointer">
               Kailua &amp; Lanikai Beach Days
             </button>
             <button type="button" data-vibe="Lanai & Slow Mornings" class="vibe-chip px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-semibold border border-gold/45 bg-white text-ink hover:border-palm cursor-pointer">
@@ -786,16 +846,16 @@
           <textarea id="guestNotesInput" rows="2" placeholder="Anything you're excited to see or snack on..." class="w-full rounded-xl border border-gold/45 bg-white px-3.5 py-2 text-sm text-ink focus:outline-none focus:border-palm"></textarea>
         </div>
 
-        <!-- Dynamic Flight Search Builder Inside Trip Request Modal (Defaults to DFW) -->
-        <div class="rounded-2xl bg-creamDark/75 border border-gold/45 p-4 space-y-3">
+        <!-- Dynamic Flight Search Builder Inside Trip Request Modal (Defaults to DFW -> HNL) -->
+        <div class="rounded-2xl bg-sandDeep/75 border border-gold/45 p-4 space-y-3">
           <div class="flex items-center justify-between gap-2">
             <span class="text-xs font-bold uppercase tracking-wider text-palm">Check Cheapest Flights to HNL</span>
-            <span class="text-[11px] font-semibold text-hibiscus">Default: DFW</span>
+            <span class="text-[11px] font-semibold text-coral">Default: DFW &rarr; HNL</span>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label for="modalFlightOriginInput" class="block text-[11px] font-bold uppercase tracking-wider text-ink/80 mb-1">Departure City / Airport</label>
-              <input type="text" id="modalFlightOriginInput" value="DFW" placeholder="e.g., DFW, DAL, AUS" class="w-full rounded-xl border border-gold/40 bg-white px-3 py-2 text-xs sm:text-sm font-semibold text-ink focus:outline-none focus:border-palm" />
+              <input type="text" id="modalFlightOriginInput" value="DFW" placeholder="e.g., DFW, DAL" class="w-full rounded-xl border border-gold/40 bg-white px-3 py-2 text-xs sm:text-sm font-semibold text-ink focus:outline-none focus:border-palm" />
             </div>
             <div>
               <label for="modalFlightTravelersSelect" class="block text-[11px] font-bold uppercase tracking-wider text-ink/80 mb-1">Travelers</label>
@@ -809,14 +869,14 @@
           </div>
           <p id="modalFlightPreviewText" class="text-xs text-muted"></p>
           <p class="text-[11px] text-muted">
-            Google Flights prices and flexible/cheapest date options update live when opened.
+            Live cheapest fares and flexible date grids update dynamically on Google Flights when opened.
           </p>
           <a
             id="modalGoogleFlightsLink"
             href="https://www.google.com/travel/flights"
             target="_blank"
             rel="noopener noreferrer"
-            class="inline-flex items-center justify-center gap-1.5 w-full py-2.5 px-4 rounded-xl text-xs sm:text-sm font-semibold bg-palm hover:bg-palmDark text-cream transition-colors"
+            class="inline-flex items-center justify-center gap-1.5 w-full py-2.5 px-4 rounded-xl text-xs sm:text-sm font-semibold bg-palm hover:bg-palmDeep text-sand transition-colors"
           >
             <span>Open Google Flights for These Dates</span>
             <span aria-hidden="true">&rarr;</span>
@@ -825,7 +885,7 @@
 
         <div class="pt-2 flex items-center justify-end gap-3">
           <button type="button" id="cancelModalBtn" class="px-4 py-2.5 rounded-full text-sm font-semibold text-muted hover:text-ink cursor-pointer">Cancel</button>
-          <button type="submit" class="px-6 py-2.5 rounded-full text-sm font-semibold bg-hibiscus hover:bg-hibiscusLight text-cream shadow-md cursor-pointer">Send Trip Request</button>
+          <button type="submit" class="px-6 py-2.5 rounded-full text-sm font-semibold bg-coral hover:bg-coralBright text-sand shadow-md cursor-pointer">Send Trip Request</button>
         </div>
       </form>
 
@@ -835,7 +895,7 @@
         </div>
         <h4 class="font-serif text-2xl font-bold text-palm">Aloha &mdash; Request Saved!</h4>
         <p id="confirmationSummary" class="text-sm sm:text-base text-ink/85 leading-relaxed"></p>
-        <button type="button" id="doneConfirmationBtn" class="px-6 py-2.5 rounded-full text-sm font-semibold bg-palm hover:bg-palmDark text-cream cursor-pointer">
+        <button type="button" id="doneConfirmationBtn" class="px-6 py-2.5 rounded-full text-sm font-semibold bg-palm hover:bg-palmDeep text-sand cursor-pointer">
           Done
         </button>
       </div>
@@ -850,20 +910,20 @@
     aria-modal="true"
     aria-labelledby="photoUrlModalTitle"
   >
-    <div class="modal-animate w-full max-w-md rounded-3xl bg-cream border-2 border-gold/60 shadow-elevated overflow-hidden">
-      <div class="bg-palm text-cream px-6 py-4 flex items-center justify-between">
+    <div class="modal-animate w-full max-w-md rounded-3xl bg-sand border-2 border-gold/60 shadow-elevated overflow-hidden">
+      <div class="bg-palm text-sand px-6 py-4 flex items-center justify-between">
         <h3 id="photoUrlModalTitle" class="font-serif text-xl font-bold">Set Photo from Image URL</h3>
-        <button type="button" id="closePhotoUrlModalBtn" class="w-8 h-8 rounded-full bg-cream/15 hover:bg-cream/25 text-cream cursor-pointer" aria-label="Close photo URL dialog">&times;</button>
+        <button type="button" id="closePhotoUrlModalBtn" class="w-8 h-8 rounded-full bg-sand/15 hover:bg-sand/25 text-sand cursor-pointer" aria-label="Close photo URL dialog">&times;</button>
       </div>
       <form id="photoUrlForm" class="p-6 space-y-4">
-        <p id="photoUrlError" class="hidden text-xs font-semibold text-hibiscus bg-hibiscus/10 border border-hibiscus/30 rounded-xl px-3 py-2"></p>
+        <p id="photoUrlError" class="hidden text-xs font-semibold text-coral bg-coral/10 border border-coral/30 rounded-xl px-3 py-2"></p>
         <div>
           <label for="photoUrlInput" class="block text-xs font-bold uppercase tracking-wider text-palm mb-1">Direct Image URL (JPG / PNG / WebP)</label>
           <input type="url" id="photoUrlInput" required placeholder="https://example.com/photo.jpg" class="w-full rounded-xl border border-gold/45 bg-white px-3.5 py-2.5 text-sm text-ink focus:outline-none focus:border-palm" />
         </div>
         <div class="flex justify-end gap-2.5">
           <button type="button" id="cancelPhotoUrlBtn" class="px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-muted hover:text-ink cursor-pointer">Cancel</button>
-          <button type="submit" class="px-5 py-2 rounded-full text-xs sm:text-sm font-semibold bg-palm hover:bg-palmDark text-cream cursor-pointer">Apply Photo</button>
+          <button type="submit" class="px-5 py-2 rounded-full text-xs sm:text-sm font-semibold bg-palm hover:bg-palmDeep text-sand cursor-pointer">Apply Photo</button>
         </div>
       </form>
     </div>
@@ -872,20 +932,18 @@
   <!-- Toast Banner -->
   <div
     id="toastBanner"
-    class="fixed bottom-5 right-5 z-50 hidden max-w-sm rounded-2xl bg-palm text-cream border border-gold/60 px-4 py-3 shadow-elevated text-xs sm:text-sm font-medium"
+    class="fixed bottom-5 right-5 z-50 hidden max-w-sm rounded-2xl bg-palm text-sand border border-gold/60 px-4 py-3 shadow-elevated text-xs sm:text-sm font-medium"
     role="status"
     aria-live="polite"
   ></div>
 
   <script>
     (function () {
-      const STORAGE_KEY_MONTHS = 'casaAlohaKailuaMonths_v1';
-      const STORAGE_KEY_REQUESTS = 'casaAlohaKailuaRequests_v1';
+      const STORAGE_KEY_MONTHS = 'casaAlohaKailuaMonths_v2';
+      const STORAGE_KEY_REQUESTS = 'casaAlohaKailuaRequests_v2';
+      const STORAGE_KEY_PHOTOS = 'casaAlohaKailuaPhotos_v2';
 
-      /**
-       * Converts inline SVG markup into a self-contained data URI so images render
-       * reliably on any device without broken external or local file paths.
-       */
+      /* Helper to create self-contained inline SVG data URIs so images always render cleanly */
       function svgDataUri(svgMarkup) {
         return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgMarkup.trim());
       }
@@ -919,8 +977,8 @@
             <path d="M208 242 Q242 230 276 242 L284 345 L200 345 Z" fill="#1B4332"/>
             <circle cx="312" cy="208" r="25" fill="#ECC09F"/>
             <path d="M286 204 Q290 168 322 172 Q346 176 342 228" fill="#5E3B22"/>
-            <circle cx="335" cy="188" r="8" fill="#B8332A"/>
-            <path d="M282 238 Q312 228 342 238 L352 345 L272 345 Z" fill="#B8332A"/>
+            <circle cx="335" cy="188" r="8" fill="#C44536"/>
+            <path d="M282 238 Q312 228 342 238 L352 345 L272 345 Z" fill="#C44536"/>
             <ellipse cx="182" cy="340" rx="34" ry="18" fill="#2E2A28"/>
             <circle cx="152" cy="324" r="18" fill="#2E2A28"/>
             <path d="M140 312 L134 296 L149 308 Z" fill="#1C1918"/>
@@ -934,68 +992,68 @@
           </svg>
         `),
         hostsCouple: svgDataUri(`
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320">
-            <rect width="480" height="320" fill="#EAE2CE"/>
-            <rect x="18" y="18" width="444" height="284" rx="18" fill="#FAF6EE" stroke="#C59B27" stroke-width="2"/>
-            <circle cx="185" cy="126" r="36" fill="#E8B896"/>
-            <path d="M150 116 Q185 78 220 116" fill="#4A3222"/>
-            <circle cx="173" cy="124" r="3" fill="#18221D"/>
-            <circle cx="197" cy="124" r="3" fill="#18221D"/>
-            <path d="M176 138 Q185 145 194 138" stroke="#18221D" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-            <path d="M142 168 Q185 156 228 168 L238 262 L132 262 Z" fill="#1B4332"/>
-            <circle cx="288" cy="124" r="35" fill="#ECC09F"/>
-            <path d="M254 118 Q258 72 298 76 Q326 80 322 146" fill="#5E3B22"/>
-            <circle cx="315" cy="96" r="9" fill="#B8332A"/>
-            <circle cx="277" cy="124" r="3" fill="#18221D"/>
-            <circle cx="300" cy="124" r="3" fill="#18221D"/>
-            <path d="M280 137 Q288.5 144 297 137" stroke="#B8332A" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-            <path d="M246 166 Q288 154 330 166 L342 262 L234 262 Z" fill="#B8332A"/>
-            <text x="240" y="288" text-anchor="middle" fill="#1B4332" font-family="Georgia, serif" font-size="16" font-weight="bold">Dristin &amp; Colton</text>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 560">
+            <rect width="420" height="560" fill="#EAE2CE"/>
+            <rect x="20" y="20" width="380" height="520" rx="24" fill="#FAF6EE" stroke="#C59B27" stroke-width="2"/>
+            <circle cx="164" cy="185" r="42" fill="#E8B896"/>
+            <path d="M122 174 Q164 126 206 174" fill="#4A3222"/>
+            <circle cx="150" cy="182" r="3.5" fill="#18221D"/>
+            <circle cx="178" cy="182" r="3.5" fill="#18221D"/>
+            <path d="M154 198 Q164 206 174 198" stroke="#18221D" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <path d="M114 236 Q164 222 214 236 L228 450 L100 450 Z" fill="#1B4332"/>
+            <circle cx="266" cy="182" r="40" fill="#ECC09F"/>
+            <path d="M226 176 Q230 120 276 125 Q310 130 306 208" fill="#5E3B22"/>
+            <circle cx="298" cy="148" r="10" fill="#C44536"/>
+            <circle cx="253" cy="182" r="3.5" fill="#18221D"/>
+            <circle cx="280" cy="182" r="3.5" fill="#18221D"/>
+            <path d="M256 197 Q266.5 205 277 197" stroke="#C44536" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <path d="M218 234 Q266 220 314 234 L328 450 L204 450 Z" fill="#C44536"/>
+            <text x="210" y="492" text-anchor="middle" fill="#1B4332" font-family="Georgia, serif" font-size="20" font-weight="bold">Dristin &amp; Colton</text>
           </svg>
         `),
         shadow: svgDataUri(`
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320">
-            <rect width="480" height="320" fill="#E3ECE7"/>
-            <rect x="18" y="18" width="444" height="284" rx="18" fill="#FAF6EE" stroke="#C59B27" stroke-width="2"/>
-            <circle cx="176" cy="84" r="14" fill="#FAF6EE" stroke="#C59B27" stroke-width="2"/>
-            <circle cx="176" cy="84" r="5" fill="#C59B27"/>
-            <circle cx="304" cy="84" r="14" fill="#FAF6EE" stroke="#C59B27" stroke-width="2"/>
-            <circle cx="304" cy="84" r="5" fill="#C59B27"/>
-            <ellipse cx="240" cy="212" rx="68" ry="44" fill="#2F2B29"/>
-            <circle cx="240" cy="144" r="42" fill="#2F2B29"/>
-            <path d="M208 116 L194 78 L224 106 Z" fill="#1D1A19"/>
-            <path d="M272 116 L286 78 L256 106 Z" fill="#1D1A19"/>
-            <circle cx="225" cy="140" r="4" fill="#FAF6EE"/>
-            <circle cx="255" cy="140" r="4" fill="#FAF6EE"/>
-            <ellipse cx="240" cy="154" rx="8" ry="6" fill="#141211"/>
-            <path d="M228 165 Q240 173 252 165" stroke="#C59B27" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-            <text x="240" y="288" text-anchor="middle" fill="#1B4332" font-family="Georgia, serif" font-size="16" font-weight="bold">Shadow &bull; Lanai Greeter</text>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 560">
+            <rect width="420" height="560" fill="#E2F1EC"/>
+            <rect x="20" y="20" width="380" height="520" rx="24" fill="#FAF6EE" stroke="#C59B27" stroke-width="2"/>
+            <circle cx="146" cy="126" r="15" fill="#FAF6EE" stroke="#C59B27" stroke-width="2"/>
+            <circle cx="146" cy="126" r="5.5" fill="#C59B27"/>
+            <circle cx="274" cy="126" r="15" fill="#FAF6EE" stroke="#C59B27" stroke-width="2"/>
+            <circle cx="274" cy="126" r="5.5" fill="#C59B27"/>
+            <ellipse cx="210" cy="348" rx="76" ry="56" fill="#2F2B29"/>
+            <circle cx="210" cy="212" r="46" fill="#2F2B29"/>
+            <path d="M174 178 L156 132 L192 166 Z" fill="#1D1A19"/>
+            <path d="M246 178 L264 132 L228 166 Z" fill="#1D1A19"/>
+            <circle cx="194" cy="208" r="4.5" fill="#FAF6EE"/>
+            <circle cx="226" cy="208" r="4.5" fill="#FAF6EE"/>
+            <ellipse cx="210" cy="224" rx="9" ry="6.5" fill="#141211"/>
+            <path d="M196 237 Q210 246 224 237" stroke="#C59B27" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <text x="210" y="492" text-anchor="middle" fill="#1B4332" font-family="Georgia, serif" font-size="20" font-weight="bold">Shadow &bull; Lanai Greeter</text>
           </svg>
         `),
         silas: svgDataUri(`
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320">
-            <rect width="480" height="320" fill="#F5EBD6"/>
-            <rect x="18" y="18" width="444" height="284" rx="18" fill="#FAF6EE" stroke="#C59B27" stroke-width="2"/>
-            <ellipse cx="240" cy="210" rx="62" ry="38" fill="#DDA96B"/>
-            <circle cx="240" cy="146" r="38" fill="#DDA96B"/>
-            <ellipse cx="204" cy="144" rx="14" ry="26" fill="#9E6A3A"/>
-            <ellipse cx="276" cy="144" rx="14" ry="26" fill="#9E6A3A"/>
-            <circle cx="226" cy="142" r="3.5" fill="#18221D"/>
-            <circle cx="254" cy="142" r="3.5" fill="#18221D"/>
-            <ellipse cx="240" cy="155" rx="7" ry="5" fill="#3B2818"/>
-            <path d="M206 184 L240 214 L274 184 Z" fill="#B8332A"/>
-            <circle cx="240" cy="198" r="4" fill="#E5C368"/>
-            <text x="240" y="288" text-anchor="middle" fill="#1B4332" font-family="Georgia, serif" font-size="16" font-weight="bold">Silas &bull; Chief Pup</text>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 560">
+            <rect width="420" height="560" fill="#EFE5D1"/>
+            <rect x="20" y="20" width="380" height="520" rx="24" fill="#FAF6EE" stroke="#C59B27" stroke-width="2"/>
+            <ellipse cx="210" cy="346" rx="70" ry="50" fill="#DDA96B"/>
+            <circle cx="210" cy="216" r="42" fill="#DDA96B"/>
+            <ellipse cx="170" cy="214" rx="16" ry="30" fill="#9E6A3A"/>
+            <ellipse cx="250" cy="214" rx="16" ry="30" fill="#9E6A3A"/>
+            <circle cx="194" cy="212" r="4" fill="#18221D"/>
+            <circle cx="226" cy="212" r="4" fill="#18221D"/>
+            <ellipse cx="210" cy="226" rx="8" ry="5.5" fill="#3B2818"/>
+            <path d="M172 260 L210 294 L248 260 Z" fill="#C44536"/>
+            <circle cx="210" cy="276" r="4.5" fill="#E5C368"/>
+            <text x="210" y="492" text-anchor="middle" fill="#1B4332" font-family="Georgia, serif" font-size="20" font-weight="bold">Silas &bull; Chief Pup</text>
           </svg>
         `),
         aptLiving: svgDataUri(`
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300">
             <rect width="480" height="300" fill="#FAF6EE"/>
-            <rect x="24" y="24" width="432" height="176" rx="10" fill="#E4F1ED" stroke="#C59B27" stroke-width="2"/>
-            <rect x="24" y="200" width="432" height="76" fill="#E9DEC6"/>
+            <rect x="24" y="24" width="432" height="176" rx="10" fill="#E2F1EC" stroke="#C59B27" stroke-width="2"/>
+            <rect x="24" y="200" width="432" height="76" fill="#EFE5D1"/>
             <rect x="92" y="168" width="180" height="44" rx="12" fill="#1B4332"/>
             <rect x="102" y="152" width="42" height="22" rx="6" fill="#C59B27"/>
-            <rect x="220" y="152" width="42" height="22" rx="6" fill="#B8332A"/>
+            <rect x="220" y="152" width="42" height="22" rx="6" fill="#C44536"/>
             <rect x="320" y="54" width="96" height="92" rx="8" fill="#FAF6EE" stroke="#1B4332" stroke-width="3"/>
             <line x1="368" y1="54" x2="368" y2="146" stroke="#1B4332" stroke-width="2"/>
             <line x1="320" y1="100" x2="416" y2="100" stroke="#1B4332" stroke-width="2"/>
@@ -1006,7 +1064,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300">
             <rect width="480" height="300" fill="#FAF6EE"/>
             <rect x="24" y="24" width="432" height="176" rx="10" fill="#F3ECE0" stroke="#C59B27" stroke-width="2"/>
-            <rect x="24" y="200" width="432" height="76" fill="#E9DEC6"/>
+            <rect x="24" y="200" width="432" height="76" fill="#EFE5D1"/>
             <rect x="120" y="120" width="240" height="18" rx="6" fill="#1B4332"/>
             <rect x="126" y="138" width="228" height="72" rx="8" fill="#FFFFFF" stroke="#C59B27" stroke-width="1.5"/>
             <rect x="142" y="146" width="84" height="24" rx="8" fill="#E5C368" opacity="0.65"/>
@@ -1017,7 +1075,7 @@
         `),
         aptLanai: svgDataUri(`
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300">
-            <rect width="480" height="300" fill="#DFF0EC"/>
+            <rect width="480" height="300" fill="#E2F1EC"/>
             <rect x="24" y="24" width="432" height="176" rx="10" fill="#CBE7E4" stroke="#C59B27" stroke-width="2"/>
             <circle cx="385" cy="74" r="24" fill="#E5C368"/>
             <path d="M24 162 Q150 132 280 158 T456 150 L456 200 L24 200 Z" fill="#1B4332" opacity="0.22"/>
@@ -1044,7 +1102,7 @@
             <path d="M0 155 Q120 118 245 148 Q380 172 540 138 L540 310 L0 310 Z" fill="url(#kbWater)"/>
             <path d="M0 228 Q185 202 365 232 T540 222 L540 310 L0 310 Z" fill="#F8F2E2"/>
             <line x1="168" y1="248" x2="168" y2="184" stroke="#5E3B22" stroke-width="4"/>
-            <path d="M114 188 Q168 146 222 188 Z" fill="#B8332A"/>
+            <path d="M114 188 Q168 146 222 188 Z" fill="#C44536"/>
             <path d="M142 188 Q168 148 194 188 Z" fill="#FAF6EE"/>
             <path d="M472 238 Q465 152 496 86" stroke="#1B4332" stroke-width="6" stroke-linecap="round" fill="none"/>
             <path d="M496 86 Q452 74 430 108" stroke="#1B4332" stroke-width="5" stroke-linecap="round" fill="none"/>
@@ -1161,31 +1219,66 @@
         },
       };
 
+      const SEASON_LABELS = {
+        WINTER_WHALES: 'Winter Surf & Whales',
+        SPRING_TRADE: 'Spring Trade Winds',
+        SUMMER_BEACH: 'Summer Calm & Beach',
+        FALL_GOLDEN: 'Fall Golden Days',
+      };
+
       const INITIAL_MONTHS = [
-        { month: 'January', season: 'JAN_MAR', note: 'Whale season offshore & crisp coastal breezes', status: 'OPEN', guest: '' },
-        { month: 'February', season: 'JAN_MAR', note: 'Winter swells, sunny days & lush green views', status: 'OPEN', guest: '' },
-        { month: 'March', season: 'JAN_MAR', note: 'Breezy Windward days & easy Kailua beach runs', status: 'OPEN', guest: '' },
-        { month: 'April', season: 'APR_JUN', note: 'Sunny trade winds & blooming island colors', status: 'OPEN', guest: '' },
-        { month: 'May', season: 'APR_JUN', note: 'Warm afternoons & relaxed lanai evenings', status: 'OPEN', guest: '' },
-        { month: 'June', season: 'APR_JUN', note: 'Bright summer sunshine & beach-day picnics', status: 'OPEN', guest: '' },
-        { month: 'July', season: 'JUL_SEP', note: 'Warm turquoise water & golden sunsets', status: 'OPEN', guest: '' },
-        { month: 'August', season: 'JUL_SEP', note: 'Summer island vibes & unhurried days together', status: 'OPEN', guest: '' },
-        { month: 'September', season: 'JUL_SEP', note: 'Warm ocean temps & laid-back shore hangs', status: 'OPEN', guest: '' },
-        { month: 'October', season: 'OCT_DEC', note: 'Sunny autumn days & coastal strolls', status: 'OPEN', guest: '' },
-        { month: 'November', season: 'OCT_DEC', note: 'Grateful gatherings & breezy Kailua mornings', status: 'OPEN', guest: '' },
-        { month: 'December', season: 'OCT_DEC', note: 'Mele Kalikimaka cheer, aloha & warm nights', status: 'OPEN', guest: '' },
+        { month: 'January', season: 'WINTER_WHALES', note: 'Whale season offshore & crisp coastal breezes', status: 'OPEN', guest: '' },
+        { month: 'February', season: 'WINTER_WHALES', note: 'Winter swells, sunny days & lush green views', status: 'OPEN', guest: '' },
+        { month: 'March', season: 'WINTER_WHALES', note: 'Breezy Windward days & easy Kailua beach runs', status: 'OPEN', guest: '' },
+        { month: 'April', season: 'SPRING_TRADE', note: 'Sunny trade winds & blooming island colors', status: 'OPEN', guest: '' },
+        { month: 'May', season: 'SPRING_TRADE', note: 'Warm afternoons & relaxed lanai evenings', status: 'OPEN', guest: '' },
+        { month: 'June', season: 'SPRING_TRADE', note: 'Bright summer sunshine & beach-day picnics', status: 'OPEN', guest: '' },
+        { month: 'July', season: 'SUMMER_BEACH', note: 'Warm turquoise water & golden sunsets', status: 'OPEN', guest: '' },
+        { month: 'August', season: 'SUMMER_BEACH', note: 'Summer island vibes & unhurried days together', status: 'OPEN', guest: '' },
+        { month: 'September', season: 'SUMMER_BEACH', note: 'Warm ocean temps & laid-back shore hangs', status: 'OPEN', guest: '' },
+        { month: 'October', season: 'FALL_GOLDEN', note: 'Sunny autumn days & coastal strolls', status: 'OPEN', guest: '' },
+        { month: 'November', season: 'FALL_GOLDEN', note: 'Grateful gatherings & breezy Kailua mornings', status: 'OPEN', guest: '' },
+        { month: 'December', season: 'FALL_GOLDEN', note: 'Mele Kalikimaka cheer, aloha & warm nights', status: 'OPEN', guest: '' },
       ];
+
+      function loadSavedPhotos() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY_PHOTOS);
+          return raw ? JSON.parse(raw) : {};
+        } catch (err) {
+          return {};
+        }
+      }
+
+      const savedPhotos = loadSavedPhotos();
+      if (savedPhotos.hero) ART.hero = savedPhotos.hero;
+      HOSTS_DATA.forEach((h, i) => {
+        if (savedPhotos[`host_${i}`]) h.photo = savedPhotos[`host_${i}`];
+      });
+      APARTMENT_DATA.forEach((a, i) => {
+        if (savedPhotos[`apt_${i}`]) a.photo = savedPhotos[`apt_${i}`];
+      });
+      BEACHES_DATA.forEach((b, i) => {
+        if (savedPhotos[`beach_${i}`]) b.photo = savedPhotos[`beach_${i}`];
+      });
+
+      function savePhotoToStorage(key, src) {
+        savedPhotos[key] = src;
+        try {
+          localStorage.setItem(STORAGE_KEY_PHOTOS, JSON.stringify(savedPhotos));
+        } catch (err) {
+          // Ignore storage quota limits for large files
+        }
+      }
 
       function loadSavedMonths() {
         try {
           const raw = localStorage.getItem(STORAGE_KEY_MONTHS);
           if (!raw) return INITIAL_MONTHS.map((m) => ({ ...m }));
           const parsed = JSON.parse(raw);
-          if (Array.isArray(parsed) && parsed.length === 12) {
-            return parsed;
-          }
+          if (Array.isArray(parsed) && parsed.length === 12) return parsed;
         } catch (err) {
-          // Fallback to default months if storage is unavailable
+          // Fallback to initial months
         }
         return INITIAL_MONTHS.map((m) => ({ ...m }));
       }
@@ -1206,11 +1299,13 @@
           localStorage.setItem(STORAGE_KEY_MONTHS, JSON.stringify(monthsState));
           localStorage.setItem(STORAGE_KEY_REQUESTS, JSON.stringify(tripRequests));
         } catch (err) {
-          // Ignore storage quota or private mode issues
+          // Ignore storage errors
         }
       }
 
       let activeSeason = 'ALL';
+      let activeStatus = 'ALL';
+      let hostFitMode = 'cover'; // 'cover' | 'contain'
       let hostMode = false;
       let selectedVibe = 'Kailua & Lanikai Beach Days';
       let monthsState = loadSavedMonths();
@@ -1235,6 +1330,7 @@
       const photoUrlError = document.getElementById('photoUrlError');
       const toastBanner = document.getElementById('toastBanner');
       const flightOriginInput = document.getElementById('flightOriginInput');
+      const flightMonthWindowSelect = document.getElementById('flightMonthWindowSelect');
       const flightDepartDate = document.getElementById('flightDepartDate');
       const flightReturnDate = document.getElementById('flightReturnDate');
       const flightTravelersSelect = document.getElementById('flightTravelersSelect');
@@ -1274,35 +1370,43 @@
         return { departStr: formatIsoDate(start), returnStr: formatIsoDate(end) };
       }
 
-      function buildGoogleFlightsUrl(originText, departStr, returnStr, travelersNum) {
-        const cleanOrigin = (originText || 'DFW').trim();
+      function buildGoogleFlightsUrl(originText, departStr, returnStr, travelersNum, flexMonth) {
+        const cleanOrigin = (originText || 'DFW').trim() || 'DFW';
         const paxLabel = travelersNum > 1 ? ` for ${travelersNum} travelers` : '';
-        const datePart = departStr && returnStr
-          ? ` from ${departStr} to ${returnStr}`
-          : departStr
-            ? ` on ${departStr}`
-            : '';
+        let datePart = '';
+        if (flexMonth && flexMonth !== 'CUSTOM') {
+          datePart = ` in ${flexMonth}`;
+        } else if (departStr && returnStr) {
+          datePart = ` from ${departStr} to ${returnStr}`;
+        } else if (departStr) {
+          datePart = ` on ${departStr}`;
+        }
         const query = `Cheapest flights from ${cleanOrigin} to Honolulu HNL${datePart}${paxLabel}`;
         return `https://www.google.com/travel/flights?q=${encodeURIComponent(query)}`;
       }
 
       function syncMainFlightBuilder() {
-        const origin = (flightOriginInput.value || 'DFW').trim();
+        const origin = (flightOriginInput.value || 'DFW').trim() || 'DFW';
+        const flexMonth = flightMonthWindowSelect.value;
         const depart = flightDepartDate.value;
         const ret = flightReturnDate.value;
         const travelers = Number(flightTravelersSelect.value) || 1;
-        googleFlightsLaunchBtn.href = buildGoogleFlightsUrl(origin, depart, ret, travelers);
-        const windowLabel = depart && ret ? `${depart} → ${ret}` : depart ? `${depart}` : 'flexible dates';
+        googleFlightsLaunchBtn.href = buildGoogleFlightsUrl(origin, depart, ret, travelers, flexMonth);
+        const windowLabel = flexMonth && flexMonth !== 'CUSTOM'
+          ? `${flexMonth} (flexible dates)`
+          : depart && ret
+            ? `${depart} → ${ret}`
+            : depart || 'flexible dates';
         flightSearchSummary.textContent = `${origin} → Honolulu (HNL) • ${windowLabel} • ${travelers} ${travelers === 1 ? 'traveler' : 'travelers'}`;
       }
 
       function syncModalFlightBuilder() {
         const monthName = document.getElementById('selectedMonthInput').value || 'your chosen month';
         const customDates = document.getElementById('preferredDatesInput').value.trim();
-        const origin = (modalFlightOriginInput.value || 'DFW').trim();
+        const origin = (modalFlightOriginInput.value || 'DFW').trim() || 'DFW';
         const travelers = Number(modalFlightTravelersSelect.value) || 1;
         const win = getDefaultWindowForMonth(monthName);
-        modalGoogleFlightsLink.href = buildGoogleFlightsUrl(origin, win.departStr, win.returnStr, travelers);
+        modalGoogleFlightsLink.href = buildGoogleFlightsUrl(origin, win.departStr, win.returnStr, travelers, 'CUSTOM');
         modalFlightPreviewText.textContent = `Pre-filled for ${monthName}${customDates ? ` (${customDates})` : ` (~${win.departStr} to ${win.returnStr})`} from ${origin} to HNL for ${travelers} ${travelers === 1 ? 'traveler' : 'travelers'}.`;
       }
 
@@ -1313,6 +1417,16 @@
       flightDepartDate.value = formatIsoDate(initStart);
       flightReturnDate.value = formatIsoDate(initEnd);
       syncMainFlightBuilder();
+
+      flightMonthWindowSelect.addEventListener('change', () => {
+        const chosen = flightMonthWindowSelect.value;
+        if (chosen && chosen !== 'CUSTOM') {
+          const win = getDefaultWindowForMonth(chosen);
+          flightDepartDate.value = win.departStr;
+          flightReturnDate.value = win.returnStr;
+        }
+        syncMainFlightBuilder();
+      });
 
       [flightOriginInput, flightDepartDate, flightReturnDate, flightTravelersSelect].forEach((el) => {
         el.addEventListener('input', syncMainFlightBuilder);
@@ -1346,17 +1460,21 @@
         if (!target || !dataOrUrl) return;
         if (target.type === 'hero') {
           heroVisualImg.src = dataOrUrl;
+          savePhotoToStorage('hero', dataOrUrl);
           showToast('Updated Hero photo.');
         } else if (target.type === 'host' && HOSTS_DATA[target.index]) {
           HOSTS_DATA[target.index].photo = dataOrUrl;
+          savePhotoToStorage(`host_${target.index}`, dataOrUrl);
           renderHosts();
           showToast(`Updated photo for ${HOSTS_DATA[target.index].name}.`);
         } else if (target.type === 'apt' && APARTMENT_DATA[target.index]) {
           APARTMENT_DATA[target.index].photo = dataOrUrl;
+          savePhotoToStorage(`apt_${target.index}`, dataOrUrl);
           renderApartment();
           showToast(`Updated ${APARTMENT_DATA[target.index].title} photo.`);
         } else if (target.type === 'beach' && BEACHES_DATA[target.index]) {
           BEACHES_DATA[target.index].photo = dataOrUrl;
+          savePhotoToStorage(`beach_${target.index}`, dataOrUrl);
           renderBeaches();
           showToast(`Updated ${BEACHES_DATA[target.index].name} photo.`);
         }
@@ -1392,30 +1510,59 @@
         });
       }
 
+      const fitCoverBtn = document.getElementById('fitModeCoverBtn');
+      const fitContainBtn = document.getElementById('fitModeContainBtn');
+
+      function updateHostFitButtons() {
+        if (hostFitMode === 'cover') {
+          fitCoverBtn.className = 'px-3.5 py-1.5 rounded-full text-xs font-semibold bg-palm text-sand transition-all cursor-pointer';
+          fitContainBtn.className = 'px-3.5 py-1.5 rounded-full text-xs font-semibold text-palm hover:bg-sand transition-all cursor-pointer';
+        } else {
+          fitContainBtn.className = 'px-3.5 py-1.5 rounded-full text-xs font-semibold bg-palm text-sand transition-all cursor-pointer';
+          fitCoverBtn.className = 'px-3.5 py-1.5 rounded-full text-xs font-semibold text-palm hover:bg-sand transition-all cursor-pointer';
+        }
+      }
+
+      fitCoverBtn.addEventListener('click', () => {
+        hostFitMode = 'cover';
+        updateHostFitButtons();
+        renderHosts();
+      });
+
+      fitContainBtn.addEventListener('click', () => {
+        hostFitMode = 'contain';
+        updateHostFitButtons();
+        renderHosts();
+      });
+
       function renderHosts() {
+        const imgFitClass = hostFitMode === 'contain'
+          ? 'w-full h-full object-contain object-top block p-2'
+          : 'w-full h-full object-cover object-top block';
+
         hostsGrid.innerHTML = '';
         HOSTS_DATA.forEach((host, idx) => {
           const card = document.createElement('article');
-          card.className = 'rounded-2xl bg-cream border border-gold/40 shadow-card overflow-hidden flex flex-col justify-between';
+          card.className = 'rounded-2xl bg-sand border border-gold/40 shadow-card overflow-hidden flex flex-col justify-between';
           card.innerHTML = `
             <div>
-              <div class="relative h-52 w-full bg-creamDark border-b border-gold/30 overflow-hidden">
-                <img src="${host.photo}" alt="${escapeHtml(host.name)}" class="w-full h-full object-cover block" />
-                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-cream/95 text-palm border border-gold/45">
+              <div class="relative aspect-[3/4] min-h-[22rem] w-full bg-seafoam/65 border-b border-gold/30 overflow-hidden">
+                <img src="${host.photo}" alt="${escapeHtml(host.name)}" class="${imgFitClass}" />
+                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-sand/95 text-palm border border-gold/45">
                   ${escapeHtml(host.badge)}
                 </span>
               </div>
               <div class="p-5">
                 <h3 class="font-serif text-xl font-bold text-palm">${escapeHtml(host.name)}</h3>
-                <p class="text-xs font-semibold uppercase tracking-wider text-hibiscus mt-0.5">${escapeHtml(host.role)}</p>
+                <p class="text-xs font-semibold uppercase tracking-wider text-coral mt-0.5">${escapeHtml(host.role)}</p>
                 <p class="mt-3 text-sm text-ink/85 leading-relaxed">${escapeHtml(host.bio)}</p>
               </div>
             </div>
             <div class="px-5 pb-5 flex items-center justify-end gap-2">
-              <button type="button" data-index="${idx}" class="swap-url-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-creamDark hover:bg-gold/25 text-palm border border-gold/45 cursor-pointer">
+              <button type="button" data-index="${idx}" class="swap-url-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-sandDeep hover:bg-gold/25 text-palm border border-gold/45 cursor-pointer">
                 Photo URL
               </button>
-              <label class="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-semibold bg-palm hover:bg-palmDark text-cream cursor-pointer">
+              <label class="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-semibold bg-palm hover:bg-palmDeep text-sand cursor-pointer">
                 <span>Swap Photo</span>
                 <input type="file" accept="image/*" data-index="${idx}" class="swap-file-input sr-only" />
               </label>
@@ -1430,12 +1577,12 @@
         apartmentGrid.innerHTML = '';
         APARTMENT_DATA.forEach((room, idx) => {
           const card = document.createElement('article');
-          card.className = 'rounded-2xl bg-cream border border-gold/40 shadow-card overflow-hidden flex flex-col justify-between';
+          card.className = 'rounded-2xl bg-sand border border-gold/40 shadow-card overflow-hidden flex flex-col justify-between';
           card.innerHTML = `
             <div>
-              <div class="relative h-48 w-full bg-creamDark border-b border-gold/30 overflow-hidden">
+              <div class="relative h-48 w-full bg-sandDeep border-b border-gold/30 overflow-hidden">
                 <img src="${room.photo}" alt="${escapeHtml(room.title)}" class="w-full h-full object-cover block" />
-                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-cream/95 text-palm border border-gold/45">
+                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-sand/95 text-palm border border-gold/45">
                   ${escapeHtml(room.tag)}
                 </span>
               </div>
@@ -1445,10 +1592,10 @@
               </div>
             </div>
             <div class="px-5 pb-5 flex items-center justify-end gap-2">
-              <button type="button" data-index="${idx}" class="swap-url-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-creamDark hover:bg-gold/25 text-palm border border-gold/45 cursor-pointer">
+              <button type="button" data-index="${idx}" class="swap-url-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-sandDeep hover:bg-gold/25 text-palm border border-gold/45 cursor-pointer">
                 Photo URL
               </button>
-              <label class="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-semibold bg-palm hover:bg-palmDark text-cream cursor-pointer">
+              <label class="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-semibold bg-palm hover:bg-palmDeep text-sand cursor-pointer">
                 <span>Swap Photo</span>
                 <input type="file" accept="image/*" data-index="${idx}" class="swap-file-input sr-only" />
               </label>
@@ -1463,12 +1610,12 @@
         beachCardsGrid.innerHTML = '';
         BEACHES_DATA.forEach((beach, idx) => {
           const card = document.createElement('article');
-          card.className = 'rounded-2xl bg-cream border border-gold/45 shadow-card overflow-hidden flex flex-col justify-between';
+          card.className = 'rounded-2xl bg-sand border border-gold/45 shadow-card overflow-hidden flex flex-col justify-between';
           card.innerHTML = `
             <div>
-              <div class="relative h-52 w-full bg-creamDark border-b border-gold/30 overflow-hidden">
+              <div class="relative h-52 w-full bg-seafoam border-b border-gold/30 overflow-hidden">
                 <img src="${beach.photo}" alt="${escapeHtml(beach.name)}" class="w-full h-full object-cover block" />
-                <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-palm text-cream shadow-xs">
+                <span class="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-palm text-sand shadow-xs">
                   ${escapeHtml(beach.badge)}
                 </span>
               </div>
@@ -1483,15 +1630,15 @@
                 href="${beach.mapUrl}"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="text-xs sm:text-sm font-bold text-hibiscus hover:underline"
+                class="text-xs sm:text-sm font-bold text-coral hover:underline"
               >
                 Open in Google Maps &rarr;
               </a>
               <div class="flex items-center gap-2">
-                <button type="button" data-index="${idx}" class="swap-url-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-creamDark hover:bg-gold/25 text-palm border border-gold/45 cursor-pointer">
+                <button type="button" data-index="${idx}" class="swap-url-btn px-3 py-1.5 rounded-lg text-xs font-semibold bg-sandDeep hover:bg-gold/25 text-palm border border-gold/45 cursor-pointer">
                   Photo URL
                 </button>
-                <label class="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-semibold bg-palm hover:bg-palmDark text-cream cursor-pointer">
+                <label class="inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-semibold bg-palm hover:bg-palmDeep text-sand cursor-pointer">
                   <span>Swap Photo</span>
                   <input type="file" accept="image/*" data-index="${idx}" class="swap-file-input sr-only" />
                 </label>
@@ -1514,11 +1661,9 @@
         document.querySelectorAll('.map-pin-btn').forEach((btn) => {
           const match = btn.getAttribute('data-pin') === pinKey;
           if (match) {
-            btn.classList.add('bg-palm', 'text-cream');
-            btn.classList.remove('bg-cream', 'text-palm', 'border', 'border-gold/45');
+            btn.className = 'map-pin-btn px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold bg-palm text-sand transition-all cursor-pointer';
           } else {
-            btn.classList.remove('bg-palm', 'text-cream');
-            btn.classList.add('bg-cream', 'text-palm', 'border', 'border-gold/45');
+            btn.className = 'map-pin-btn px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold bg-sand text-palm border border-gold/45 hover:bg-white transition-all cursor-pointer';
           }
         });
       }
@@ -1529,37 +1674,57 @@
       document.getElementById('pinKailuaGroup').addEventListener('click', () => selectMapPin('kailua'));
       document.getElementById('pinLanikaiGroup').addEventListener('click', () => selectMapPin('lanikai'));
 
+      function getStatusBadgeMeta(status) {
+        if (status === 'PENCILED') {
+          return { label: 'Penciled-In', cls: 'bg-gold/20 text-ink border border-gold/50', canRequest: true };
+        }
+        if (status === 'BOOKED') {
+          return { label: 'Booked', cls: 'bg-coral/12 text-coral border border-coral/30', canRequest: false };
+        }
+        return { label: 'Available', cls: 'bg-palm/12 text-palm border border-palm/25', canRequest: true };
+      }
+
       function renderMonths() {
-        const filtered = monthsState.filter((m) => activeSeason === 'ALL' || m.season === activeSeason);
+        const filtered = monthsState.filter((m) => {
+          const seasonMatch = activeSeason === 'ALL' || m.season === activeSeason;
+          const statusMatch = activeStatus === 'ALL' || m.status === activeStatus;
+          return seasonMatch && statusMatch;
+        });
+
         monthsGrid.innerHTML = '';
+        if (filtered.length === 0) {
+          monthsGrid.innerHTML = `
+            <div class="col-span-full rounded-2xl bg-sand border border-gold/40 p-8 text-center">
+              <p class="font-serif text-lg font-bold text-palm">No months match that filter combination.</p>
+              <p class="text-xs sm:text-sm text-muted mt-1">Try switching back to All Year or All Months.</p>
+            </div>
+          `;
+          return;
+        }
 
         filtered.forEach((m) => {
-          const isOpen = m.status === 'OPEN';
+          const meta = getStatusBadgeMeta(m.status);
           const card = document.createElement('div');
           card.className = `rounded-2xl p-5 border flex flex-col justify-between transition-all ${
-            isOpen
-              ? 'bg-cream border-gold/45 shadow-card hover:border-palm hover:-translate-y-0.5'
-              : 'bg-creamDark/80 border-ink/15'
+            m.status === 'BOOKED'
+              ? 'bg-sandDeep/80 border-ink/15'
+              : 'bg-sand border-gold/45 shadow-card hover:border-palm hover:-translate-y-0.5'
           }`;
           card.innerHTML = `
             <div>
               <div class="flex items-center justify-between gap-2 mb-2.5">
-                <span class="text-[11px] font-bold uppercase tracking-wider text-muted">${m.season.replace('_', '–')}</span>
-                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase ${
-                  isOpen
-                    ? 'bg-palm/12 text-palm border border-palm/25'
-                    : 'bg-hibiscus/12 text-hibiscus border border-hibiscus/25'
-                }">${isOpen ? 'Open' : 'Booked'}</span>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-muted">${escapeHtml(SEASON_LABELS[m.season] || m.season)}</span>
+                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase ${meta.cls}">${meta.label}</span>
               </div>
               <h3 class="font-serif text-2xl font-bold text-palm">${escapeHtml(m.month)}</h3>
               <p class="mt-2 text-xs sm:text-sm text-ink/85 leading-relaxed">${escapeHtml(m.note)}</p>
-              ${!isOpen && m.guest ? `<p class="mt-2 text-xs font-semibold text-hibiscus">Guest: ${escapeHtml(m.guest)}</p>` : ''}
+              ${m.guest ? `<p class="mt-2 text-xs font-semibold text-coral">${m.status === 'PENCILED' ? 'Penciled-in' : 'Guest'}: ${escapeHtml(m.guest)}</p>` : ''}
             </div>
             <div class="mt-5 pt-3 border-t border-gold/20">
               ${
-                isOpen
-                  ? `<button type="button" data-month="${escapeHtml(m.month)}" class="claim-month-btn w-full py-2.5 px-4 rounded-xl text-xs sm:text-sm font-semibold bg-palm hover:bg-palmDark text-cream cursor-pointer">
-                      Request ${escapeHtml(m.month)} &rarr;
+                meta.canRequest
+                  ? `<button type="button" data-month="${escapeHtml(m.month)}" class="claim-month-btn w-full py-2.5 px-4 rounded-xl text-xs sm:text-sm font-semibold bg-palm hover:bg-palmDeep text-sand cursor-pointer">
+                      Claim ${escapeHtml(m.month)} &rarr;
                     </button>`
                   : `<button type="button" disabled class="w-full py-2.5 px-4 rounded-xl text-xs sm:text-sm font-semibold bg-ink/10 text-muted cursor-not-allowed">
                       Month Booked
@@ -1577,25 +1742,24 @@
         renderHostToggles();
       }
 
+      const STATUS_CYCLE = ['OPEN', 'PENCILED', 'BOOKED'];
+
       function renderHostToggles() {
         const container = document.getElementById('hostMonthToggles');
         container.innerHTML = '';
         monthsState.forEach((m, idx) => {
-          const isOpen = m.status === 'OPEN';
+          const meta = getStatusBadgeMeta(m.status);
           const btn = document.createElement('button');
           btn.type = 'button';
-          btn.className = `px-3 py-2 rounded-xl text-xs font-semibold border flex items-center justify-between cursor-pointer ${
-            isOpen
-              ? 'bg-cream text-palm border-gold/50 hover:bg-white'
-              : 'bg-hibiscus/25 text-cream border-hibiscus/50 hover:bg-hibiscus/35'
-          }`;
-          btn.innerHTML = `<span>${m.month.slice(0, 3)}</span><span class="text-[10px] uppercase font-bold">${isOpen ? 'Open' : 'Booked'}</span>`;
+          btn.className = 'px-3 py-2 rounded-xl text-xs font-semibold border bg-sand text-palm border-gold/50 hover:bg-white flex items-center justify-between gap-1 cursor-pointer';
+          btn.innerHTML = `<span>${m.month.slice(0, 3)}</span><span class="text-[10px] uppercase font-bold text-coral">${meta.label}</span>`;
           btn.addEventListener('click', () => {
-            monthsState[idx].status = isOpen ? 'BOOKED' : 'OPEN';
-            monthsState[idx].guest = monthsState[idx].status === 'BOOKED' ? 'Reserved by Host' : '';
+            const nextIdx = (STATUS_CYCLE.indexOf(m.status) + 1) % STATUS_CYCLE.length;
+            monthsState[idx].status = STATUS_CYCLE[nextIdx];
+            monthsState[idx].guest = monthsState[idx].status === 'OPEN' ? '' : (monthsState[idx].guest || 'Reserved by Host');
             persistState();
             renderMonths();
-            showToast(`${m.month} is now ${monthsState[idx].status}.`);
+            showToast(`${m.month} set to ${getStatusBadgeMeta(monthsState[idx].status).label}.`);
           });
           container.appendChild(btn);
         });
@@ -1606,19 +1770,19 @@
         requestsCounterText.textContent = `${tripRequests.length} ${tripRequests.length === 1 ? 'request' : 'requests'} saved`;
 
         if (tripRequests.length === 0) {
-          requestsList.innerHTML = `<p class="text-sm text-muted italic">No requests submitted yet. Tap any Open month above to request your visit!</p>`;
+          requestsList.innerHTML = `<p class="text-sm text-muted italic">No requests submitted yet. Tap any Available month above to request your visit!</p>`;
           return;
         }
 
         requestsList.innerHTML = '';
         tripRequests.forEach((req, idx) => {
           const row = document.createElement('div');
-          row.className = 'rounded-xl bg-creamDark/70 border border-gold/35 p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3';
+          row.className = 'rounded-xl bg-sandDeep/70 border border-gold/35 p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3';
           row.innerHTML = `
             <div>
               <div class="flex flex-wrap items-center gap-2">
                 <span class="font-serif font-bold text-palm">${escapeHtml(req.month)}</span>
-                <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-palm text-cream">${escapeHtml(req.vibe)}</span>
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-palm text-sand">${escapeHtml(req.vibe)}</span>
                 ${req.dates ? `<span class="text-xs text-muted">&bull; ${escapeHtml(req.dates)}</span>` : ''}
               </div>
               <p class="text-xs sm:text-sm text-ink/90 mt-1">
@@ -1626,7 +1790,7 @@
               </p>
               ${req.notes ? `<p class="text-xs text-muted italic mt-0.5">"${escapeHtml(req.notes)}"</p>` : ''}
             </div>
-            <button type="button" data-idx="${idx}" class="remove-req-btn self-start sm:self-center text-xs font-semibold text-hibiscus hover:underline cursor-pointer">
+            <button type="button" data-idx="${idx}" class="remove-req-btn self-start sm:self-center text-xs font-semibold text-coral hover:underline cursor-pointer">
               Remove
             </button>
           `;
@@ -1654,7 +1818,7 @@
 
       function openBookingModal(monthName) {
         document.getElementById('selectedMonthInput').value = monthName;
-        document.getElementById('modalTitle').textContent = `Request ${monthName} in Kailua`;
+        document.getElementById('modalTitle').textContent = `Claim ${monthName} in Kailua`;
         document.getElementById('preferredDatesInput').value = '';
         document.getElementById('guestNameInput').value = '';
         document.getElementById('guestContactInput').value = '';
@@ -1666,11 +1830,9 @@
         selectedVibe = 'Kailua & Lanikai Beach Days';
         document.querySelectorAll('.vibe-chip').forEach((chip, i) => {
           if (i === 0) {
-            chip.classList.add('border-palm', 'bg-palm', 'text-cream');
-            chip.classList.remove('border-gold/45', 'bg-white', 'text-ink');
+            chip.className = 'vibe-chip px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-semibold border border-palm bg-palm text-sand cursor-pointer';
           } else {
-            chip.classList.remove('border-palm', 'bg-palm', 'text-cream');
-            chip.classList.add('border-gold/45', 'bg-white', 'text-ink');
+            chip.className = 'vibe-chip px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-semibold border border-gold/45 bg-white text-ink hover:border-palm cursor-pointer';
           }
         });
         tripRequestForm.classList.remove('hidden');
@@ -1690,11 +1852,9 @@
           selectedVibe = chip.getAttribute('data-vibe');
           document.querySelectorAll('.vibe-chip').forEach((c) => {
             if (c === chip) {
-              c.classList.add('border-palm', 'bg-palm', 'text-cream');
-              c.classList.remove('border-gold/45', 'bg-white', 'text-ink');
+              c.className = 'vibe-chip px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-semibold border border-palm bg-palm text-sand cursor-pointer';
             } else {
-              c.classList.remove('border-palm', 'bg-palm', 'text-cream');
-              c.classList.add('border-gold/45', 'bg-white', 'text-ink');
+              c.className = 'vibe-chip px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-semibold border border-gold/45 bg-white text-ink hover:border-palm cursor-pointer';
             }
           });
         });
@@ -1792,11 +1952,23 @@
           activeSeason = btn.getAttribute('data-season') || 'ALL';
           document.querySelectorAll('.season-btn').forEach((b) => {
             if (b === btn) {
-              b.classList.add('bg-palm', 'text-cream');
-              b.classList.remove('bg-creamDark', 'text-palm', 'border', 'border-gold/35');
+              b.className = 'season-btn px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold bg-palm text-sand transition-all cursor-pointer';
             } else {
-              b.classList.remove('bg-palm', 'text-cream');
-              b.classList.add('bg-creamDark', 'text-palm', 'border', 'border-gold/35');
+              b.className = 'season-btn px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold bg-sandDeep text-palm hover:bg-palm/10 border border-gold/35 transition-all cursor-pointer';
+            }
+          });
+          renderMonths();
+        });
+      });
+
+      document.querySelectorAll('.status-filter-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          activeStatus = btn.getAttribute('data-status') || 'ALL';
+          document.querySelectorAll('.status-filter-btn').forEach((b) => {
+            if (b === btn) {
+              b.className = 'status-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-palm/12 text-palm border border-palm/30 cursor-pointer';
+            } else {
+              b.className = 'status-filter-btn px-3 py-1.5 rounded-full text-xs font-semibold bg-sandDeep text-palm border border-gold/35 hover:bg-white cursor-pointer';
             }
           });
           renderMonths();
@@ -1829,7 +2001,7 @@
         persistState();
         renderMonths();
         renderRequests();
-        showToast('Reset all months to Open.');
+        showToast('Reset all months to Available.');
       });
 
       renderHosts();
