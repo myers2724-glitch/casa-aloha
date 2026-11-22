@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Casa Aloha — Kailua Island Residency with Dristin, Colton, Shadow &amp; Silas</title>
 
-  <!-- Load Tailwind CSS -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Load Google Fonts: Playfair Display & Plus Jakarta Sans -->
+  <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -65,7 +65,6 @@
         radial-gradient(circle at 82% 88%, rgba(197, 155, 39, 0.09) 0%, transparent 44%);
     }
 
-    /* Smooth accordion transition */
     .accordion-content {
       display: grid;
       grid-template-rows: 0fr;
@@ -124,8 +123,9 @@
         <a href="#hosts" class="hover:text-palm transition-colors">Hosts</a>
         <a href="#apartment" class="hover:text-palm transition-colors">Apartment</a>
         <a href="#location-beaches" class="hover:text-palm transition-colors">Kailua &amp; Lanikai</a>
-        <a href="#included" class="hover:text-palm transition-colors">Included</a>
         <a href="#calendar" class="hover:text-palm transition-colors">Calendar</a>
+        <a href="#flights" class="hover:text-palm transition-colors">Flights</a>
+        <a href="#included" class="hover:text-palm transition-colors">Included</a>
         <a href="#faq" class="hover:text-palm transition-colors">FAQ</a>
       </nav>
 
@@ -168,7 +168,7 @@
             </p>
 
             <p class="text-sm sm:text-base text-muted leading-relaxed max-w-2xl mx-auto lg:mx-0">
-              Located right in Kailua near world-famous Kailua Beach Park and Lanikai Beach, our guest spot is ready for your favorite month of sunshine, coastal walks, and shared island memories.
+              Located right in Kailua near Kailua Beach Park and Lanikai Beach Park, our guest spot is ready for your favorite month of sunshine, coastal walks, and shared island memories.
             </p>
 
             <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5">
@@ -188,7 +188,7 @@
             </div>
           </div>
 
-          <!-- Hero Visual Card with Swap Photo -->
+          <!-- Hero Visual Card with Swap Photo & Photo URL -->
           <div class="lg:col-span-5">
             <div class="bg-cream p-3.5 sm:p-4 rounded-2xl gold-frame shadow-elevated">
               <div class="relative aspect-[4/3] w-full rounded-xl overflow-hidden border border-gold/30 bg-creamDark">
@@ -231,9 +231,7 @@
           </p>
         </div>
 
-        <div id="hostsGrid" class="grid grid-cols-1 md:grid-cols-3 gap-7">
-          <!-- Populated via JavaScript -->
-        </div>
+        <div id="hostsGrid" class="grid grid-cols-1 md:grid-cols-3 gap-7"></div>
       </div>
     </section>
 
@@ -253,9 +251,7 @@
           </span>
         </div>
 
-        <div id="apartmentGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- Populated via JavaScript -->
-        </div>
+        <div id="apartmentGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
       </div>
     </section>
 
@@ -281,7 +277,7 @@
               Central Kailua starting point for morning coffee, beach runs, and easy coastal drives.
             </p>
             <a
-              href="https://www.google.com/maps/place//data=!4m2!3m1!19sChIJ774_GOgUAHwRGs_SI2ll-Dc"
+              href="https://www.google.com/maps/search/?api=1&query=1015+Aoloa+Pl,+Kailua,+HI+96734"
               target="_blank"
               rel="noopener noreferrer"
               class="mt-3 inline-flex items-center gap-1 text-xs font-bold text-hibiscus hover:underline"
@@ -296,14 +292,14 @@
             <h3 class="font-serif text-xl font-bold text-palm mt-1">Kailua Beach Park</h3>
             <p class="mt-1 text-sm font-bold text-hibiscus">~1.4 miles &bull; ~4–6 min drive</p>
             <p class="mt-2 text-xs sm:text-sm text-ink/80 leading-relaxed">
-              Broad sandy shoreline, swaying ironwoods and palms, picnic spaces, and easy beach-day lounging.
+              Broad sandy shoreline, swaying trees, picnic spaces, and easy beach-day lounging.
             </p>
           </div>
 
           <div class="rounded-2xl bg-cream border border-gold/45 p-5 shadow-card">
             <p class="text-[11px] font-bold uppercase tracking-wider text-palm">Approx. Distance &amp; Drive</p>
             <h3 class="font-serif text-xl font-bold text-palm mt-1">Lanikai Beach Park</h3>
-            <p class="mt-1 text-sm font-bold text-hibiscus">~2.6–3 miles &bull; ~8–10 min drive</p>
+            <p class="mt-1 text-sm font-bold text-hibiscus">~2.6 miles &bull; ~8–10 min drive</p>
             <p class="mt-2 text-xs sm:text-sm text-ink/80 leading-relaxed">
               Silky white sand, calm turquoise water, and iconic views of Nā Mokulua just off the shore.
             </p>
@@ -332,7 +328,7 @@
                 data-pin="lanikai"
                 class="map-pin-btn px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold bg-cream text-palm border border-gold/45 hover:bg-white transition-all cursor-pointer"
               >
-                Lanikai Beach Park (~2.6–3 mi)
+                Lanikai Beach Park (~2.6 mi)
               </button>
             </div>
           </div>
@@ -342,31 +338,24 @@
             <div class="lg:col-span-7">
               <div class="rounded-2xl overflow-hidden border border-gold/40 bg-[#E3F1EC] shadow-inner">
                 <svg class="w-full h-auto block" viewBox="0 0 640 310" fill="none" role="img" aria-label="Proximity map showing 1015 Aoloa Pl in Kailua, Kailua Beach Park, and Lanikai Beach Park">
-                  <!-- Ocean Background -->
                   <rect width="640" height="310" fill="#D5ECE8" />
-                  <!-- Subtle Ocean Wave Lines -->
                   <path d="M430 65 Q465 55 500 65 T575 65" stroke="#6BA9A8" stroke-width="2" stroke-linecap="round" opacity="0.65" />
                   <path d="M450 155 Q490 145 530 155 T610 155" stroke="#6BA9A8" stroke-width="2" stroke-linecap="round" opacity="0.65" />
                   <path d="M420 245 Q460 235 500 245 T585 245" stroke="#6BA9A8" stroke-width="2" stroke-linecap="round" opacity="0.65" />
 
-                  <!-- Kailua Landmass & Ko'olau Ridge Accent -->
                   <path d="M0 0 L435 0 Q458 105 445 205 Q435 270 390 310 L0 310 Z" fill="#F6F1E4" stroke="#C59B27" stroke-width="2" />
                   <path d="M0 0 L120 0 Q70 130 95 310 L0 310 Z" fill="#1B4332" fill-opacity="0.14" />
                   <text x="24" y="34" fill="#1B4332" font-size="11" font-weight="700" letter-spacing="1.5">WINDWARD OʻAHU</text>
 
-                  <!-- Sandy Coastline Strip -->
                   <path d="M435 20 Q456 115 442 215 Q432 272 394 310" stroke="#E5C368" stroke-width="11" stroke-linecap="round" />
 
-                  <!-- Nā Mokulua Islets Offshore -->
                   <ellipse cx="555" cy="212" rx="18" ry="9" transform="rotate(-18 555 212)" fill="#1B4332" fill-opacity="0.55" />
                   <ellipse cx="585" cy="236" rx="13" ry="7" transform="rotate(-12 585 236)" fill="#1B4332" fill-opacity="0.55" />
                   <text x="518" y="262" fill="#1B4332" font-size="10" font-weight="600">Nā Mokulua</text>
 
-                  <!-- Route Lines from 1015 Aoloa Pl -->
                   <path id="routeToKailua" d="M225 148 Q330 125 438 118" stroke="#1B4332" stroke-width="3.5" stroke-dasharray="7 5" />
                   <path id="routeToLanikai" d="M225 148 Q350 205 430 236" stroke="#B8332A" stroke-width="3.5" stroke-dasharray="7 5" />
 
-                  <!-- Pin 1: 1015 Aoloa Pl (Home Base) -->
                   <g transform="translate(225, 148)">
                     <circle r="18" fill="#C59B27" fill-opacity="0.22" />
                     <circle r="9" fill="#1B4332" stroke="#FAF6EE" stroke-width="2.5" />
@@ -374,7 +363,6 @@
                     <text x="0" y="-20" text-anchor="middle" fill="#FAF6EE" font-size="11" font-weight="700">1015 Aoloa Pl (Home)</text>
                   </g>
 
-                  <!-- Pin 2: Kailua Beach Park -->
                   <g id="pinKailuaGroup" transform="translate(438, 118)" class="cursor-pointer">
                     <circle r="18" fill="#1B4332" fill-opacity="0.2" />
                     <circle r="8.5" fill="#1B4332" stroke="#FAF6EE" stroke-width="2.5" />
@@ -382,12 +370,11 @@
                     <text x="87" y="4" text-anchor="middle" fill="#1B4332" font-size="11" font-weight="700">Kailua Beach (~1.4 mi)</text>
                   </g>
 
-                  <!-- Pin 3: Lanikai Beach Park -->
                   <g id="pinLanikaiGroup" transform="translate(430, 236)" class="cursor-pointer">
                     <circle r="18" fill="#B8332A" fill-opacity="0.2" />
                     <circle r="8.5" fill="#B8332A" stroke="#FAF6EE" stroke-width="2.5" />
                     <rect x="-166" y="-14" width="154" height="28" rx="8" fill="#FAF6EE" stroke="#B8332A" stroke-width="1.5" />
-                    <text x="-89" y="4" text-anchor="middle" fill="#B8332A" font-size="11" font-weight="700">Lanikai Beach (~2.6–3 mi)</text>
+                    <text x="-89" y="4" text-anchor="middle" fill="#B8332A" font-size="11" font-weight="700">Lanikai Beach (~2.6 mi)</text>
                   </g>
                 </svg>
               </div>
@@ -402,12 +389,12 @@
                 <h4 id="mapDetailTitle" class="font-serif text-2xl font-bold text-palm">Kailua Beach Park</h4>
                 <p id="mapDetailStats" class="text-sm font-bold text-hibiscus">~1.4 miles from 1015 Aoloa Pl &bull; ~4–6 min drive</p>
                 <p id="mapDetailCopy" class="text-sm text-ink/85 leading-relaxed">
-                  Wide powdery sand, shady trees, picnic tables, and easy access from our Kailua spot—ideal for laid-back beach days, ocean dips, and breezy walks along the shore.
+                  Wide powdery sand, shady trees, picnic tables, and easy access from our Kailua spot&mdash;ideal for laid-back beach days, ocean dips, and breezy walks along the shore.
                 </p>
                 <div class="pt-2 flex flex-wrap gap-3">
                   <a
                     id="mapDetailLink"
-                    href="https://www.google.com/maps/place//data=!4m2!3m1!19sChIJ3Sdhx_wUAHwR4PwW3S4mbjc"
+                    href="https://www.google.com/maps/search/?api=1&query=Kailua+Beach+Park,+Kailua,+HI"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold bg-palm hover:bg-palmDark text-cream transition-colors"
@@ -416,7 +403,7 @@
                     <span aria-hidden="true">&rarr;</span>
                   </a>
                   <a
-                    href="https://www.google.com/maps/place//data=!4m2!3m1!19sChIJ774_GOgUAHwRGs_SI2ll-Dc"
+                    href="https://www.google.com/maps/search/?api=1&query=1015+Aoloa+Pl,+Kailua,+HI+96734"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs sm:text-sm font-semibold bg-creamDark hover:bg-white text-palm border border-gold/50 transition-colors"
@@ -429,54 +416,12 @@
           </div>
         </div>
 
-        <!-- Beach Showcase Cards with Scenic Illustrations & Swap Photo -->
-        <div id="beachCardsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-7">
-          <!-- Populated via JavaScript -->
-        </div>
+        <!-- Beach Showcase Cards -->
+        <div id="beachCardsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-7"></div>
       </div>
     </section>
 
-    <!-- 5A. WHAT'S INCLUDED -->
-    <section id="included" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-palm text-cream">
-      <div class="max-w-6xl mx-auto">
-        <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
-          <p class="text-xs font-bold uppercase tracking-[0.2em] text-goldLight mb-2">Hospitality On Us</p>
-          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-cream">What&rsquo;s Included in Your Stay</h2>
-          <p class="mt-3 text-sm sm:text-base text-cream/80">
-            Zero resort fees&mdash;just welcoming hosts, a cozy Kailua home base, and easy island days together.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="rounded-2xl bg-palmDark/90 border border-gold/35 p-6">
-            <h3 class="font-serif text-xl font-semibold text-goldLight mb-2">Cozy Kailua Quarters</h3>
-            <p class="text-sm text-cream/85 leading-relaxed">
-              A comfortable, furnished home base in Kailua at $0/night with morning coffee, lanai breezes, and room to unwind.
-            </p>
-          </div>
-          <div class="rounded-2xl bg-palmDark/90 border border-gold/35 p-6">
-            <h3 class="font-serif text-xl font-semibold text-goldLight mb-2">Island Rides &amp; Beach Runs</h3>
-            <p class="text-sm text-cream/85 leading-relaxed">
-              Easy hops over to Kailua Beach Park and Lanikai Beach Park plus local spots around town when we head out together.
-            </p>
-          </div>
-          <div class="rounded-2xl bg-palmDark/90 border border-gold/35 p-6">
-            <h3 class="font-serif text-xl font-semibold text-goldLight mb-2">Beach &amp; Sunshine Gear</h3>
-            <p class="text-sm text-cream/85 leading-relaxed">
-              Beach towels, coolers, and breezy island essentials ready so you can pack lighter and enjoy the sand.
-            </p>
-          </div>
-          <div class="rounded-2xl bg-palmDark/90 border border-gold/35 p-6">
-            <h3 class="font-serif text-xl font-semibold text-goldLight mb-2">House Rules: Pure Aloha</h3>
-            <p class="text-sm text-cream/85 leading-relaxed">
-              No rushed schedules, plenty of Shadow &amp; Silas cuddles, sunset skies, and sweet island treats along the way.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5B. INTERACTIVE 12-MONTH CALENDAR WITH SEASON FILTERS -->
+    <!-- 5A. INTERACTIVE 12-MONTH RESIDENCY CALENDAR -->
     <section id="calendar" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8">
       <div class="max-w-6xl mx-auto">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
@@ -507,9 +452,7 @@
           </div>
         </div>
 
-        <div id="monthsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-          <!-- Populated via JavaScript -->
-        </div>
+        <div id="monthsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"></div>
 
         <!-- Submitted Requests Summary -->
         <div id="requestsSection" class="mt-10 rounded-2xl bg-cream border border-gold/45 p-6 shadow-card">
@@ -529,7 +472,149 @@
       </div>
     </section>
 
-    <!-- 5C. FAQ ACCORDION -->
+    <!-- 5B. CHECK CHEAPEST FLIGHTS ON GOOGLE FLIGHTS (DIRECTLY BELOW CALENDAR) -->
+    <section id="flights" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-creamDark/55 border-y border-gold/30">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-10">
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-gold mb-2">Plan Your Trip to Oʻahu</p>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-palm">
+            Check Cheapest Flights on Google Flights
+          </h2>
+          <p class="mt-3 text-sm sm:text-base text-muted leading-relaxed">
+            Defaulted to <strong class="text-ink">DFW</strong> for easy DFW-area crew searches&mdash;update your departure city/airport, dates, or traveler count anytime and jump straight to Google Flights for <strong class="text-ink">Honolulu (HNL)</strong>.
+          </p>
+        </div>
+
+        <div class="rounded-3xl bg-cream border border-gold/45 p-6 sm:p-8 shadow-card">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            <div class="lg:col-span-1">
+              <label for="flightOriginInput" class="block text-xs font-bold uppercase tracking-wider text-palm mb-1.5">
+                Flying From
+              </label>
+              <input
+                type="text"
+                id="flightOriginInput"
+                value="DFW"
+                placeholder="City or airport (e.g., DFW, DAL, AUS)"
+                class="w-full rounded-xl border border-gold/45 bg-white px-3.5 py-2.5 text-sm font-semibold text-ink focus:outline-none focus:border-palm"
+              />
+            </div>
+
+            <div class="lg:col-span-1">
+              <label for="flightDestInput" class="block text-xs font-bold uppercase tracking-wider text-palm mb-1.5">
+                Flying To
+              </label>
+              <input
+                type="text"
+                id="flightDestInput"
+                value="Honolulu HNL"
+                readonly
+                class="w-full rounded-xl border border-gold/45 bg-creamDark/70 px-3.5 py-2.5 text-sm font-semibold text-ink"
+              />
+            </div>
+
+            <div class="lg:col-span-1">
+              <label for="flightDepartDate" class="block text-xs font-bold uppercase tracking-wider text-palm mb-1.5">
+                Arrival Date
+              </label>
+              <input
+                type="date"
+                id="flightDepartDate"
+                class="w-full rounded-xl border border-gold/45 bg-white px-3.5 py-2.5 text-sm text-ink focus:outline-none focus:border-palm"
+              />
+            </div>
+
+            <div class="lg:col-span-1">
+              <label for="flightReturnDate" class="block text-xs font-bold uppercase tracking-wider text-palm mb-1.5">
+                Return Date
+              </label>
+              <input
+                type="date"
+                id="flightReturnDate"
+                class="w-full rounded-xl border border-gold/45 bg-white px-3.5 py-2.5 text-sm text-ink focus:outline-none focus:border-palm"
+              />
+            </div>
+
+            <div class="lg:col-span-1">
+              <label for="flightTravelersSelect" class="block text-xs font-bold uppercase tracking-wider text-palm mb-1.5">
+                Travelers
+              </label>
+              <select
+                id="flightTravelersSelect"
+                class="w-full rounded-xl border border-gold/45 bg-white px-3.5 py-2.5 text-sm text-ink focus:outline-none focus:border-palm"
+              >
+                <option value="1" selected>1 Traveler</option>
+                <option value="2">2 Travelers</option>
+                <option value="3">3 Travelers</option>
+                <option value="4">4 Travelers</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mt-5 pt-5 border-t border-gold/25 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+            <div class="space-y-1 text-xs sm:text-sm text-ink/85">
+              <p id="flightSearchSummary" class="font-semibold text-palm"></p>
+              <p class="text-xs text-muted">
+                Google Flights prices and flexible/cheapest date options update live when opened&mdash;check Google Flights&rsquo; calendar or price graph view to spot the lowest fares around your dates.
+              </p>
+            </div>
+
+            <a
+              id="googleFlightsLaunchBtn"
+              href="https://www.google.com/travel/flights"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="shrink-0 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-hibiscus hover:bg-hibiscusLight text-cream font-semibold text-xs sm:text-sm shadow-md transition-all"
+            >
+              <span>Search Cheapest Flights on Google Flights</span>
+              <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5C. WHAT'S INCLUDED IN YOUR STAY (BOTTOM OF PAGE) -->
+    <section id="included" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-palm text-cream">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-goldLight mb-2">Hospitality On Us</p>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-cream">What&rsquo;s Included in Your Stay</h2>
+          <p class="mt-3 text-sm sm:text-base text-cream/80">
+            Zero resort fees&mdash;just welcoming hosts, a cozy Kailua home base, and easy island days together.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="rounded-2xl bg-palmDark/90 border border-gold/35 p-6">
+            <h3 class="font-serif text-xl font-semibold text-goldLight mb-2">Cozy Kailua Quarters</h3>
+            <p class="text-sm text-cream/85 leading-relaxed">
+              A comfortable, furnished home base in Kailua at $0/night with morning coffee, lanai breezes, and room to unwind.
+            </p>
+          </div>
+          <div class="rounded-2xl bg-palmDark/90 border border-gold/35 p-6">
+            <h3 class="font-serif text-xl font-semibold text-goldLight mb-2">Island Rides &amp; Beach Runs</h3>
+            <p class="text-sm text-cream/85 leading-relaxed">
+              Easy hops over to Kailua Beach Park (~1.4 mi) and Lanikai Beach Park (~2.6 mi) plus local spots around Kailua.
+            </p>
+          </div>
+          <div class="rounded-2xl bg-palmDark/90 border border-gold/35 p-6">
+            <h3 class="font-serif text-xl font-semibold text-goldLight mb-2">Beach &amp; Sunshine Gear</h3>
+            <p class="text-sm text-cream/85 leading-relaxed">
+              Beach towels, coolers, and breezy island essentials ready so you can pack lighter and enjoy the sand.
+            </p>
+          </div>
+          <div class="rounded-2xl bg-palmDark/90 border border-gold/35 p-6">
+            <h3 class="font-serif text-xl font-semibold text-goldLight mb-2">House Rules: Pure Aloha</h3>
+            <p class="text-sm text-cream/85 leading-relaxed">
+              No rushed schedules, plenty of Shadow &amp; Silas cuddles, sunset skies, and sweet island treats along the way.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5D. FREQUENTLY ASKED QUESTIONS (BOTTOM OF PAGE, RIGHT ABOVE FOOTER) -->
     <section id="faq" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-creamDark/55 border-t border-gold/30">
       <div class="max-w-4xl mx-auto">
         <div class="text-center mb-10">
@@ -548,7 +633,7 @@
             <div class="accordion-content">
               <div class="accordion-inner">
                 <div class="px-5 pb-5 text-sm sm:text-base text-ink/85 leading-relaxed border-t border-gold/15 pt-3">
-                  We&rsquo;re at <strong>1015 Aoloa Pl, Kailua, HI 96734</strong>. Kailua Beach Park is roughly 1.4 miles away (~4–6 minutes by car), and Lanikai Beach Park is roughly 2.6–3 miles away (~8–10 minutes by car).
+                  We&rsquo;re at <strong>1015 Aoloa Pl, Kailua, HI 96734</strong>. Kailua Beach Park is roughly 1.4 miles away (~4–6 minutes by car), and Lanikai Beach Park is roughly 2.6 miles away (~8–10 minutes by car).
                 </div>
               </div>
             </div>
@@ -564,7 +649,7 @@
             <div class="accordion-content">
               <div class="accordion-inner">
                 <div class="px-5 pb-5 text-sm sm:text-base text-ink/85 leading-relaxed border-t border-gold/15 pt-3">
-                  Fly into <strong>Daniel K. Inouye International Airport (HNL)</strong> in Honolulu. Share your flight details once you&rsquo;re booked so we can coordinate your arrival over to Kailua.
+                  Fly into <strong>Daniel K. Inouye International Airport (HNL)</strong> in Honolulu. Our flight links default to <strong>DFW</strong> so you can quickly compare fares from Dallas–Fort Worth, or swap in any other departure airport.
                 </div>
               </div>
             </div>
@@ -614,7 +699,7 @@
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
           <div>
             <h3 class="font-serif text-lg font-bold text-goldLight">Host Mode &mdash; Toggle Months Open or Booked</h3>
-            <p class="text-xs text-cream/80">Click any month button to switch availability status.</p>
+            <p class="text-xs text-cream/80">Changes save automatically in this browser (localStorage).</p>
           </div>
           <button
             type="button"
@@ -629,7 +714,7 @@
     </div>
   </footer>
 
-  <!-- TRIP REQUEST MODAL -->
+  <!-- CLAIM YOUR MONTH TRIP REQUEST MODAL -->
   <div
     id="bookingModal"
     class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-ink/60"
@@ -674,7 +759,7 @@
           </div>
           <div>
             <label for="guestContactInput" class="block text-xs font-bold uppercase tracking-wider text-palm mb-1">Email or Phone *</label>
-            <input type="text" id="guestContactInput" required placeholder="you@example.com or (808) 555-0199" class="w-full rounded-xl border border-gold/45 bg-white px-3.5 py-2.5 text-sm text-ink focus:outline-none focus:border-palm" />
+            <input type="text" id="guestContactInput" required placeholder="you@example.com or (214) 555-0199" class="w-full rounded-xl border border-gold/45 bg-white px-3.5 py-2.5 text-sm text-ink focus:outline-none focus:border-palm" />
           </div>
         </div>
 
@@ -701,6 +786,43 @@
           <textarea id="guestNotesInput" rows="2" placeholder="Anything you're excited to see or snack on..." class="w-full rounded-xl border border-gold/45 bg-white px-3.5 py-2 text-sm text-ink focus:outline-none focus:border-palm"></textarea>
         </div>
 
+        <!-- Dynamic Flight Search Builder Inside Trip Request Modal (Defaults to DFW) -->
+        <div class="rounded-2xl bg-creamDark/75 border border-gold/45 p-4 space-y-3">
+          <div class="flex items-center justify-between gap-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-palm">Check Cheapest Flights to HNL</span>
+            <span class="text-[11px] font-semibold text-hibiscus">Default: DFW</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label for="modalFlightOriginInput" class="block text-[11px] font-bold uppercase tracking-wider text-ink/80 mb-1">Departure City / Airport</label>
+              <input type="text" id="modalFlightOriginInput" value="DFW" placeholder="e.g., DFW, DAL, AUS" class="w-full rounded-xl border border-gold/40 bg-white px-3 py-2 text-xs sm:text-sm font-semibold text-ink focus:outline-none focus:border-palm" />
+            </div>
+            <div>
+              <label for="modalFlightTravelersSelect" class="block text-[11px] font-bold uppercase tracking-wider text-ink/80 mb-1">Travelers</label>
+              <select id="modalFlightTravelersSelect" class="w-full rounded-xl border border-gold/40 bg-white px-3 py-2 text-xs sm:text-sm text-ink focus:outline-none focus:border-palm">
+                <option value="1" selected>1 Traveler</option>
+                <option value="2">2 Travelers</option>
+                <option value="3">3 Travelers</option>
+                <option value="4">4 Travelers</option>
+              </select>
+            </div>
+          </div>
+          <p id="modalFlightPreviewText" class="text-xs text-muted"></p>
+          <p class="text-[11px] text-muted">
+            Google Flights prices and flexible/cheapest date options update live when opened.
+          </p>
+          <a
+            id="modalGoogleFlightsLink"
+            href="https://www.google.com/travel/flights"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center gap-1.5 w-full py-2.5 px-4 rounded-xl text-xs sm:text-sm font-semibold bg-palm hover:bg-palmDark text-cream transition-colors"
+          >
+            <span>Open Google Flights for These Dates</span>
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+
         <div class="pt-2 flex items-center justify-end gap-3">
           <button type="button" id="cancelModalBtn" class="px-4 py-2.5 rounded-full text-sm font-semibold text-muted hover:text-ink cursor-pointer">Cancel</button>
           <button type="submit" class="px-6 py-2.5 rounded-full text-sm font-semibold bg-hibiscus hover:bg-hibiscusLight text-cream shadow-md cursor-pointer">Send Trip Request</button>
@@ -720,7 +842,7 @@
     </div>
   </div>
 
-  <!-- PHOTO URL PROMPT MODAL (NO NATIVE ALERT/CONFIRM) -->
+  <!-- PHOTO URL PROMPT MODAL -->
   <div
     id="photoUrlModal"
     class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-ink/60"
@@ -757,9 +879,12 @@
 
   <script>
     (function () {
+      const STORAGE_KEY_MONTHS = 'casaAlohaKailuaMonths_v1';
+      const STORAGE_KEY_REQUESTS = 'casaAlohaKailuaRequests_v1';
+
       /**
-       * Helper to convert inline SVG markup into a reliable data URI so every <img>
-       * renders immediately with zero broken network or local-file issues.
+       * Converts inline SVG markup into a self-contained data URI so images render
+       * reliably on any device without broken external or local file paths.
        */
       function svgDataUri(svgMarkup) {
         return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgMarkup.trim());
@@ -784,13 +909,11 @@
             <path d="M0 245 Q130 190 250 225 Q370 255 475 188 Q540 150 600 185 L600 450 L0 450 Z" fill="#1B4332" opacity="0.22"/>
             <rect x="0" y="255" width="600" height="195" fill="url(#sea)" opacity="0.72"/>
             <path d="M0 325 Q150 305 300 330 T600 325 L600 450 L0 450 Z" fill="#F4EBD7"/>
-            <!-- Palm Tree Left -->
             <path d="M72 340 Q62 215 104 102" stroke="#1B4332" stroke-width="8" stroke-linecap="round" fill="none"/>
             <path d="M104 102 Q52 88 26 128" stroke="#1B4332" stroke-width="6" stroke-linecap="round" fill="none"/>
             <path d="M104 102 Q74 56 38 64" stroke="#1B4332" stroke-width="6" stroke-linecap="round" fill="none"/>
             <path d="M104 102 Q128 54 172 68" stroke="#1B4332" stroke-width="6" stroke-linecap="round" fill="none"/>
             <path d="M104 102 Q154 96 184 136" stroke="#1B4332" stroke-width="6" stroke-linecap="round" fill="none"/>
-            <!-- Dristin & Colton -->
             <circle cx="242" cy="212" r="26" fill="#E8B896"/>
             <path d="M216 205 Q242 176 268 205" fill="#4A3222"/>
             <path d="M208 242 Q242 230 276 242 L284 345 L200 345 Z" fill="#1B4332"/>
@@ -798,12 +921,10 @@
             <path d="M286 204 Q290 168 322 172 Q346 176 342 228" fill="#5E3B22"/>
             <circle cx="335" cy="188" r="8" fill="#B8332A"/>
             <path d="M282 238 Q312 228 342 238 L352 345 L272 345 Z" fill="#B8332A"/>
-            <!-- Shadow -->
             <ellipse cx="182" cy="340" rx="34" ry="18" fill="#2E2A28"/>
             <circle cx="152" cy="324" r="18" fill="#2E2A28"/>
             <path d="M140 312 L134 296 L149 308 Z" fill="#1C1918"/>
             <path d="M164 312 L171 296 L157 308 Z" fill="#1C1918"/>
-            <!-- Silas -->
             <ellipse cx="394" cy="343" rx="26" ry="15" fill="#D9A66A"/>
             <circle cx="416" cy="330" r="15" fill="#D9A66A"/>
             <ellipse cx="405" cy="328" rx="6" ry="11" fill="#9A6738"/>
@@ -836,12 +957,10 @@
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320">
             <rect width="480" height="320" fill="#E3ECE7"/>
             <rect x="18" y="18" width="444" height="284" rx="18" fill="#FAF6EE" stroke="#C59B27" stroke-width="2"/>
-            <!-- Plumeria accents -->
             <circle cx="176" cy="84" r="14" fill="#FAF6EE" stroke="#C59B27" stroke-width="2"/>
             <circle cx="176" cy="84" r="5" fill="#C59B27"/>
             <circle cx="304" cy="84" r="14" fill="#FAF6EE" stroke="#C59B27" stroke-width="2"/>
             <circle cx="304" cy="84" r="5" fill="#C59B27"/>
-            <!-- Shadow -->
             <ellipse cx="240" cy="212" rx="68" ry="44" fill="#2F2B29"/>
             <circle cx="240" cy="144" r="42" fill="#2F2B29"/>
             <path d="M208 116 L194 78 L224 106 Z" fill="#1D1A19"/>
@@ -857,7 +976,6 @@
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 320">
             <rect width="480" height="320" fill="#F5EBD6"/>
             <rect x="18" y="18" width="444" height="284" rx="18" fill="#FAF6EE" stroke="#C59B27" stroke-width="2"/>
-            <!-- Silas Puppy -->
             <ellipse cx="240" cy="210" rx="62" ry="38" fill="#DDA96B"/>
             <circle cx="240" cy="146" r="38" fill="#DDA96B"/>
             <ellipse cx="204" cy="144" rx="14" ry="26" fill="#9E6A3A"/>
@@ -865,7 +983,6 @@
             <circle cx="226" cy="142" r="3.5" fill="#18221D"/>
             <circle cx="254" cy="142" r="3.5" fill="#18221D"/>
             <ellipse cx="240" cy="155" rx="7" ry="5" fill="#3B2818"/>
-            <!-- Festive Red Bandanna -->
             <path d="M206 184 L240 214 L274 184 Z" fill="#B8332A"/>
             <circle cx="240" cy="198" r="4" fill="#E5C368"/>
             <text x="240" y="288" text-anchor="middle" fill="#1B4332" font-family="Georgia, serif" font-size="16" font-weight="bold">Silas &bull; Chief Pup</text>
@@ -876,11 +993,9 @@
             <rect width="480" height="300" fill="#FAF6EE"/>
             <rect x="24" y="24" width="432" height="176" rx="10" fill="#E4F1ED" stroke="#C59B27" stroke-width="2"/>
             <rect x="24" y="200" width="432" height="76" fill="#E9DEC6"/>
-            <!-- Cozy Sofa & Pillows -->
             <rect x="92" y="168" width="180" height="44" rx="12" fill="#1B4332"/>
             <rect x="102" y="152" width="42" height="22" rx="6" fill="#C59B27"/>
             <rect x="220" y="152" width="42" height="22" rx="6" fill="#B8332A"/>
-            <!-- Sunlit Window -->
             <rect x="320" y="54" width="96" height="92" rx="8" fill="#FAF6EE" stroke="#1B4332" stroke-width="3"/>
             <line x1="368" y1="54" x2="368" y2="146" stroke="#1B4332" stroke-width="2"/>
             <line x1="320" y1="100" x2="416" y2="100" stroke="#1B4332" stroke-width="2"/>
@@ -892,7 +1007,6 @@
             <rect width="480" height="300" fill="#FAF6EE"/>
             <rect x="24" y="24" width="432" height="176" rx="10" fill="#F3ECE0" stroke="#C59B27" stroke-width="2"/>
             <rect x="24" y="200" width="432" height="76" fill="#E9DEC6"/>
-            <!-- Guest Bed Frame & Pillows -->
             <rect x="120" y="120" width="240" height="18" rx="6" fill="#1B4332"/>
             <rect x="126" y="138" width="228" height="72" rx="8" fill="#FFFFFF" stroke="#C59B27" stroke-width="1.5"/>
             <rect x="142" y="146" width="84" height="24" rx="8" fill="#E5C368" opacity="0.65"/>
@@ -908,7 +1022,6 @@
             <circle cx="385" cy="74" r="24" fill="#E5C368"/>
             <path d="M24 162 Q150 132 280 158 T456 150 L456 200 L24 200 Z" fill="#1B4332" opacity="0.22"/>
             <rect x="24" y="200" width="432" height="76" fill="#FAF6EE"/>
-            <!-- Lanai Railing -->
             <rect x="24" y="182" width="432" height="18" fill="#1B4332"/>
             <text x="240" y="252" text-anchor="middle" fill="#1B4332" font-family="Georgia, serif" font-size="15" font-weight="bold">Breezy Kailua Lanai &amp; Trade Winds</text>
           </svg>
@@ -930,11 +1043,9 @@
             <circle cx="445" cy="64" r="28" fill="#E5C368"/>
             <path d="M0 155 Q120 118 245 148 Q380 172 540 138 L540 310 L0 310 Z" fill="url(#kbWater)"/>
             <path d="M0 228 Q185 202 365 232 T540 222 L540 310 L0 310 Z" fill="#F8F2E2"/>
-            <!-- Beach Umbrella -->
             <line x1="168" y1="248" x2="168" y2="184" stroke="#5E3B22" stroke-width="4"/>
             <path d="M114 188 Q168 146 222 188 Z" fill="#B8332A"/>
             <path d="M142 188 Q168 148 194 188 Z" fill="#FAF6EE"/>
-            <!-- Palm Fronds -->
             <path d="M472 238 Q465 152 496 86" stroke="#1B4332" stroke-width="6" stroke-linecap="round" fill="none"/>
             <path d="M496 86 Q452 74 430 108" stroke="#1B4332" stroke-width="5" stroke-linecap="round" fill="none"/>
             <path d="M496 86 Q528 62 536 98" stroke="#1B4332" stroke-width="5" stroke-linecap="round" fill="none"/>
@@ -956,12 +1067,10 @@
             <rect width="540" height="310" fill="url(#lbSky)"/>
             <circle cx="105" cy="68" r="26" fill="#E5C368"/>
             <rect x="0" y="148" width="540" height="92" fill="url(#lbSea)"/>
-            <!-- Nā Mokulua Twin Islets -->
             <ellipse cx="385" cy="134" rx="34" ry="15" fill="#1B4332" opacity="0.68"/>
             <ellipse cx="445" cy="142" rx="22" ry="11" fill="#1B4332" opacity="0.62"/>
-            <!-- Silky White Sand -->
             <path d="M0 232 Q220 214 540 238 L540 310 L0 310 Z" fill="#FCF9F0"/>
-            <text x="270" y="286" text-anchor="middle" fill="#1B4332" font-family="Georgia, serif" font-size="17" font-weight="bold">Lanikai Beach Park &bull; ~2.6–3 Miles Away</text>
+            <text x="270" y="286" text-anchor="middle" fill="#1B4332" font-family="Georgia, serif" font-size="17" font-weight="bold">Lanikai Beach Park &bull; ~2.6 Miles Away</text>
           </svg>
         `),
       };
@@ -1020,16 +1129,16 @@
           name: 'Kailua Beach Park',
           badge: '~1.4 Miles • ~4–6 Min Drive',
           address: '526 Kawailoa Rd, Kailua, HI 96734',
-          mapUrl: 'https://www.google.com/maps/place//data=!4m2!3m1!19sChIJ3Sdhx_wUAHwR4PwW3S4mbjc',
+          mapUrl: 'https://www.google.com/maps/search/?api=1&query=Kailua+Beach+Park,+Kailua,+HI',
           description: 'Broad, inviting white sand, swaying trees, picnic spots, and easy ocean dips just minutes from 1015 Aoloa Pl.',
           photo: ART.kailuaBeach,
         },
         {
           key: 'lanikai',
           name: 'Lanikai Beach Park',
-          badge: '~2.6–3 Miles • ~8–10 Min Drive',
-          address: '126 Kaiolena Dr / Lanikai, Kailua, HI 96734',
-          mapUrl: 'https://www.google.com/maps/place//data=!4m2!3m1!19sChIJZ2LZuccVAHwRDqvLe_LSJR8',
+          badge: '~2.6 Miles • ~8–10 Min Drive',
+          address: 'Lanikai Beach, Kailua, HI 96734',
+          mapUrl: 'https://www.google.com/maps/search/?api=1&query=Lanikai+Beach+Park,+Kailua,+HI',
           description: 'Silky sand, calm turquoise water, and classic views of Nā Mokulua right off the Windward shore.',
           photo: ART.lanikaiBeach,
         },
@@ -1041,14 +1150,14 @@
           title: 'Kailua Beach Park',
           stats: '~1.4 miles from 1015 Aoloa Pl • ~4–6 min drive',
           copy: 'Spacious sandy shoreline, breezy shade, and laid-back beach energy—an effortless ~4–6 minute hop from our Kailua address at 1015 Aoloa Pl.',
-          url: 'https://www.google.com/maps/place//data=!4m2!3m1!19sChIJ3Sdhx_wUAHwR4PwW3S4mbjc',
+          url: 'https://www.google.com/maps/search/?api=1&query=Kailua+Beach+Park,+Kailua,+HI',
         },
         lanikai: {
           badge: 'Lanikai Beach Park',
           title: 'Lanikai Beach Park',
-          stats: '~2.6–3 miles from 1015 Aoloa Pl • ~8–10 min drive',
+          stats: '~2.6 miles from 1015 Aoloa Pl • ~8–10 min drive',
           copy: 'Soft sand, glowing turquoise water, and views of Nā Mokulua just ~8–10 minutes from 1015 Aoloa Pl. Great for morning walks and calm beach time.',
-          url: 'https://www.google.com/maps/place//data=!4m2!3m1!19sChIJZ2LZuccVAHwRDqvLe_LSJR8',
+          url: 'https://www.google.com/maps/search/?api=1&query=Lanikai+Beach+Park,+Kailua,+HI',
         },
       };
 
@@ -1067,15 +1176,47 @@
         { month: 'December', season: 'OCT_DEC', note: 'Mele Kalikimaka cheer, aloha & warm nights', status: 'OPEN', guest: '' },
       ];
 
-      // State
+      function loadSavedMonths() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY_MONTHS);
+          if (!raw) return INITIAL_MONTHS.map((m) => ({ ...m }));
+          const parsed = JSON.parse(raw);
+          if (Array.isArray(parsed) && parsed.length === 12) {
+            return parsed;
+          }
+        } catch (err) {
+          // Fallback to default months if storage is unavailable
+        }
+        return INITIAL_MONTHS.map((m) => ({ ...m }));
+      }
+
+      function loadSavedRequests() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY_REQUESTS);
+          if (!raw) return [];
+          const parsed = JSON.parse(raw);
+          return Array.isArray(parsed) ? parsed : [];
+        } catch (err) {
+          return [];
+        }
+      }
+
+      function persistState() {
+        try {
+          localStorage.setItem(STORAGE_KEY_MONTHS, JSON.stringify(monthsState));
+          localStorage.setItem(STORAGE_KEY_REQUESTS, JSON.stringify(tripRequests));
+        } catch (err) {
+          // Ignore storage quota or private mode issues
+        }
+      }
+
       let activeSeason = 'ALL';
       let hostMode = false;
       let selectedVibe = 'Kailua & Lanikai Beach Days';
-      let monthsState = INITIAL_MONTHS.map((m) => ({ ...m }));
-      let tripRequests = [];
-      let pendingUrlTarget = null; // { type: 'hero' | 'host' | 'apt' | 'beach', index: number }
+      let monthsState = loadSavedMonths();
+      let tripRequests = loadSavedRequests();
+      let pendingUrlTarget = null;
 
-      // DOM elements
       const heroVisualImg = document.getElementById('heroVisualImg');
       const hostsGrid = document.getElementById('hostsGrid');
       const apartmentGrid = document.getElementById('apartmentGrid');
@@ -1093,6 +1234,95 @@
       const photoUrlInput = document.getElementById('photoUrlInput');
       const photoUrlError = document.getElementById('photoUrlError');
       const toastBanner = document.getElementById('toastBanner');
+      const flightOriginInput = document.getElementById('flightOriginInput');
+      const flightDepartDate = document.getElementById('flightDepartDate');
+      const flightReturnDate = document.getElementById('flightReturnDate');
+      const flightTravelersSelect = document.getElementById('flightTravelersSelect');
+      const flightSearchSummary = document.getElementById('flightSearchSummary');
+      const googleFlightsLaunchBtn = document.getElementById('googleFlightsLaunchBtn');
+      const modalFlightOriginInput = document.getElementById('modalFlightOriginInput');
+      const modalFlightTravelersSelect = document.getElementById('modalFlightTravelersSelect');
+      const modalFlightPreviewText = document.getElementById('modalFlightPreviewText');
+      const modalGoogleFlightsLink = document.getElementById('modalGoogleFlightsLink');
+
+      const MONTH_INDEX_MAP = {
+        January: 0, February: 1, March: 2, April: 3, May: 4, June: 5,
+        July: 6, August: 7, September: 8, October: 9, November: 10, December: 11,
+      };
+
+      function formatIsoDate(dateObj) {
+        const y = dateObj.getFullYear();
+        const m = String(dateObj.getMonth() + 1).padStart(2, '0');
+        const d = String(dateObj.getDate()).padStart(2, '0');
+        return `${y}-${m}-${d}`;
+      }
+
+      function getDefaultWindowForMonth(monthName) {
+        const monthIdx = MONTH_INDEX_MAP[monthName];
+        const now = new Date();
+        let year = now.getFullYear();
+        if (typeof monthIdx === 'number') {
+          if (monthIdx < now.getMonth() || (monthIdx === now.getMonth() && now.getDate() > 14)) {
+            year += 1;
+          }
+          const start = new Date(year, monthIdx, 10);
+          const end = new Date(year, monthIdx, 16);
+          return { departStr: formatIsoDate(start), returnStr: formatIsoDate(end) };
+        }
+        const start = new Date(now.getFullYear(), now.getMonth() + 1, 10);
+        const end = new Date(now.getFullYear(), now.getMonth() + 1, 16);
+        return { departStr: formatIsoDate(start), returnStr: formatIsoDate(end) };
+      }
+
+      function buildGoogleFlightsUrl(originText, departStr, returnStr, travelersNum) {
+        const cleanOrigin = (originText || 'DFW').trim();
+        const paxLabel = travelersNum > 1 ? ` for ${travelersNum} travelers` : '';
+        const datePart = departStr && returnStr
+          ? ` from ${departStr} to ${returnStr}`
+          : departStr
+            ? ` on ${departStr}`
+            : '';
+        const query = `Cheapest flights from ${cleanOrigin} to Honolulu HNL${datePart}${paxLabel}`;
+        return `https://www.google.com/travel/flights?q=${encodeURIComponent(query)}`;
+      }
+
+      function syncMainFlightBuilder() {
+        const origin = (flightOriginInput.value || 'DFW').trim();
+        const depart = flightDepartDate.value;
+        const ret = flightReturnDate.value;
+        const travelers = Number(flightTravelersSelect.value) || 1;
+        googleFlightsLaunchBtn.href = buildGoogleFlightsUrl(origin, depart, ret, travelers);
+        const windowLabel = depart && ret ? `${depart} → ${ret}` : depart ? `${depart}` : 'flexible dates';
+        flightSearchSummary.textContent = `${origin} → Honolulu (HNL) • ${windowLabel} • ${travelers} ${travelers === 1 ? 'traveler' : 'travelers'}`;
+      }
+
+      function syncModalFlightBuilder() {
+        const monthName = document.getElementById('selectedMonthInput').value || 'your chosen month';
+        const customDates = document.getElementById('preferredDatesInput').value.trim();
+        const origin = (modalFlightOriginInput.value || 'DFW').trim();
+        const travelers = Number(modalFlightTravelersSelect.value) || 1;
+        const win = getDefaultWindowForMonth(monthName);
+        modalGoogleFlightsLink.href = buildGoogleFlightsUrl(origin, win.departStr, win.returnStr, travelers);
+        modalFlightPreviewText.textContent = `Pre-filled for ${monthName}${customDates ? ` (${customDates})` : ` (~${win.departStr} to ${win.returnStr})`} from ${origin} to HNL for ${travelers} ${travelers === 1 ? 'traveler' : 'travelers'}.`;
+      }
+
+      const initStart = new Date();
+      initStart.setDate(initStart.getDate() + 30);
+      const initEnd = new Date(initStart);
+      initEnd.setDate(initEnd.getDate() + 6);
+      flightDepartDate.value = formatIsoDate(initStart);
+      flightReturnDate.value = formatIsoDate(initEnd);
+      syncMainFlightBuilder();
+
+      [flightOriginInput, flightDepartDate, flightReturnDate, flightTravelersSelect].forEach((el) => {
+        el.addEventListener('input', syncMainFlightBuilder);
+        el.addEventListener('change', syncMainFlightBuilder);
+      });
+
+      [modalFlightOriginInput, modalFlightTravelersSelect, document.getElementById('preferredDatesInput')].forEach((el) => {
+        el.addEventListener('input', syncModalFlightBuilder);
+        el.addEventListener('change', syncModalFlightBuilder);
+      });
 
       heroVisualImg.src = ART.hero;
 
@@ -1363,6 +1593,7 @@
           btn.addEventListener('click', () => {
             monthsState[idx].status = isOpen ? 'BOOKED' : 'OPEN';
             monthsState[idx].guest = monthsState[idx].status === 'BOOKED' ? 'Reserved by Host' : '';
+            persistState();
             renderMonths();
             showToast(`${m.month} is now ${monthsState[idx].status}.`);
           });
@@ -1413,6 +1644,7 @@
               targetMonth.status = 'OPEN';
               targetMonth.guest = '';
             }
+            persistState();
             renderRequests();
             renderMonths();
             showToast(`Removed request for ${removed.month}.`);
@@ -1420,7 +1652,6 @@
         });
       }
 
-      // Booking Modal Controls
       function openBookingModal(monthName) {
         document.getElementById('selectedMonthInput').value = monthName;
         document.getElementById('modalTitle').textContent = `Request ${monthName} in Kailua`;
@@ -1428,6 +1659,9 @@
         document.getElementById('guestNameInput').value = '';
         document.getElementById('guestContactInput').value = '';
         document.getElementById('guestNotesInput').value = '';
+        modalFlightOriginInput.value = (flightOriginInput.value || 'DFW').trim() || 'DFW';
+        modalFlightTravelersSelect.value = flightTravelersSelect.value || '1';
+        syncModalFlightBuilder();
         modalErrorBox.classList.add('hidden');
         selectedVibe = 'Kailua & Lanikai Beach Days';
         document.querySelectorAll('.vibe-chip').forEach((chip, i) => {
@@ -1494,6 +1728,7 @@
           targetMonth.guest = name;
         }
 
+        persistState();
         renderRequests();
         renderMonths();
         document.getElementById('confirmationSummary').innerHTML = `
@@ -1505,7 +1740,6 @@
         showToast(`Saved trip request for ${month}!`);
       });
 
-      // Photo URL modal handlers
       function closePhotoUrlModal() {
         pendingUrlTarget = null;
         photoUrlModal.classList.add('hidden');
@@ -1553,7 +1787,6 @@
         closePhotoUrlModal();
       });
 
-      // Season filter buttons
       document.querySelectorAll('.season-btn').forEach((btn) => {
         btn.addEventListener('click', () => {
           activeSeason = btn.getAttribute('data-season') || 'ALL';
@@ -1570,7 +1803,6 @@
         });
       });
 
-      // FAQ accordion
       document.querySelectorAll('.accordion-trigger').forEach((trigger) => {
         trigger.addEventListener('click', () => {
           const item = trigger.closest('.accordion-item');
@@ -1585,7 +1817,6 @@
         document.getElementById('requestsSection').scrollIntoView({ behavior: 'smooth', block: 'center' });
       });
 
-      // Host Mode toggle
       document.getElementById('hostModeToggleBtn').addEventListener('click', () => {
         hostMode = !hostMode;
         document.getElementById('hostModeLabel').textContent = hostMode ? 'Host Mode: On' : 'Host Mode: Off';
@@ -1595,12 +1826,12 @@
       document.getElementById('resetMonthsBtn').addEventListener('click', () => {
         monthsState = INITIAL_MONTHS.map((m) => ({ ...m }));
         tripRequests = [];
+        persistState();
         renderMonths();
         renderRequests();
         showToast('Reset all months to Open.');
       });
 
-      // Initial render
       renderHosts();
       renderApartment();
       renderBeaches();
