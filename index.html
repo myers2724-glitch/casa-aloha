@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Casa Aloha — Honolulu Island Residency with Dristin, Colton &amp; the Pups</title>
+
+  <!-- Load Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Load Google Fonts: Playfair Display & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#FAF6EE',
+            creamDark: '#F1E9D8',
+            palm: '#1E4D3B',
+            palmDark: '#133528',
+            hibiscus: '#B8332A',
+            hibiscusLight: '#D4473D',
+            gold: '#C59B38',
+            goldLight: '#E2C06C',
+            ink: '#1A2420',
+            muted: '#526059',
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+          boxShadow: {
+            card: '0 10px 30px -10px rgba(30, 77, 59, 0.10), 0 4px 12px -4px rgba(197, 155, 56, 0.12)',
+            elevated: '0 20px 45px -12px rgba(26, 36, 32, 0.18)',
+            goldGlow: '0 0 0 1px rgba(197, 155, 56, 0.35), 0 12px 28px -8px rgba(197, 155, 56, 0.25)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* Subtle tropical botanical & gold border accents */
+    body {
+      background-color: #FAF6EE;
+      color: #1A2420;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      overflow-x: hidden;
+    }
+
+    .gold-frame {
+      border: 1px solid rgba(197, 155, 56, 0.45);
+      box-shadow: inset 0 0 0 4px rgba(250, 246, 238, 0.9), inset 0 0 0 5px rgba(197, 155, 56, 0.25);
+    }
+
+    .tropical-wash {
+      background-image:
+        radial-gradient(circle at 8% 12%, rgba(30, 77, 59, 0.06) 0%, transparent 38%),
+        radial-gradient(circle at 92% 18%, rgba(184, 51, 42, 0.05) 0%, transparent 34%),
+        radial-gradient(circle at 80% 85%, rgba(197, 155, 56, 0.08) 0%, transparent 42%);
+    }
+
+    /* Smooth accordion transition */
+    .accordion-content {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.28s ease-out;
+    }
+    .accordion-item[data-open="true"] .accordion-content {
+      grid-template-rows: 1fr;
+    }
+    .accordion-inner {
+      overflow: hidden;
+    }
+    .accordion-chevron {
+      transition: transform 0.25s ease;
+    }
+    .accordion-item[data-open="true"] .accordion-chevron {
+      transform: rotate(180deg);
+    }
+
+    /* Modal reveal animation */
+    @keyframes modalPop {
+      from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+    .modal-animate {
+      animation: modalPop 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+  </style>
+</head>
+<body class="tropical-wash antialiased selection:bg-palm selection:text-cream">
+
+  <!-- Top Festive & Aloha Bar -->
+  <header class="sticky top-0 z-40 bg-cream/95 backdrop-blur-md border-b border-gold/30">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-4">
+      <a href="#top" class="flex items-center gap-2.5 group focus:outline-none">
+        <!-- Plumeria + Gold Star Emblem -->
+        <svg class="w-8 h-8 text-palm shrink-0 transition-transform duration-300 group-hover:rotate-12" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+          <circle cx="20" cy="20" r="18" fill="#1E4D3B" fill-opacity="0.08" stroke="#C59B38" stroke-width="1.2" />
+          <path d="M20 9C22.8 9 24.8 12.2 24.2 15.8C23.7 18.6 21.5 20 20 20C18.5 20 16.3 18.6 15.8 15.8C15.2 12.2 17.2 9 20 9Z" fill="#FAF6EE" stroke="#1E4D3B" stroke-width="1.4"/>
+          <path d="M29.5 16C30.4 18.7 28.4 21.8 24.9 22.6C22.1 23.2 20.3 21.5 20 20C19.7 18.5 21.1 16.3 23.8 15.3C27.2 14.1 28.6 13.3 29.5 16Z" fill="#FAF6EE" stroke="#1E4D3B" stroke-width="1.4"/>
+          <path d="M26 27.6C23.7 29.3 20.1 28.3 18.2 25.3C16.7 22.9 17.7 20.6 19.2 19.8C20.7 19 23.2 19.6 25 21.8C27.2 24.5 28.3 25.9 26 27.6Z" fill="#FAF6EE" stroke="#1E4D3B" stroke-width="1.4"/>
+          <path d="M14 27.6C11.7 25.9 12.8 24.5 15 21.8C16.8 19.6 19.3 19 20.8 19.8C22.3 20.6 23.3 22.9 21.8 25.3C19.9 28.3 16.3 29.3 14 27.6Z" fill="#FAF6EE" stroke="#1E4D3B" stroke-width="1.4"/>
+          <path d="M10.5 16C11.4 13.3 12.8 14.1 16.2 15.3C18.9 16.3 20.3 18.5 20 20C19.7 21.5 17.9 23.2 15.1 22.6C11.6 21.8 9.6 18.7 10.5 16Z" fill="#FAF6EE" stroke="#1E4D3B" stroke-width="1.4"/>
+          <circle cx="20" cy="20" r="2.7" fill="#C59B38" />
+        </svg>
+        <div class="leading-tight">
+          <span class="font-serif font-bold text-lg sm:text-xl text-palm tracking-tight">Casa Aloha</span>
+          <span class="hidden sm:inline-block text-xs uppercase tracking-[0.18em] text-gold font-semibold ml-2">Honolulu, Oʻahu</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-ink/85">
+        <a href="#hosts" class="hover:text-palm transition-colors">The Crew</a>
+        <a href="#apartment" class="hover:text-palm transition-colors">Our Place</a>
+        <a href="#kailua-lanikai" class="hover:text-palm transition-colors">Kailua &amp; Lanikai</a>
+        <a href="#included" class="hover:text-palm transition-colors">What&rsquo;s Included</a>
+        <a href="#calendar" class="hover:text-palm transition-colors">Pick Your Month</a>
+        <a href="#faq" class="hover:text-palm transition-colors">Travel FAQ</a>
+      </nav>
+
+      <div class="flex items-center gap-2 sm:gap-3">
+        <button
+          type="button"
+          id="openRequestsDrawerBtn"
+          class="relative inline-flex items-center gap-1.5 px-3 py-2 rounded-full text-xs sm:text-sm font-semibold border border-gold/60 bg-creamDark/80 text-palm hover:bg-creamDark transition-colors cursor-pointer"
+          aria-label="View trip requests"
+        >
+          <span>My Requests</span>
+          <span id="requestCountBadge" class="inline-flex items-center justify-center min-w-[1.25rem] h-5 px-1.5 rounded-full text-xs font-bold bg-hibiscus text-cream">0</span>
+        </button>
+        <a
+          href="#calendar"
+          class="inline-flex items-center justify-center px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-palm text-cream hover:bg-palmDark shadow-sm transition-all"
+        >
+          Claim Your Month
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- 1. HERO SECTION -->
+    <section class="relative pt-8 pb-14 sm:pt-12 sm:pb-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center bg-creamDark/60 rounded-3xl p-6 sm:p-10 lg:p-12 border border-gold/35 shadow-card">
+          <!-- Left Copy Column -->
+          <div class="lg:col-span-7 space-y-5 text-center lg:text-left">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cream border border-gold/45 text-xs font-semibold uppercase tracking-[0.14em] text-palm">
+              <span class="w-2 h-2 rounded-full bg-hibiscus"></span>
+              Mele Kalikimaka &amp; Island Residency Invites
+            </div>
+
+            <h1 class="font-serif text-3xl sm:text-5xl lg:text-[3.25rem] font-bold text-palm leading-[1.12] tracking-tight">
+              E Komo Mai &mdash; <span class="italic font-semibold text-hibiscus">Welcome</span> to Our Home in Honolulu
+            </h1>
+
+            <p class="text-base sm:text-lg text-ink/85 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              Between busy schedules and miles apart, life moves way too fast. This year, we want nothing more than to slow down, open our doors in Honolulu, and welcome you into our home to share our aloha and island paradise together.
+            </p>
+
+            <p class="text-sm sm:text-base text-muted leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              Consider this your open-door invitation for a relaxed, unhurried getaway&mdash;complete with morning coffee on the lanai, warm trade winds, coastal adventures, and your built-in local crew: <strong class="text-ink font-semibold">Dristin, Colton, Shadow &amp; Silas</strong>.
+            </p>
+
+            <div class="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5">
+              <a
+                href="#calendar"
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-palm hover:bg-palmDark text-cream font-semibold text-sm sm:text-base shadow-md transition-all"
+              >
+                <span>Claim Your Month</span>
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+              <a
+                href="#hosts"
+                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-cream hover:bg-white text-palm border border-gold/55 font-semibold text-sm sm:text-base transition-all"
+              >
+                Meet the Island Crew
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Hero Photo Frame + Upload/Swap -->
+          <div class="lg:col-span-5">
+            <div class="bg-cream p-3.5 sm:p-4 rounded-2xl gold-frame shadow-elevated">
+              <div class="relative aspect-[4/3] w-full rounded-xl overflow-hidden bg-palm/5 border border-gold/30 flex items-center justify-center">
+                <img
+                  id="heroPhotoImg"
+                  src="1000068739.jpeg"
+                  alt="Dristin and Colton — Dazzling Duo collage in Honolulu"
+                  class="w-full h-full object-cover"
+                />
+                <!-- Charming Illustrated SVG Artwork Fallback -->
+                <div id="heroPhotoPlaceholder" class="hidden w-full h-full flex-col items-center justify-between p-4 bg-gradient-to-b from-[#EBF4F0] via-[#FAF6EE] to-[#F5E8C8]">
+                  <div class="w-full flex items-center justify-between text-[11px] font-semibold uppercase tracking-widest text-palm/80">
+                    <span>Honolulu, Oʻahu</span>
+                    <span class="text-hibiscus">&hearts; Island Crew</span>
+                  </div>
+
+                  <!-- Custom SVG Scene: Diamond Head silhouette, plumeria, smiling couple & two pups -->
+                  <svg class="w-full max-h-48 my-1" viewBox="0 0 360 190" fill="none" role="img" aria-label="Illustrated scene of Dristin, Colton, Shadow, and Silas under tropical palms in Honolulu">
+                    <!-- Sky & Sun -->
+                    <circle cx="295" cy="42" r="22" fill="#E2C06C" fill-opacity="0.55" />
+                    <circle cx="295" cy="42" r="14" fill="#C59B38" />
+                    <!-- Distant Ridge (Leahi / Diamond Head vibe) -->
+                    <path d="M0 132 Q65 112 130 124 Q190 135 245 104 Q278 86 305 108 Q332 122 360 118 L360 190 L0 190 Z" fill="#1E4D3B" fill-opacity="0.18" />
+                    <!-- Ocean Strip -->
+                    <rect x="0" y="138" width="360" height="52" fill="#2A6F68" fill-opacity="0.16" />
+                    <!-- Left Palm Fronds -->
+                    <path d="M24 165 Q18 100 42 44" stroke="#1E4D3B" stroke-width="3.5" stroke-linecap="round" />
+                    <path d="M42 44 Q16 38 6 58" stroke="#1E4D3B" stroke-width="2.6" stroke-linecap="round" />
+                    <path d="M42 44 Q28 24 12 28" stroke="#1E4D3B" stroke-width="2.6" stroke-linecap="round" />
+                    <path d="M42 44 Q52 22 72 28" stroke="#1E4D3B" stroke-width="2.6" stroke-linecap="round" />
+                    <path d="M42 44 Q64 42 78 62" stroke="#1E4D3B" stroke-width="2.6" stroke-linecap="round" />
+
+                    <!-- Colton (Left Character) -->
+                    <circle cx="126" cy="96" r="14" fill="#E6B89C" />
+                    <path d="M113 92 Q126 78 140 92" fill="#4A3525" />
+                    <circle cx="122" cy="96" r="1.6" fill="#1A2420" />
+                    <circle cx="131" cy="96" r="1.6" fill="#1A2420" />
+                    <path d="M123 102 Q126.5 105 130 102" stroke="#1A2420" stroke-width="1.5" stroke-linecap="round" />
+                    <!-- Aloha Shirt -->
+                    <path d="M108 113 Q126 108 144 113 L148 158 L104 158 Z" fill="#1E4D3B" />
+                    <path d="M120 111 L126 124 L132 111" fill="#FAF6EE" />
+
+                    <!-- Dristin (Center-Right Character) -->
+                    <circle cx="164" cy="94" r="13.5" fill="#EBBF9F" />
+                    <path d="M150 92 Q152 74 168 76 Q180 78 178 104 Q174 112 168 110" fill="#5C3A21" />
+                    <!-- Hibiscus behind ear -->
+                    <circle cx="175" cy="85" r="4.5" fill="#B8332A" />
+                    <circle cx="175" cy="85" r="1.5" fill="#E2C06C" />
+                    <circle cx="160" cy="94" r="1.6" fill="#1A2420" />
+                    <circle cx="169" cy="94" r="1.6" fill="#1A2420" />
+                    <path d="M161.5 100 Q164.5 103.5 167.5 100" stroke="#B8332A" stroke-width="1.5" stroke-linecap="round" />
+                    <!-- Sundress -->
+                    <path d="M149 110 Q164 106 179 110 L185 158 L143 158 Z" fill="#B8332A" />
+
+                    <!-- Shadow (Dignified Dog on Left-Front) -->
+                    <ellipse cx="94" cy="153" rx="18" ry="10" fill="#3B3532" />
+                    <circle cx="78" cy="145" r="9.5" fill="#3B3532" />
+                    <path d="M72 139 L69 131 L77 137 Z" fill="#262220" />
+                    <path d="M84 139 L88 131 L81 137 Z" fill="#262220" />
+                    <circle cx="75.5" cy="144" r="1.4" fill="#FAF6EE" />
+                    <path d="M111 149 Q120 140 118 133" stroke="#3B3532" stroke-width="3" stroke-linecap="round" />
+
+                    <!-- Silas (Playful Pup on Right-Front) -->
+                    <ellipse cx="212" cy="155" rx="14" ry="8.5" fill="#D9A76A" />
+                    <circle cx="224" cy="148" r="8" fill="#D9A76A" />
+                    <ellipse cx="218" cy="147" rx="3.2" ry="5.5" fill="#9E6B3B" />
+                    <ellipse cx="230" cy="147" rx="3.2" ry="5.5" fill="#9E6B3B" />
+                    <circle cx="221.5" cy="147" r="1.3" fill="#1A2420" />
+                    <circle cx="226.5" cy="147" r="1.3" fill="#1A2420" />
+                    <!-- Red festive bandanna -->
+                    <path d="M217 154 L224 160 L231 154 Z" fill="#B8332A" />
+
+                    <!-- Foreground Plumeria Accent -->
+                    <circle cx="312" cy="158" r="5" fill="#FAF6EE" stroke="#C59B38" />
+                    <circle cx="322" cy="162" r="5" fill="#FAF6EE" stroke="#C59B38" />
+                    <circle cx="317" cy="169" r="5" fill="#FAF6EE" stroke="#C59B38" />
+                    <circle cx="317" cy="162" r="2" fill="#C59B38" />
+                  </svg>
+
+                  <p class="text-xs text-center text-palm/85 font-medium">
+                    Dristin, Colton, Shadow &amp; Silas &bull; Drop your favorite photo below!
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-3 flex items-center justify-between gap-2">
+                <span class="text-xs text-muted">Dazzling Duo collage active &bull; Swap anytime</span>
+                <label class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-palm text-cream hover:bg-palmDark cursor-pointer transition-colors">
+                  <span>Upload Photo</span>
+                  <input type="file" accept="image/*" id="heroPhotoInput" class="sr-only" />
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. MEET THE HOSTS & CREW -->
+    <section id="hosts" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-gold mb-2">Your Honolulu Hosts</p>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-palm">Meet the Island Crew</h2>
+          <p class="mt-3 text-sm sm:text-base text-muted">
+            Every great island stay starts with a welcoming committee. Tap any photo thumbnail on Shadow or Silas&rsquo;s card to switch their look, or upload your own photo anytime.
+          </p>
+        </div>
+
+        <div id="crewGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Populated & rendered cleanly with interactive photo upload -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 2B. THE HONOLULU APARTMENT TOUR -->
+    <section id="apartment" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-creamDark/50 border-y border-gold/30">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+          <div class="max-w-2xl">
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-gold mb-2">Your Home Base in Honolulu</p>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-palm">Tour Our Honolulu Apartment</h2>
+            <p class="mt-3 text-sm sm:text-base text-ink/85 leading-relaxed">
+              Full disclosure: these tour snaps were taken right around move-in while the rooms were still wide open and unfurnished&mdash;<strong class="text-palm font-semibold">it&rsquo;s all cozy, styled, and completely furnished now!</strong> Consider this your sneak peek at the layout, bright windows, and breezy lanai waiting for you.
+            </p>
+          </div>
+          <span class="self-start md:self-auto inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cream border border-gold/50 text-xs font-semibold text-palm">
+            <span>&#10024; Now Fully Furnished &amp; Guest-Ready</span>
+          </span>
+        </div>
+
+        <div id="apartmentGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Populated via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 2C. KAILUA & LANIKAI BEACH — RIGHT IN OUR BACKYARD -->
+    <section id="kailua-lanikai" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-gold mb-2">Windward Coastal Magic</p>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-palm">
+            Kailua &amp; Lanikai Beach &mdash; Right in Our Backyard
+          </h2>
+          <p class="mt-3 text-sm sm:text-base text-muted leading-relaxed">
+            Powdery white sand, glowing turquoise water, and iconic views of Nā Mokulua&mdash;Kailua and Lanikai are an easy, scenic drive over from our Honolulu home base so you can soak up classic Windward beach days whenever the mood strikes.
+          </p>
+        </div>
+
+        <div id="beachShowcaseGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Populated via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. ZERO RESORT FEES — WHAT'S INCLUDED -->
+    <section id="included" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-palm text-cream relative overflow-hidden">
+      <!-- Decorative subtle gold rings -->
+      <div class="pointer-events-none absolute -top-24 -right-24 w-72 h-72 rounded-full border border-gold/20"></div>
+      <div class="pointer-events-none absolute -bottom-28 -left-24 w-80 h-80 rounded-full border border-gold/15"></div>
+
+      <div class="max-w-6xl mx-auto relative">
+        <div class="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-goldLight mb-2">All-Inclusive Aloha</p>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-cream">
+            Zero Resort Fees &mdash; What&rsquo;s Included
+          </h2>
+          <p class="mt-3 text-sm sm:text-base text-cream/80">
+            Skip the pricey hotel extras. When you come stay with us in Honolulu, the hospitality (and island gear) are on the house.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Perk 1 -->
+          <div class="rounded-2xl bg-palmDark/90 border border-gold/35 p-6 flex flex-col justify-between hover:border-goldLight/70 transition-colors">
+            <div>
+              <div class="w-11 h-11 rounded-xl bg-gold/20 border border-gold/40 flex items-center justify-center text-goldLight mb-4">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+              </div>
+              <h3 class="font-serif text-xl font-semibold text-cream mb-2">Cozy Honolulu Guest Quarters</h3>
+              <p class="text-sm text-cream/80 leading-relaxed">
+                A comfy, relaxing spot to unwind at our place in Honolulu&mdash;complete with morning coffee, breezy lanai hangs, and zero nightly resort charges.
+              </p>
+            </div>
+            <div class="mt-5 pt-3 border-t border-gold/20 text-xs font-semibold uppercase tracking-wider text-goldLight">
+              $0 / Night &bull; Comfy &amp; Welcoming
+            </div>
+          </div>
+
+          <!-- Perk 2 -->
+          <div class="rounded-2xl bg-palmDark/90 border border-gold/35 p-6 flex flex-col justify-between hover:border-goldLight/70 transition-colors">
+            <div>
+              <div class="w-11 h-11 rounded-xl bg-gold/20 border border-gold/40 flex items-center justify-center text-goldLight mb-4">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                </svg>
+              </div>
+              <h3 class="font-serif text-xl font-semibold text-cream mb-2">HNL Airport Concierge &amp; Lei Welcome</h3>
+              <p class="text-sm text-cream/80 leading-relaxed">
+                Touch down at Daniel K. Inouye International Airport (HNL) to friendly faces, a warm aloha greeting, and a smooth ride straight back to our place.
+              </p>
+            </div>
+            <div class="mt-5 pt-3 border-t border-gold/20 text-xs font-semibold uppercase tracking-wider text-goldLight">
+              HNL Pickup &amp; Drop-Off Included
+            </div>
+          </div>
+
+          <!-- Perk 3 -->
+          <div class="rounded-2xl bg-palmDark/90 border border-gold/35 p-6 flex flex-col justify-between hover:border-goldLight/70 transition-colors">
+            <div>
+              <div class="w-11 h-11 rounded-xl bg-gold/20 border border-gold/40 flex items-center justify-center text-goldLight mb-4">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                </svg>
+              </div>
+              <h3 class="font-serif text-xl font-semibold text-cream mb-2">Beach &amp; Trail Gear</h3>
+              <p class="text-sm text-cream/80 leading-relaxed">
+                Pack light! We&rsquo;ve got beach chairs, coolers, towels, reef-safe sunscreen, and trail tips ready for sunrise ridges, coastal walks, and sunny coves.
+              </p>
+            </div>
+            <div class="mt-5 pt-3 border-t border-gold/20 text-xs font-semibold uppercase tracking-wider text-goldLight">
+              Coolers, Chairs &amp; Local Guides
+            </div>
+          </div>
+
+          <!-- Perk 4 -->
+          <div class="rounded-2xl bg-palmDark/90 border border-gold/35 p-6 flex flex-col justify-between hover:border-goldLight/70 transition-colors">
+            <div>
+              <div class="w-11 h-11 rounded-xl bg-gold/20 border border-gold/40 flex items-center justify-center text-goldLight mb-4">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </div>
+              <h3 class="font-serif text-xl font-semibold text-cream mb-2">House Rules: No Alarms &amp; Mandatory Shave Ice</h3>
+              <p class="text-sm text-cream/80 leading-relaxed">
+                Island time moves at its own sweet pace. Expect zero rushed schedules, golden-hour hangs, puppy cuddles, and at least one colorful shave ice stop.
+              </p>
+            </div>
+            <div class="mt-5 pt-3 border-t border-gold/20 text-xs font-semibold uppercase tracking-wider text-goldLight">
+              Strictly Enforced Aloha Policy
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. INTERACTIVE 12-MONTH & SEASONAL CALENDAR -->
+    <section id="calendar" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[0.2em] text-gold mb-2">One Guest-a-Month Residency</p>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-palm">Pick Your Season &amp; Month</h2>
+            <p class="mt-2.5 text-sm sm:text-base text-muted max-w-2xl">
+              Filter by season to match your favorite island vibe, then tap any <span class="text-palm font-semibold">Open</span> month to send your trip request!
+            </p>
+          </div>
+
+          <!-- Season Filter Pills -->
+          <div id="seasonFilters" class="flex flex-wrap gap-2" role="tablist" aria-label="Filter months by season">
+            <button type="button" data-season="ALL" class="season-btn active px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold bg-palm text-cream transition-all cursor-pointer">
+              All Year
+            </button>
+            <button type="button" data-season="JAN_MAR" class="season-btn px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold bg-creamDark text-palm hover:bg-palm/10 border border-gold/35 transition-all cursor-pointer">
+              Jan–Mar &bull; Whales &amp; Surf
+            </button>
+            <button type="button" data-season="APR_JUN" class="season-btn px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold bg-creamDark text-palm hover:bg-palm/10 border border-gold/35 transition-all cursor-pointer">
+              Apr–Jun &bull; Trade Winds
+            </button>
+            <button type="button" data-season="JUL_SEP" class="season-btn px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold bg-creamDark text-palm hover:bg-palm/10 border border-gold/35 transition-all cursor-pointer">
+              Jul–Sep &bull; Calm Swims
+            </button>
+            <button type="button" data-season="OCT_DEC" class="season-btn px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold bg-creamDark text-palm hover:bg-palm/10 border border-gold/35 transition-all cursor-pointer">
+              Oct–Dec &bull; Holiday Lights
+            </button>
+          </div>
+        </div>
+
+        <!-- Seasonal Highlight Banner -->
+        <div id="seasonBanner" class="mb-8 rounded-2xl bg-creamDark/80 border border-gold/40 px-5 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="flex items-start sm:items-center gap-3">
+            <span class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-gold/20 text-palm font-serif font-bold shrink-0">&#10047;</span>
+            <div>
+              <h3 id="seasonBannerTitle" class="font-serif font-bold text-palm text-base sm:text-lg">All Four Island Seasons in Honolulu</h3>
+              <p id="seasonBannerDesc" class="text-xs sm:text-sm text-muted">
+                From winter humpback whales and dramatic swells to summer snorkeling and Mele Kalikimaka nights in shorts, every month has its own magic.
+              </p>
+            </div>
+          </div>
+          <div class="text-xs font-semibold text-palm/80 shrink-0">
+            <span class="inline-block w-2.5 h-2.5 rounded-full bg-palm mr-1"></span>Open &nbsp;
+            <span class="inline-block w-2.5 h-2.5 rounded-full bg-hibiscus mr-1"></span>Booked
+          </div>
+        </div>
+
+        <!-- 12-Month Grid -->
+        <div id="monthsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          <!-- Rendered via JavaScript -->
+        </div>
+
+        <!-- Submitted Trip Requests Summary Panel -->
+        <div id="requestsSummarySection" class="mt-10 rounded-2xl bg-cream border border-gold/45 p-6 shadow-card">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-gold/25">
+            <div>
+              <h3 class="font-serif text-xl font-bold text-palm">Submitted Trip Requests</h3>
+              <p class="text-xs sm:text-sm text-muted">Saved in this browser session so you can review your claimed months &amp; vibes.</p>
+            </div>
+            <span id="requestsCounterText" class="text-xs font-semibold px-3 py-1 rounded-full bg-creamDark text-palm border border-gold/35">
+              0 requests saved
+            </span>
+          </div>
+          <div id="requestsList" class="mt-4 space-y-3">
+            <p class="text-sm text-muted italic">
+              No trip requests submitted yet. Click any open month above to claim your spot!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. PACKING & TRAVEL FAQ ACCORDION -->
+    <section id="faq" class="py-14 sm:py-20 px-4 sm:px-6 lg:px-8 bg-creamDark/55 border-t border-gold/30">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-10">
+          <p class="text-xs font-bold uppercase tracking-[0.2em] text-gold mb-2">Good to Know</p>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-palm">Packing &amp; Travel FAQ</h2>
+          <p class="mt-2.5 text-sm sm:text-base text-muted">
+            Quick answers for planning your flight to Honolulu and packing your bag.
+          </p>
+        </div>
+
+        <div class="space-y-3.5" id="faqAccordion">
+          <!-- FAQ 1 -->
+          <div class="accordion-item rounded-2xl bg-cream border border-gold/40 shadow-sm" data-open="true">
+            <button type="button" class="accordion-trigger w-full px-5 py-4 text-left flex items-center justify-between gap-4 font-serif font-semibold text-lg text-palm cursor-pointer" aria-expanded="true">
+              <span>Which airport should I fly into?</span>
+              <svg class="accordion-chevron w-5 h-5 text-gold shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner">
+                <div class="px-5 pb-5 text-sm sm:text-base text-ink/85 leading-relaxed border-t border-gold/15 pt-3">
+                  Fly right into <strong>Daniel K. Inouye International Airport (HNL)</strong> in Honolulu! Let us know your arrival time once you book flights and we&rsquo;ll coordinate pickup so your island trip starts smoothly.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="accordion-item rounded-2xl bg-cream border border-gold/40 shadow-sm" data-open="false">
+            <button type="button" class="accordion-trigger w-full px-5 py-4 text-left flex items-center justify-between gap-4 font-serif font-semibold text-lg text-palm cursor-pointer" aria-expanded="false">
+              <span>Do I need to rent a car while visiting?</span>
+              <svg class="accordion-chevron w-5 h-5 text-gold shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner">
+                <div class="px-5 pb-5 text-sm sm:text-base text-ink/85 leading-relaxed border-t border-gold/15 pt-3">
+                  Not unless you want extra solo freedom! Since Dristin and Colton are your built-in tour guides and chauffeurs for outings together, we&rsquo;ll plan beach days, scenic drives, and food stops around your crew.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="accordion-item rounded-2xl bg-cream border border-gold/40 shadow-sm" data-open="false">
+            <button type="button" class="accordion-trigger w-full px-5 py-4 text-left flex items-center justify-between gap-4 font-serif font-semibold text-lg text-palm cursor-pointer" aria-expanded="false">
+              <span>What should I pack for Oʻahu?</span>
+              <svg class="accordion-chevron w-5 h-5 text-gold shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner">
+                <div class="px-5 pb-5 text-sm sm:text-base text-ink/85 leading-relaxed border-t border-gold/15 pt-3">
+                  Bring swimsuits, breezy outfits, comfortable walking/hiking shoes with grip, sandals, sunglasses, a reusable water bottle, and a light layer for trade-wind evenings or mountain breezes. We&rsquo;ve got beach towels, coolers, and chairs covered!
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="accordion-item rounded-2xl bg-cream border border-gold/40 shadow-sm" data-open="false">
+            <button type="button" class="accordion-trigger w-full px-5 py-4 text-left flex items-center justify-between gap-4 font-serif font-semibold text-lg text-palm cursor-pointer" aria-expanded="false">
+              <span>How flexible are the months &amp; dates?</span>
+              <svg class="accordion-chevron w-5 h-5 text-gold shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <div class="accordion-inner">
+                <div class="px-5 pb-5 text-sm sm:text-base text-ink/85 leading-relaxed border-t border-gold/15 pt-3">
+                  Super flexible! Pick the month and rough dates that fit your schedule best in the request form, and we&rsquo;ll text or call to lock in the exact week that works for everyone.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER WITH HOST MODE TOGGLE -->
+  <footer class="bg-palmDark text-cream/90 py-10 px-4 sm:px-6 lg:px-8 border-t border-gold/30">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="text-center md:text-left">
+        <p class="font-serif text-xl font-bold text-cream">
+          Mele Kalikimaka &amp; Aloha from Honolulu
+        </p>
+        <p class="text-xs sm:text-sm text-cream/70 mt-1">
+          With love &amp; aloha, Dristin, Colton, Shadow &amp; Silas
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        <button
+          type="button"
+          id="hostModeToggleBtn"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold bg-gold text-ink hover:bg-goldLight transition-colors cursor-pointer"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <span id="hostModeLabel">Host Mode: Off</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Collapsible Host Controls Drawer -->
+    <div id="hostModePanel" class="hidden max-w-6xl mx-auto mt-6 pt-6 border-t border-gold/25">
+      <div class="rounded-2xl bg-palm/70 border border-gold/40 p-5 sm:p-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+          <div>
+            <h3 class="font-serif text-lg font-bold text-goldLight">Host Mode &mdash; Manage Month Availability &amp; Guest Note</h3>
+            <p class="text-xs text-cream/80">Click any month pill below to toggle between Open and Booked, or add who claimed it.</p>
+          </div>
+          <button
+            type="button"
+            id="resetDemoDataBtn"
+            class="self-start sm:self-auto px-3 py-1.5 rounded-lg text-xs font-semibold bg-cream/15 hover:bg-cream/25 text-cream border border-cream/25 cursor-pointer"
+          >
+            Reset Month Statuses
+          </button>
+        </div>
+        <div id="hostMonthToggles" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- RSVP / TRIP REQUEST MODAL -->
+  <div
+    id="bookingModal"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-ink/60 backdrop-blur-xs"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modalTitle"
+  >
+    <div class="modal-animate w-full max-w-lg rounded-3xl bg-cream border-2 border-gold/60 shadow-elevated overflow-hidden">
+      <!-- Modal Header -->
+      <div class="bg-palm text-cream px-6 py-5 flex items-center justify-between">
+        <div>
+          <p class="text-[11px] uppercase tracking-[0.18em] text-goldLight font-semibold">Honolulu Residency Request</p>
+          <h3 id="modalTitle" class="font-serif text-2xl font-bold mt-0.5">Claim Your Month</h3>
+        </div>
+        <button
+          type="button"
+          id="closeModalBtn"
+          class="w-9 h-9 rounded-full bg-cream/15 hover:bg-cream/25 flex items-center justify-center text-cream cursor-pointer transition-colors"
+          aria-label="Close modal"
+        >
+          &times;
+        </button>
+      </div>
+
+      <!-- Modal Form -->
+      <form id="tripRequestForm" class="p-6 space-y-4">
+        <div id="modalErrorBox" class="hidden rounded-xl bg-hibiscus/10 border border-hibiscus/40 px-4 py-2.5 text-xs sm:text-sm text-hibiscus font-medium"></div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="selectedMonthInput" class="block text-xs font-bold uppercase tracking-wider text-palm mb-1">
+              Selected Month
+            </label>
+            <input
+              type="text"
+              id="selectedMonthInput"
+              readonly
+              class="w-full rounded-xl border border-gold/45 bg-creamDark/70 px-3.5 py-2.5 text-sm font-semibold text-ink focus:outline-none"
+            />
+          </div>
+          <div>
+            <label for="preferredDatesInput" class="block text-xs font-bold uppercase tracking-wider text-palm mb-1">
+              Preferred Dates / Window
+            </label>
+            <input
+              type="text"
+              id="preferredDatesInput"
+              placeholder="e.g., Mid-month, 5–7 days"
+              class="w-full rounded-xl border border-gold/45 bg-white px-3.5 py-2.5 text-sm text-ink focus:outline-none focus:border-palm"
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="guestNameInput" class="block text-xs font-bold uppercase tracking-wider text-palm mb-1">
+              Your Name(s) *
+            </label>
+            <input
+              type="text"
+              id="guestNameInput"
+              required
+              placeholder="e.g., Aunt Sarah or Jake & Mia"
+              class="w-full rounded-xl border border-gold/45 bg-white px-3.5 py-2.5 text-sm text-ink focus:outline-none focus:border-palm"
+            />
+          </div>
+          <div>
+            <label for="guestContactInput" class="block text-xs font-bold uppercase tracking-wider text-palm mb-1">
+              Email or Phone *
+            </label>
+            <input
+              type="text"
+              id="guestContactInput"
+              required
+              placeholder="name@email.com or (555) 123-4567"
+              class="w-full rounded-xl border border-gold/45 bg-white px-3.5 py-2.5 text-sm text-ink focus:outline-none focus:border-palm"
+            />
+          </div>
+        </div>
+
+        <!-- Adventure Vibe Selector -->
+        <div>
+          <span class="block text-xs font-bold uppercase tracking-wider text-palm mb-2">
+            Pick Your Adventure Vibe *
+          </span>
+          <div id="vibeOptions" class="grid grid-cols-2 gap-2.5">
+            <button
+              type="button"
+              data-vibe="Beach Bum"
+              class="vibe-chip active px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-semibold border border-palm bg-palm text-cream transition-all cursor-pointer"
+            >
+              &#127958;&#65039; Beach Bum
+            </button>
+            <button
+              type="button"
+              data-vibe="Ridge Hiker"
+              class="vibe-chip px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-semibold border border-gold/45 bg-white text-ink hover:border-palm transition-all cursor-pointer"
+            >
+              &#9968;&#65039; Ridge Hiker
+            </button>
+            <button
+              type="button"
+              data-vibe="Foodie & Shave Ice"
+              class="vibe-chip px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-semibold border border-gold/45 bg-white text-ink hover:border-palm transition-all cursor-pointer"
+            >
+              &#127847; Foodie &amp; Shave Ice
+            </button>
+            <button
+              type="button"
+              data-vibe="All of the Above"
+              class="vibe-chip px-3.5 py-2.5 rounded-xl text-left text-xs sm:text-sm font-semibold border border-gold/45 bg-white text-ink hover:border-palm transition-all cursor-pointer"
+            >
+              &#10024; All of the Above
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <label for="guestNotesInput" class="block text-xs font-bold uppercase tracking-wider text-palm mb-1">
+            Notes for Dristin, Colton &amp; the Pups
+          </label>
+          <textarea
+            id="guestNotesInput"
+            rows="2"
+            placeholder="Favorite snacks, ocean spots you want to see, or flight thoughts..."
+            class="w-full rounded-xl border border-gold/45 bg-white px-3.5 py-2 text-sm text-ink focus:outline-none focus:border-palm"
+          ></textarea>
+        </div>
+
+        <div class="pt-2 flex items-center justify-end gap-3">
+          <button
+            type="button"
+            id="cancelModalBtn"
+            class="px-4 py-2.5 rounded-full text-sm font-semibold text-muted hover:text-ink cursor-pointer"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            class="px-6 py-2.5 rounded-full text-sm font-semibold bg-hibiscus hover:bg-hibiscusLight text-cream shadow-md transition-all cursor-pointer"
+          >
+            Send Trip Request
+          </button>
+        </div>
+      </form>
+
+      <!-- Instant Confirmation View -->
+      <div id="modalConfirmationView" class="hidden p-6 text-center space-y-4">
+        <div class="w-14 h-14 mx-auto rounded-full bg-palm/10 border border-gold/50 flex items-center justify-center text-2xl text-palm">
+          &#127802;
+        </div>
+        <h4 class="font-serif text-2xl font-bold text-palm">Aloha &mdash; Request Received!</h4>
+        <p id="confirmationSummary" class="text-sm sm:text-base text-ink/85 leading-relaxed max-w-md mx-auto"></p>
+        <div class="pt-2">
+          <button
+            type="button"
+            id="doneConfirmationBtn"
+            class="px-6 py-2.5 rounded-full text-sm font-semibold bg-palm hover:bg-palmDark text-cream cursor-pointer"
+          >
+            Back to Casa Aloha
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Banner -->
+  <div
+    id="toastBanner"
+    class="fixed bottom-5 right-5 z-50 hidden max-w-sm rounded-2xl bg-palm text-cream border border-gold/60 px-4 py-3 shadow-elevated text-xs sm:text-sm font-medium"
+    role="status"
+    aria-live="polite"
+  ></div>
+
+  <script>
+    /**
+     * Casa Aloha Honolulu Residency Application State & Rendering Logic
+     * Self-contained interactive state for crew photos, 12-month availability,
+     * seasonal filtering, trip request submissions, and host management mode.
+     */
+    (function () {
+      const SEASONS = {
+        JAN_MAR: {
+          label: 'Jan–Mar • Whales & Surf',
+          title: 'Winter Swells & Humpback Whales (January – March)',
+          desc: 'Peak humpback whale season offshore, dramatic North Shore swells, and lush green island valleys.',
+        },
+        APR_JUN: {
+          label: 'Apr–Jun • Trade Winds',
+          title: 'Sunny Trade Winds & Blooms (April – June)',
+          desc: 'Breezy, golden days, blooming plumeria and shower trees, and effortless coastal exploring.',
+        },
+        JUL_SEP: {
+          label: 'Jul–Sep • Calm Swims',
+          title: 'Warm Waters & Sunset Picnics (July – September)',
+          desc: 'Warm ocean temps, glassy summer snorkeling coves, and long golden evenings by the shore.',
+        },
+        OCT_DEC: {
+          label: 'Oct–Dec • Holiday Lights',
+          title: 'Mele Kalikimaka & Island Nights (October – December)',
+          desc: 'Festive holiday spirit in shorts and sandals, early winter surf, and cozy lanai evenings.',
+        },
+      };
+
+      const CREW_MEMBERS = [
+        {
+          id: 'dristin-colton',
+          name: 'Dristin & Colton',
+          role: 'Built-In Tour Guides & Chauffeurs',
+          badge: 'Dazzling Duo',
+          bio: 'We know the sunrise viewpoints, favorite local bites, Kailua & Lanikai beach spots, and best picnic corners. Tell us your pace and we will help shape an unforgettable week together.',
+          photos: [
+            { label: 'Dazzling Duo', src: '1000068739.jpeg' },
+          ],
+          activePhotoIdx: 0,
+          accent: '#1E4D3B',
+          artType: 'couple',
+        },
+        {
+          id: 'shadow',
+          name: 'Shadow',
+          role: 'Head of Security & Lanai Greeter',
+          badge: 'Lanai Boss',
+          bio: 'Calm, loyal, and always on duty with white plumeria behind his ears or looking like the ultimate Honolulu boss in a tailored suit.',
+          photos: [
+            { label: 'Plumeria', src: 'IMG_1140.heic' },
+            { label: 'Boss Desk', src: 'IMG_1061.png' },
+            { label: 'Suit Boss', src: 'IMG_1065.png' },
+          ],
+          activePhotoIdx: 0,
+          accent: '#3B3532',
+          artType: 'shadow',
+        },
+        {
+          id: 'silas',
+          name: 'Silas',
+          role: 'Chief Morale & Beach Patrol Puppy',
+          badge: 'Silas • Puppy',
+          bio: 'Full of tail wags, cozy couch naps with his plushies, and effortless island style rocking yellow shades and a fresh lei.',
+          photos: [
+            { label: 'Plush Nap', src: 'IMG_7898.heic' },
+            { label: 'Shades & Lei', src: 'IMG_7812.mov', isVideoFrame: true },
+          ],
+          activePhotoIdx: 0,
+          accent: '#B8332A',
+          artType: 'puppy',
+        },
+        {
+          id: 'lanai-concierge',
+          name: 'Casa Aloha Concierge',
+          role: 'Shave Ice & Sunset Coordinator',
+          badge: 'Aloha Desk',
+          bio: 'Dedicated to zero alarms, cold drinks after warm walks, easy trips out to Kailua & Lanikai, and making sure you head home refreshed with plenty of aloha.',
+          photos: [
+            { label: 'Aloha Desk', src: '' },
+          ],
+          activePhotoIdx: 0,
+          accent: '#C59B38',
+          artType: 'concierge',
+        },
+      ];
+
+      const APARTMENT_SPOTS = [
+        {
+          title: 'Living Room & Kitchen',
+          tag: 'Open & Bright',
+          note: 'Snapped right around move-in before furniture arrived—now warm, cozy, and fully furnished for morning coffee and easy island meals.',
+          src: 'IMG_7719.png',
+        },
+        {
+          title: 'Bedroom & Closet Space',
+          tag: 'Guest-Ready Layout',
+          note: 'Plenty of room to unpack your beach gear and tropical outfits—now completely furnished and welcoming.',
+          src: 'IMG_7724.png',
+        },
+        {
+          title: 'Bathroom & Vanity',
+          tag: 'Fresh & Clean',
+          note: 'Bright mirror lighting and ample counter space ready for rinsing off after sunny beach and trail days.',
+          src: 'IMG_7725.png',
+        },
+        {
+          title: 'Breezy Lanai / Balcony',
+          tag: 'Blue Sky Views',
+          note: 'Our favorite spot to catch warm island trade winds and blue skies—now furnished with comfy seating.',
+          src: 'IMG_7726.png',
+        },
+      ];
+
+      const BEACH_SPOTS = [
+        {
+          name: 'Lanikai Beach & Nā Mokulua',
+          vibe: 'Iconic Turquoise & Twin Islets',
+          distance: 'Easy Windward Drive from Honolulu',
+          description: 'Famous for powdery white sand, calm glowing blue water, and postcard views of Nā Mokulua right off the coast.',
+          src: 'watermarked_img_3955641458866806973',
+        },
+        {
+          name: 'Kailua Beach Park',
+          vibe: 'Wide Sandy Shore & Breezy Palms',
+          distance: 'Minutes from Lanikai on the Windward Side',
+          description: 'Generous shoreline, swaying ironwoods and palms, and relaxed beach-day energy ideal for laying out a blanket and cooler.',
+          src: 'IMG_7726.png',
+        },
+        {
+          name: 'Windward Coastal Day Trips',
+          vibe: 'Zero Resort Fees • Local Favorites',
+          distance: 'Built into Your Honolulu Stay',
+          description: 'Pack beach chairs, towels, and snacks from home and head over to the Windward coast for classic Oʻahu beach magic.',
+          src: 'watermarked_img_3955641458866806973',
+        },
+      ];
+
+      const INITIAL_MONTHS = [
+        { month: 'January', season: 'JAN_MAR', highlight: 'Humpback whales & brisk ocean breezes', status: 'OPEN', guestLabel: '' },
+        { month: 'February', season: 'JAN_MAR', highlight: 'Peak whale watching & lush green ridges', status: 'OPEN', guestLabel: '' },
+        { month: 'March', season: 'JAN_MAR', highlight: 'Spring swells, sunny days & coastal trails', status: 'OPEN', guestLabel: '' },
+        { month: 'April', season: 'APR_JUN', highlight: 'Breezy trade winds & vibrant island blooms', status: 'OPEN', guestLabel: '' },
+        { month: 'May', season: 'APR_JUN', highlight: 'Golden mornings & relaxed beach picnics', status: 'OPEN', guestLabel: '' },
+        { month: 'June', season: 'APR_JUN', highlight: 'Long sunny days & shave ice afternoons', status: 'OPEN', guestLabel: '' },
+        { month: 'July', season: 'JUL_SEP', highlight: 'Warm ocean water & glassy summer coves', status: 'OPEN', guestLabel: '' },
+        { month: 'August', season: 'JUL_SEP', highlight: 'Late-summer sunsets & laid-back lanai nights', status: 'OPEN', guestLabel: '' },
+        { month: 'September', season: 'JUL_SEP', highlight: 'Warm seas, fewer crowds & golden light', status: 'OPEN', guestLabel: '' },
+        { month: 'October', season: 'OCT_DEC', highlight: 'Warm autumn sun & scenic coastal drives', status: 'OPEN', guestLabel: '' },
+        { month: 'November', season: 'OCT_DEC', highlight: 'Thankful gatherings, ocean air & early swells', status: 'OPEN', guestLabel: '' },
+        { month: 'December', season: 'OCT_DEC', highlight: 'Mele Kalikimaka lights, plumeria & holiday cheer', status: 'OPEN', guestLabel: '' },
+      ];
+
+      // Application state
+      let activeSeason = 'ALL';
+      let hostMode = false;
+      let monthsState = INITIAL_MONTHS.map((m) => ({ ...m }));
+      let crewState = CREW_MEMBERS.map((c) => ({
+        ...c,
+        photos: c.photos.map((p) => ({ ...p })),
+      }));
+      let apartmentState = APARTMENT_SPOTS.map((a) => ({ ...a }));
+      let beachState = BEACH_SPOTS.map((b) => ({ ...b }));
+      let tripRequests = [];
+      let selectedVibe = 'Beach Bum';
+
+      // DOM References
+      const crewGrid = document.getElementById('crewGrid');
+      const apartmentGrid = document.getElementById('apartmentGrid');
+      const beachShowcaseGrid = document.getElementById('beachShowcaseGrid');
+      const monthsGrid = document.getElementById('monthsGrid');
+      const seasonBannerTitle = document.getElementById('seasonBannerTitle');
+      const seasonBannerDesc = document.getElementById('seasonBannerDesc');
+      const requestsList = document.getElementById('requestsList');
+      const requestsCounterText = document.getElementById('requestsCounterText');
+      const requestCountBadge = document.getElementById('requestCountBadge');
+      const bookingModal = document.getElementById('bookingModal');
+      const tripRequestForm = document.getElementById('tripRequestForm');
+      const modalConfirmationView = document.getElementById('modalConfirmationView');
+      const modalErrorBox = document.getElementById('modalErrorBox');
+      const toastBanner = document.getElementById('toastBanner');
+      const hostModeToggleBtn = document.getElementById('hostModeToggleBtn');
+      const hostModeLabel = document.getElementById('hostModeLabel');
+      const hostModePanel = document.getElementById('hostModePanel');
+      const hostMonthToggles = document.getElementById('hostMonthToggles');
+
+      function showToast(message) {
+        if (!toastBanner) return;
+        toastBanner.textContent = message;
+        toastBanner.classList.remove('hidden');
+        clearTimeout(showToast._timer);
+        showToast._timer = setTimeout(() => {
+          toastBanner.classList.add('hidden');
+        }, 3200);
+      }
+
+      /**
+       * Renders the 4 crew cards with photo gallery switching and custom photo upload/preview capability.
+       */
+      function renderCrewGrid() {
+        crewGrid.innerHTML = '';
+        crewState.forEach((member, idx) => {
+          const card = document.createElement('article');
+          card.className = 'rounded-2xl bg-cream border border-gold/40 shadow-card overflow-hidden flex flex-col justify-between transition-transform duration-200 hover:-translate-y-1';
+
+          const activePhoto = member.photos[member.activePhotoIdx] || member.photos[0];
+          const photoSrc = activePhoto ? activePhoto.src : '';
+          const isVideoFrame = Boolean(activePhoto && activePhoto.isVideoFrame);
+
+          const mediaContent = photoSrc
+            ? `
+              <img
+                src="${photoSrc}"
+                alt="${member.name} — ${activePhoto.label}"
+                class="w-full h-full object-cover"
+                onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');"
+              />
+              <div class="hidden w-full h-full flex flex-col items-center justify-center p-3 text-center bg-gradient-to-br from-creamDark via-cream to-[#EFE2C6]">
+                ${getCrewArtworkSvg(member.artType)}
+                <span class="mt-1 text-[11px] font-semibold text-palm/80">${escapeHtml(activePhoto.label)}</span>
+              </div>
+            `
+            : `<div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-creamDark via-cream to-[#EFE2C6]">${getCrewArtworkSvg(member.artType)}</div>`;
+
+          const photoSwitcherHtml =
+            member.photos.length > 1
+              ? `
+                <div class="mt-3 flex flex-wrap gap-1.5">
+                  ${member.photos
+                    .map(
+                      (p, pIdx) => `
+                        <button
+                          type="button"
+                          data-crew-idx="${idx}"
+                          data-photo-idx="${pIdx}"
+                          class="crew-photo-switch px-2.5 py-1 rounded-full text-[11px] font-semibold border cursor-pointer transition-colors ${
+                            pIdx === member.activePhotoIdx
+                              ? 'bg-palm text-cream border-palm'
+                              : 'bg-creamDark text-palm border-gold/40 hover:bg-palm/10'
+                          }"
+                        >
+                          ${escapeHtml(p.label)}
+                        </button>
+                      `
+                    )
+                    .join('')}
+                </div>
+              `
+              : '';
+
+          card.innerHTML = `
+            <div>
+              <div class="relative h-48 w-full border-b border-gold/30 overflow-hidden">
+                ${mediaContent}
+                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-cream/95 text-palm border border-gold/40 shadow-xs">
+                  ${member.badge}
+                </span>
+                ${
+                  isVideoFrame
+                    ? `<span class="absolute top-3 right-3 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-hibiscus text-cream shadow-xs">Clip Frame</span>`
+                    : ''
+                }
+                <label class="absolute bottom-3 right-3 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-palm/90 hover:bg-palmDark text-cream cursor-pointer shadow-xs transition-colors">
+                  <span>Upload Photo</span>
+                  <input type="file" accept="image/*" data-crew-index="${idx}" class="crew-photo-input sr-only" />
+                </label>
+              </div>
+              <div class="p-5">
+                <h3 class="font-serif text-xl font-bold text-palm">${member.name}</h3>
+                <p class="text-xs font-semibold uppercase tracking-wider text-hibiscus mt-0.5">${member.role}</p>
+                ${photoSwitcherHtml}
+                <p class="mt-3 text-sm text-ink/80 leading-relaxed">${member.bio}</p>
+              </div>
+            </div>
+          `;
+          crewGrid.appendChild(card);
+        });
+
+        // Bind photo switcher buttons
+        document.querySelectorAll('.crew-photo-switch').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const cIdx = Number(btn.getAttribute('data-crew-idx'));
+            const pIdx = Number(btn.getAttribute('data-photo-idx'));
+            if (!Number.isNaN(cIdx) && !Number.isNaN(pIdx) && crewState[cIdx]) {
+              crewState[cIdx].activePhotoIdx = pIdx;
+              renderCrewGrid();
+            }
+          });
+        });
+
+        // Attach photo file listeners
+        document.querySelectorAll('.crew-photo-input').forEach((input) => {
+          input.addEventListener('change', (e) => {
+            const file = e.target.files && e.target.files[0];
+            const index = Number(e.target.getAttribute('data-crew-index'));
+            if (!file || Number.isNaN(index)) return;
+
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+              if (ev.target && typeof ev.target.result === 'string') {
+                const activeIdx = crewState[index].activePhotoIdx || 0;
+                if (crewState[index].photos[activeIdx]) {
+                  crewState[index].photos[activeIdx].src = ev.target.result;
+                } else {
+                  crewState[index].photos.push({ label: 'Custom', src: ev.target.result });
+                  crewState[index].activePhotoIdx = crewState[index].photos.length - 1;
+                }
+                renderCrewGrid();
+                showToast(`Updated photo for ${crewState[index].name}!`);
+              }
+            };
+            reader.readAsDataURL(file);
+          });
+        });
+      }
+
+      /**
+       * Renders the 4 Honolulu apartment tour cards with swap/upload support.
+       */
+      function renderApartmentGrid() {
+        if (!apartmentGrid) return;
+        apartmentGrid.innerHTML = '';
+
+        apartmentState.forEach((spot, idx) => {
+          const card = document.createElement('article');
+          card.className = 'rounded-2xl bg-cream border border-gold/40 shadow-card overflow-hidden flex flex-col justify-between';
+
+          card.innerHTML = `
+            <div>
+              <div class="relative h-44 w-full bg-creamDark border-b border-gold/30 overflow-hidden">
+                <img
+                  src="${spot.src}"
+                  alt="${escapeHtml(spot.title)}"
+                  class="w-full h-full object-cover"
+                  onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');"
+                />
+                <div class="hidden w-full h-full flex flex-col items-center justify-center p-4 text-center bg-gradient-to-br from-creamDark to-[#EFE2C6]">
+                  <span class="font-serif font-bold text-palm text-base">${escapeHtml(spot.title)}</span>
+                  <span class="text-xs text-muted mt-1">Move-in snapshot</span>
+                </div>
+                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-cream/95 text-palm border border-gold/40">
+                  ${escapeHtml(spot.tag)}
+                </span>
+                <label class="absolute bottom-3 right-3 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-palm/90 hover:bg-palmDark text-cream cursor-pointer transition-colors">
+                  <span>Swap Photo</span>
+                  <input type="file" accept="image/*" data-apt-index="${idx}" class="apt-photo-input sr-only" />
+                </label>
+              </div>
+              <div class="p-5">
+                <h3 class="font-serif text-lg font-bold text-palm">${escapeHtml(spot.title)}</h3>
+                <p class="mt-2 text-xs sm:text-sm text-ink/80 leading-relaxed">${escapeHtml(spot.note)}</p>
+              </div>
+            </div>
+          `;
+          apartmentGrid.appendChild(card);
+        });
+
+        document.querySelectorAll('.apt-photo-input').forEach((input) => {
+          input.addEventListener('change', (e) => {
+            const file = e.target.files && e.target.files[0];
+            const index = Number(e.target.getAttribute('data-apt-index'));
+            if (!file || Number.isNaN(index)) return;
+
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+              if (ev.target && typeof ev.target.result === 'string') {
+                apartmentState[index].src = ev.target.result;
+                renderApartmentGrid();
+                showToast(`Updated ${apartmentState[index].title} photo!`);
+              }
+            };
+            reader.readAsDataURL(file);
+          });
+        });
+      }
+
+      /**
+       * Renders the Kailua & Lanikai Beach location showcase cards.
+       */
+      function renderBeachShowcaseGrid() {
+        if (!beachShowcaseGrid) return;
+        beachShowcaseGrid.innerHTML = '';
+
+        beachState.forEach((beach, idx) => {
+          const card = document.createElement('article');
+          card.className = 'rounded-2xl bg-cream border border-gold/40 shadow-card overflow-hidden flex flex-col justify-between hover:-translate-y-0.5 transition-transform';
+
+          card.innerHTML = `
+            <div>
+              <div class="relative h-52 w-full bg-creamDark border-b border-gold/30 overflow-hidden">
+                <img
+                  src="${beach.src}"
+                  alt="${escapeHtml(beach.name)}"
+                  class="w-full h-full object-cover"
+                  onerror="this.classList.add('hidden'); this.nextElementSibling.classList.remove('hidden');"
+                />
+                <div class="hidden w-full h-full flex flex-col items-center justify-center p-4 text-center bg-gradient-to-br from-[#E4F1ED] to-[#F5E8C8]">
+                  <span class="font-serif font-bold text-palm text-lg">${escapeHtml(beach.name)}</span>
+                  <span class="text-xs text-muted mt-1">${escapeHtml(beach.vibe)}</span>
+                </div>
+                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider bg-palm text-cream shadow-xs">
+                  ${escapeHtml(beach.vibe)}
+                </span>
+                <label class="absolute bottom-3 right-3 px-2.5 py-1 rounded-lg text-[11px] font-semibold bg-cream/95 hover:bg-white text-palm border border-gold/45 cursor-pointer transition-colors">
+                  <span>Swap Photo</span>
+                  <input type="file" accept="image/*" data-beach-index="${idx}" class="beach-photo-input sr-only" />
+                </label>
+              </div>
+              <div class="p-5">
+                <p class="text-[11px] font-bold uppercase tracking-wider text-hibiscus">${escapeHtml(beach.distance)}</p>
+                <h3 class="font-serif text-xl font-bold text-palm mt-1">${escapeHtml(beach.name)}</h3>
+                <p class="mt-2.5 text-sm text-ink/80 leading-relaxed">${escapeHtml(beach.description)}</p>
+              </div>
+            </div>
+          `;
+          beachShowcaseGrid.appendChild(card);
+        });
+
+        document.querySelectorAll('.beach-photo-input').forEach((input) => {
+          input.addEventListener('change', (e) => {
+            const file = e.target.files && e.target.files[0];
+            const index = Number(e.target.getAttribute('data-beach-index'));
+            if (!file || Number.isNaN(index)) return;
+
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+              if (ev.target && typeof ev.target.result === 'string') {
+                beachState[index].src = ev.target.result;
+                renderBeachShowcaseGrid();
+                showToast(`Updated photo for ${beachState[index].name}!`);
+              }
+            };
+            reader.readAsDataURL(file);
+          });
+        });
+      }
+
+      /**
+       * Updates the seasonal banner and renders filtered months.
+       */
+      function renderMonthsGrid() {
+        if (activeSeason === 'ALL') {
+          seasonBannerTitle.textContent = 'All Four Island Seasons in Honolulu';
+          seasonBannerDesc.textContent =
+            'From winter humpback whales and dramatic swells to summer snorkeling and Mele Kalikimaka nights in shorts, every month has its own magic.';
+        } else if (SEASONS[activeSeason]) {
+          seasonBannerTitle.textContent = SEASONS[activeSeason].title;
+          seasonBannerDesc.textContent = SEASONS[activeSeason].desc;
+        }
+
+        const filtered = monthsState.filter(
+          (item) => activeSeason === 'ALL' || item.season === activeSeason
+        );
+
+        monthsGrid.innerHTML = '';
+        filtered.forEach((item) => {
+          const isOpen = item.status === 'OPEN';
+          const seasonTag = SEASONS[item.season] ? SEASONS[item.season].label.split('•')[0].trim() : item.season;
+
+          const card = document.createElement('div');
+          card.className = `rounded-2xl p-5 border flex flex-col justify-between transition-all ${
+            isOpen
+              ? 'bg-cream border-gold/45 shadow-card hover:border-palm hover:-translate-y-0.5'
+              : 'bg-creamDark/75 border-ink/15 opacity-90'
+          }`;
+
+          card.innerHTML = `
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="text-[11px] font-bold uppercase tracking-wider text-muted">${seasonTag}</span>
+                <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wide ${
+                  isOpen
+                    ? 'bg-palm/12 text-palm border border-palm/25'
+                    : 'bg-hibiscus/12 text-hibiscus border border-hibiscus/25'
+                }">
+                  ${isOpen ? 'Open' : 'Booked'}
+                </span>
+              </div>
+              <h3 class="font-serif text-2xl font-bold text-palm">${item.month}</h3>
+              <p class="mt-2 text-xs sm:text-sm text-ink/80 leading-relaxed">${item.highlight}</p>
+              ${
+                !isOpen && item.guestLabel
+                  ? `<p class="mt-2.5 text-xs font-semibold text-hibiscus">Reserved: ${escapeHtml(item.guestLabel)}</p>`
+                  : ''
+              }
+            </div>
+
+            <div class="mt-5 pt-3 border-t border-gold/20">
+              ${
+                isOpen
+                  ? `<button
+                      type="button"
+                      data-month="${item.month}"
+                      class="claim-month-btn w-full py-2.5 px-4 rounded-xl text-xs sm:text-sm font-semibold bg-palm hover:bg-palmDark text-cream transition-colors cursor-pointer"
+                    >
+                      Request ${item.month} &rarr;
+                    </button>`
+                  : `<button
+                      type="button"
+                      disabled
+                      class="w-full py-2.5 px-4 rounded-xl text-xs sm:text-sm font-semibold bg-ink/10 text-muted cursor-not-allowed"
+                    >
+                      Month Booked
+                    </button>`
+              }
+            </div>
+          `;
+          monthsGrid.appendChild(card);
+        });
+
+        // Bind claim buttons
+        document.querySelectorAll('.claim-month-btn').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const monthName = btn.getAttribute('data-month');
+            openBookingModal(monthName);
+          });
+        });
+
+        renderHostMonthToggles();
+      }
+
+      /**
+       * Renders Host Mode quick toggles so Dristin & Colton can flip any month Open/Booked.
+       */
+      function renderHostMonthToggles() {
+        if (!hostMonthToggles) return;
+        hostMonthToggles.innerHTML = '';
+        monthsState.forEach((m, idx) => {
+          const isOpen = m.status === 'OPEN';
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = `px-3 py-2 rounded-xl text-xs font-semibold border text-left flex items-center justify-between cursor-pointer transition-colors ${
+            isOpen
+              ? 'bg-cream text-palm border-gold/50 hover:bg-white'
+              : 'bg-hibiscus/20 text-cream border-hibiscus/50 hover:bg-hibiscus/30'
+          }`;
+          btn.innerHTML = `
+            <span>${m.month.slice(0, 3)}</span>
+            <span class="text-[10px] uppercase tracking-wider font-bold">${isOpen ? 'Open' : 'Booked'}</span>
+          `;
+          btn.addEventListener('click', () => {
+            monthsState[idx].status = isOpen ? 'BOOKED' : 'OPEN';
+            monthsState[idx].guestLabel = monthsState[idx].status === 'BOOKED' ? 'Reserved by Host' : '';
+            renderMonthsGrid();
+            showToast(`${m.month} marked as ${monthsState[idx].status}.`);
+          });
+          hostMonthToggles.appendChild(btn);
+        });
+      }
+
+      /**
+       * Renders the list of submitted trip requests in local state.
+       */
+      function renderRequestsList() {
+        const count = tripRequests.length;
+        requestCountBadge.textContent = String(count);
+        requestsCounterText.textContent = `${count} ${count === 1 ? 'request' : 'requests'} saved`;
+
+        if (count === 0) {
+          requestsList.innerHTML = `
+            <p class="text-sm text-muted italic">
+              No trip requests submitted yet. Click any open month above to claim your spot!
+            </p>
+          `;
+          return;
+        }
+
+        requestsList.innerHTML = '';
+        tripRequests.forEach((req, idx) => {
+          const row = document.createElement('div');
+          row.className = 'rounded-xl bg-creamDark/65 border border-gold/35 p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3';
+          row.innerHTML = `
+            <div class="space-y-1">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="font-serif font-bold text-palm text-base">${escapeHtml(req.month)}</span>
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-palm text-cream">${escapeHtml(req.vibe)}</span>
+                ${req.dates ? `<span class="text-xs text-muted font-medium">&bull; ${escapeHtml(req.dates)}</span>` : ''}
+              </div>
+              <p class="text-xs sm:text-sm text-ink/90">
+                <strong>Guest:</strong> ${escapeHtml(req.name)} <span class="text-muted">(${escapeHtml(req.contact)})</span>
+              </p>
+              ${req.notes ? `<p class="text-xs text-muted italic">"${escapeHtml(req.notes)}"</p>` : ''}
+            </div>
+            <button
+              type="button"
+              data-remove-index="${idx}"
+              class="remove-request-btn self-start sm:self-center text-xs font-semibold text-hibiscus hover:underline cursor-pointer"
+            >
+              Remove
+            </button>
+          `;
+          requestsList.appendChild(row);
+        });
+
+        document.querySelectorAll('.remove-request-btn').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            const idx = Number(btn.getAttribute('data-remove-index'));
+            if (Number.isNaN(idx)) return;
+            const removed = tripRequests[idx];
+            tripRequests.splice(idx, 1);
+            // Re-open the month if it was marked by this request
+            const monthObj = monthsState.find(
+              (m) => m.month === removed.month && m.guestLabel === removed.name
+            );
+            if (monthObj) {
+              monthObj.status = 'OPEN';
+              monthObj.guestLabel = '';
+            }
+            renderRequestsList();
+            renderMonthsGrid();
+            showToast(`Removed request for ${removed.month}.`);
+          });
+        });
+      }
+
+      function escapeHtml(str) {
+        return String(str)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
+
+      // Modal Controls
+      function openBookingModal(monthName) {
+        document.getElementById('selectedMonthInput').value = monthName;
+        document.getElementById('modalTitle').textContent = `Claim ${monthName} in Honolulu`;
+        document.getElementById('preferredDatesInput').value = '';
+        document.getElementById('guestNameInput').value = '';
+        document.getElementById('guestContactInput').value = '';
+        document.getElementById('guestNotesInput').value = '';
+        modalErrorBox.classList.add('hidden');
+        modalErrorBox.textContent = '';
+
+        // Reset vibe to default
+        setSelectedVibe('Beach Bum');
+
+        tripRequestForm.classList.remove('hidden');
+        modalConfirmationView.classList.add('hidden');
+        bookingModal.classList.remove('hidden');
+        bookingModal.classList.add('flex');
+        document.getElementById('guestNameInput').focus();
+      }
+
+      function closeBookingModal() {
+        bookingModal.classList.add('hidden');
+        bookingModal.classList.remove('flex');
+      }
+
+      function setSelectedVibe(vibe) {
+        selectedVibe = vibe;
+        document.querySelectorAll('.vibe-chip').forEach((chip) => {
+          const isMatch = chip.getAttribute('data-vibe') === vibe;
+          if (isMatch) {
+            chip.classList.add('active', 'border-palm', 'bg-palm', 'text-cream');
+            chip.classList.remove('border-gold/45', 'bg-white', 'text-ink');
+          } else {
+            chip.classList.remove('active', 'border-palm', 'bg-palm', 'text-cream');
+            chip.classList.add('border-gold/45', 'bg-white', 'text-ink');
+          }
+        });
+      }
+
+      // Event Listeners Setup
+      document.querySelectorAll('.vibe-chip').forEach((chip) => {
+        chip.addEventListener('click', () => {
+          setSelectedVibe(chip.getAttribute('data-vibe'));
+        });
+      });
+
+      document.getElementById('closeModalBtn').addEventListener('click', closeBookingModal);
+      document.getElementById('cancelModalBtn').addEventListener('click', closeBookingModal);
+      document.getElementById('doneConfirmationBtn').addEventListener('click', closeBookingModal);
+
+      bookingModal.addEventListener('click', (e) => {
+        if (e.target === bookingModal) {
+          closeBookingModal();
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !bookingModal.classList.contains('hidden')) {
+          closeBookingModal();
+        }
+      });
+
+      // Trip Request Submission
+      tripRequestForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        try {
+          const month = document.getElementById('selectedMonthInput').value.trim();
+          const dates = document.getElementById('preferredDatesInput').value.trim();
+          const name = document.getElementById('guestNameInput').value.trim();
+          const contact = document.getElementById('guestContactInput').value.trim();
+          const notes = document.getElementById('guestNotesInput').value.trim();
+
+          if (!name || !contact) {
+            modalErrorBox.textContent = 'Please share your name and email or phone so Dristin & Colton can reach you!';
+            modalErrorBox.classList.remove('hidden');
+            return;
+          }
+
+          const newRequest = {
+            month,
+            dates,
+            name,
+            contact,
+            vibe: selectedVibe,
+            notes,
+            submittedAt: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+          };
+
+          tripRequests.unshift(newRequest);
+
+          // Mark month as booked with guest name
+          const targetMonth = monthsState.find((m) => m.month === month);
+          if (targetMonth) {
+            targetMonth.status = 'BOOKED';
+            targetMonth.guestLabel = name;
+          }
+
+          renderRequestsList();
+          renderMonthsGrid();
+
+          // Show instant confirmation view inside modal
+          document.getElementById('confirmationSummary').innerHTML = `
+            Mahalo, <strong>${escapeHtml(name)}</strong>! Your request for <strong>${escapeHtml(month)}</strong>
+            ${dates ? `(${escapeHtml(dates)})` : ''} with a <strong>${escapeHtml(selectedVibe)}</strong> vibe is saved.
+            Dristin &amp; Colton will connect with you soon to lock in the details!
+          `;
+          tripRequestForm.classList.add('hidden');
+          modalConfirmationView.classList.remove('hidden');
+          showToast(`Trip request saved for ${month}!`);
+        } catch (err) {
+          modalErrorBox.textContent = 'Something went wrong saving your request. Please try again.';
+          modalErrorBox.classList.remove('hidden');
+        }
+      });
+
+      // Season Filter Buttons
+      document.querySelectorAll('.season-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          activeSeason = btn.getAttribute('data-season') || 'ALL';
+          document.querySelectorAll('.season-btn').forEach((b) => {
+            if (b === btn) {
+              b.classList.add('active', 'bg-palm', 'text-cream');
+              b.classList.remove('bg-creamDark', 'text-palm', 'border', 'border-gold/35');
+            } else {
+              b.classList.remove('active', 'bg-palm', 'text-cream');
+              b.classList.add('bg-creamDark', 'text-palm', 'border', 'border-gold/35');
+            }
+          });
+          renderMonthsGrid();
+        });
+      });
+
+      // Hero Photo Upload Listener
+      const heroPhotoInput = document.getElementById('heroPhotoInput');
+      if (heroPhotoInput) {
+        heroPhotoInput.addEventListener('change', (e) => {
+          const file = e.target.files && e.target.files[0];
+          if (!file) return;
+          const reader = new FileReader();
+          reader.onload = (ev) => {
+            if (ev.target && typeof ev.target.result === 'string') {
+              const img = document.getElementById('heroPhotoImg');
+              const placeholder = document.getElementById('heroPhotoPlaceholder');
+              img.src = ev.target.result;
+              img.classList.remove('hidden');
+              placeholder.classList.add('hidden');
+              showToast('Hero photo updated for Casa Aloha!');
+            }
+          };
+          reader.readAsDataURL(file);
+        });
+      }
+
+      // FAQ Accordion Listeners
+      document.querySelectorAll('.accordion-trigger').forEach((trigger) => {
+        trigger.addEventListener('click', () => {
+          const item = trigger.closest('.accordion-item');
+          if (!item) return;
+          const isOpen = item.getAttribute('data-open') === 'true';
+          item.setAttribute('data-open', String(!isOpen));
+          trigger.setAttribute('aria-expanded', String(!isOpen));
+        });
+      });
+
+      // Top "My Requests" button smooth scroll to requests section
+      document.getElementById('openRequestsDrawerBtn').addEventListener('click', () => {
+        const el = document.getElementById('requestsSummarySection');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+
+      // Host Mode Toggle & Reset
+      hostModeToggleBtn.addEventListener('click', () => {
+        hostMode = !hostMode;
+        hostModeLabel.textContent = hostMode ? 'Host Mode: On' : 'Host Mode: Off';
+        hostModePanel.classList.toggle('hidden', !hostMode);
+        showToast(hostMode ? 'Host Mode enabled — tap any month to toggle status.' : 'Host Mode closed.');
+      });
+
+      document.getElementById('resetDemoDataBtn').addEventListener('click', () => {
+        monthsState = INITIAL_MONTHS.map((m) => ({ ...m }));
+        tripRequests = [];
+        renderMonthsGrid();
+        renderRequestsList();
+        showToast('All 12 months reset to Open.');
+      });
+
+      // Initial Render
+      renderCrewGrid();
+      renderApartmentGrid();
+      renderBeachShowcaseGrid();
+      renderMonthsGrid();
+      renderRequestsList();
+    })();
+  </script>
+</body>
+</html>
